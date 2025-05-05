@@ -1,0 +1,71 @@
+---
+---
+title: "Dělení statistických proměnných: Základní přehled"
+author: Filip Děchtěrenko
+date: "`r Sys.Date()`"
+execute:
+  warning: false
+  message: false
+  cache: false
+format:
+  html:
+    toc: true
+    code-fold: true
+    code-summary: "Show the code"
+    embed-resources: true
+editor: source
+---
+
+# Úvod
+
+Statistické proměnné jsou základním stavebním kamenem analýzy dat. Pomáhají nám při sběru dat, interpretaci výsledků a rozhodování. Jednoduše řečeno, statistická proměnná je vlastnost nebo charakteristika, která se měří na souboru jednotek nebo jednotlivců. V této části prozkoumáme, jak se statistické proměnné dělí a jaké typy proměnných lze v praxi nejčastěji potkat.
+
+## Typy statistických proměnných
+
+Statistické proměnné lze dělit do několika kategorií na základě jejich vlastností a typů dat, které reprezentují. Nejčastěji se dělí do dvou hlavních skupin: **kvalitativní (kategorické) proměnné** a **kvantitativní (numerické) proměnné**.
+
+### Kvalitativní proměnné
+
+Tyto proměnné popisují **kategorie nebo skupiny** a nesouvisí s kvantitou či číslem. Jsou užitečné, když se zabýváme daty, která lze kategorizovat nebo rozčlenit do určitých skupin.
+
+#### Typy kvalitativních proměnných
+
+1. **Nominační proměnné**: Tyto proměnné představují kategorie, které nemají vnitřní uspořádání. Například:
+   - Barva auta (červená, modrá, zelená)
+   - Typ oblečení (košile, kalhoty, boty)
+   - Pohlaví (muž, žena)
+
+2. **Ordinační proměnné**: Tyto proměnné zahrnují kategorie, které mají přirozené pořadí, ale nelze měřit rozdíly mezi nimi. Například:
+   - Hodnocení spokojenosti (velmi nespokojený, nespokojený, neutrální, spokojený, velmi spokojený)
+   - Vzdělání (základní, střední, vyšší odborné, vysokoškolské)
+
+### Kvantitativní proměnné
+
+Na rozdíl od kvalitativních proměnných, kvantitativní proměnné pracují s **číselnými hodnotami**, a měří nebo počítají veličiny.
+
+#### Typy kvantitativních proměnných
+
+1. **Diskrétní proměnné**: Tyto proměnné reprezentují číselné hodnoty, které jsou oddělené a konečné. Počítají se v celých jednotkách. Například:
+   - Počet dětí v rodině
+   - Počet aut ve firmě
+   - Počet vadných výrobků na lince
+
+2. **Kontinuální proměnné**: Tyto proměnné mohou nabývat jakékoliv hodnoty v určitém intervalu a jsou měřitelné. Mohou mít nekonečně mnoho možných hodnot. Například:
+   - Výška člověka (v cm)
+   - Hmotnost (v kg)
+   - Čas (v sekundách)
+
+# Jak použít tento typologie v praxi
+
+Pochopení rozdílů mezi těmito typy proměnných je klíčové při výběru správných statistik a analytických technik. Vždy se nejprve ptáme, jaké jsou vlastnosti proměnných, které zkoumáme, abychom vybrali vhodný přístup.
+
+## Příklady praktické aplikace
+
+- Při analýze **zpětné vazby od zákazníků** můžeme použít kvalitativní ordinační proměnné pro hodnocení spokojenosti a kvantitativní proměnné pro počet zakoupených produktů.
+- V **medicínském výzkumu** můžeme zkoumat nominační proměnné jako pohlaví pacientů a kontinuální proměnné jako hladinu cukru v krvi.
+
+# Závěr
+
+Dělení statistických proměnných nám pomáhá pochopit a správně analyzovat data. Znalost rozdílů mezi kvalitativními a kvantitativními proměnnými a jejich podtypy je nezbytná pro efektivní zpracování dat a usnadňuje výběr vhodné statistické techniky. Toto porozumění je klíčem k úspěšnému zvládnutí kurzů statistiky a k provádění přesných analýz v praktických scénářích.
+
+

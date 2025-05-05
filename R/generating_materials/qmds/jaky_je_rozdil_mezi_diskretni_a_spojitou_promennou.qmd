@@ -1,0 +1,66 @@
+---
+---
+title: "Rozdíl mezi diskrétní a spojitou proměnnou"
+author: Filip Děchtěrenko
+date: "`r Sys.Date()`"
+execute:
+  warning: false
+  message: false
+  cache: false
+format:
+  html:
+    toc: true
+    code-fold: true
+    code-summary: "Show the code"
+    embed-resources: true
+editor: source
+---
+
+# Úvod
+
+Ve statistice a analýze dat hrají proměnné klíčovou roli při pomoci nám porozumět tomu, co měříme a analyzujeme. Mezi základní typy kvantitativních proměnných patří **diskrétní** a **spojité** proměnné. Porozumění rozdílům mezi nimi je zásadní pro volbu správného přístupu k analýze dat.
+
+## Diskrétní proměnné
+
+**Diskrétní proměnná** je typ kvantitativní proměnné, která nabývá **konkrétních, oddělených hodnot**. Tyto hodnoty jsou často celé čísla a představují počty nebo počitatelné množství. Diskrétní proměnné nemohou nabývat mezilehlé hodnoty mezi po sobě následujícími hodnotami.
+
+### Příklady diskrétních proměnných
+
+- **Počet studentů ve třídě**: Nemůže být poloviční student; počty jsou celistvé jako 20, 21, 22 atd.
+- **Počet automobilů na parkovišti**: Opět, nemohou být polovina auta; jsou zde konkrétní počty jako 10, 11, 12.
+- **Počet bodů ve hře**: Skóre je celé číslo, jako 0, 1, 2,...
+
+## Spojité proměnné
+
+**Spojitá proměnná** je typ kvantitativní proměnné, která může nabývat **jakékoliv hodnoty v určitém rozmezí nebo intervalu**. Spojité proměnné mohou mít nekonečně mnoho možných hodnot, včetně zlomků a desetinných čísel.
+
+### Příklady spojitých proměnných
+
+- **Výška osoby**: Může být jakákoliv hodnota v rozmezí (např. 170,5 cm, 170,55 cm, 170,555 cm atd.)
+- **Hmotnost objektu**: Může být také jakákoliv hodnota (např. 65,4 kg, 65,42 kg atd.)
+- **Čas potřebný k dokončení úkolu**: Čas lze měřit velmi přesně, třeba v sekundách či milisekundách.
+
+# Klíčové rozdíly
+
+### Měření a hodnoty
+
+- **Diskrétní proměnné**: Hodnotami jsou jednotlivá celá čísla nebo fixní body. Změnou je skok z jedné hodnoty na následující.
+- **Spojité proměnné**: Hodnoty mohou být neomezeně detailní s plynulým přechodem mezi hodnotami v intervalu, včetně zlomků a desetinných posuvů.
+
+### Grafická reprezentace
+
+- **Diskrétní proměnné**: Často reprezentovány sloupcovými grafy nebo bodovými diagramy, kde jednotlivé sloupce nebo body naznačují konkrétní hodnoty.
+- **Spojité proměnné**: Zaznamenávány formou histogramů nebo čarových grafů, kde zobrazení spojitého pásma hodnot vyplňuje interval.
+
+# Praktický význam
+
+Pochopení, zda data pocházejí z diskrétní nebo spojité proměnné, je zásadní pro rozhodování ohledně analýzy dat:
+
+- **Statistické testování**: Volba nesprávné statistické metody pro typ proměnné může vést k překrouceným výsledkům.
+- **Data vizualizace**: Správná volba vizualizace poskytuje srozumitelnost a efektivitu při prezentování dat.
+
+# Závěr
+
+Pamatujte, že hlavním rozdílem mezi diskrétními a spojitými proměnnými je jejich schopnost popisovat hodnoty. Diskrétní proměnné jsou omezené na konkrétní hodnoty, zatímco spojité proměnné mohou nabývat na jakékoli hodnotě v rámci intervalu. Správná identifikace proměnného typu ve vašem výzkumu nebo analýze vám vedení k přesným výsledkům a informovaným rozhodnutím.
+
+
