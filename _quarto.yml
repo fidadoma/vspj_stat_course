@@ -1,0 +1,18 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+    - "*.qmd"   # list, not a single string
+
+website:
+  title: "My Reports"
+  navbar:
+    left: []    # empty list (no items). Remove navbar block or add items if you want links.
+  sidebar:
+    style: floating
+    contents: auto
+
+format:
+  html:
+    theme: cosmo
+    toc: true

@@ -1,0 +1,9 @@
+---
+title: "Index"
+listing:
+  contents: "*.qmd"
+  type: table
+  sort: "title"
+---
+
+Welcome! Browse the pages below.

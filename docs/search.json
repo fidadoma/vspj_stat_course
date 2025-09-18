@@ -1,0 +1,574 @@
+[
+  {
+    "objectID": "R/generating_materials/qmds/jaky_je_rozdil_mezi_populaci_a_vzorkem.html",
+    "href": "R/generating_materials/qmds/jaky_je_rozdil_mezi_populaci_a_vzorkem.html",
+    "title": "Rozdíl mezi Populací a Vzorkem",
+    "section": "",
+    "text": "Statistika je vědecký obor, který se zabývá sběrem, analýzou, interpretací a prezentací číselných dat. Při studiu statistiky se často setkáváme s pojmy jako populace a vzorek. Tyto dva koncepty jsou základem pochopení, jak provádíme statistické analýzy a jak vyvozujeme závěry.",
+    "crumbs": [
+      "R",
+      "Generating Materials",
+      "Qmds",
+      "Rozdíl mezi Populací a Vzorkem"
+    ]
+  },
+  {
+    "objectID": "R/generating_materials/qmds/jaky_je_rozdil_mezi_populaci_a_vzorkem.html#co-je-to-populace",
+    "href": "R/generating_materials/qmds/jaky_je_rozdil_mezi_populaci_a_vzorkem.html#co-je-to-populace",
+    "title": "Jaký je rozdíl mezi populací a vzorkem?",
+    "section": "Co je to populace?",
+    "text": "Co je to populace?\nPopulace (neboli soubor) je celková množina všech prvků, které jsou předmětem našeho zkoumání. Populace může být cokoli, co chceme studovat nebo z čeho chceme získat data. Tato množina může zahrnovat lidi, zvířata, objekty nebo dokonce události.\n\nPříklady:\n\nPopulace studentů univerzity: Pokud chceme studovat průměrné IQ všech studentů určité univerzity, populace by zahrnovala každého studenta, který tuto univerzitu navštěvuje.\nPopulace stromů v lese: Pokud zkoumáme výskyt určitého druhu brouků na stromech v daném lese, populace by zahrnovala všechny stromy v tomto lese.\nPopulace výrobků z továrny: Pokud zkoumáme kvalitu výrobků z jedné továrny, populace by zahrnovala všechny výrobky vyrobené touto továrnou.\n\n\n\nKlíčové body k populaci:\n\nPopulace je obvykle celá množina všech možných pozorování.\nPráce s celou populací může být nákladná, časově náročná a někdy dokonce nemožná.",
+    "crumbs": [
+      "R",
+      "Generating Materials",
+      "Qmds",
+      "Jaký je rozdíl mezi populací a vzorkem?"
+    ]
+  },
+  {
+    "objectID": "R/generating_materials/qmds/jaky_je_rozdil_mezi_populaci_a_vzorkem.html#co-je-to-vzorek",
+    "href": "R/generating_materials/qmds/jaky_je_rozdil_mezi_populaci_a_vzorkem.html#co-je-to-vzorek",
+    "title": "Jaký je rozdíl mezi populací a vzorkem?",
+    "section": "Co je to vzorek?",
+    "text": "Co je to vzorek?\nVzorek je podmnožina populace a představuje část této populace, kterou jsme vybrali ke zkoumání. Vzorek by měl být reprezentativní, což znamená, že by měl přesně odrážet charakteristiky celé populace, pokud je to možné. Díky použití vzorku můžeme ušetřit čas a zdroje na sběr dat a statistickou analýzu.\n\nPříklady:\n\nVzorek studentů univerzity: Místo zkoumání IQ všech studentů univerzity, můžeme vybrat vzorek 100 studentů různého pohlaví, věku a studijního oboru. Tento vzorek nám pomůže odhadnout průměrné IQ pro celou populaci studentů.\nVzorek stromů v lese: Abychom zjistili výskyt brouků, můžeme analyzovat vzorek 50 stromů rozmístěných rovnoměrně po lese, místo týrající analýzy všech stromů.\nVzorek výrobků z továrny: Kontrola kvality může být provedena na vzorku 200 výrobků týdně, což je dostatečné pro odhad kvality všech výrobků vyráběných během týdne.\n\n\n\nKlíčové body k vzorku:\n\nVzorek by měl být reprezentativní, aby závěry z něj odvozené mohly být generalizovány na celou populaci.\nVýběr vzorku by měl být prováděn náhodně, aby předešel systematickým chybám.",
+    "crumbs": [
+      "R",
+      "Generating Materials",
+      "Qmds",
+      "Jaký je rozdíl mezi populací a vzorkem?"
+    ]
+  },
+  {
+    "objectID": "R/generating_materials/qmds/jaky_je_rozdil_mezi_populaci_a_vzorkem.html#proč-je-důležité-rozlišovat-mezi-populací-a-vzorkem",
+    "href": "R/generating_materials/qmds/jaky_je_rozdil_mezi_populaci_a_vzorkem.html#proč-je-důležité-rozlišovat-mezi-populací-a-vzorkem",
+    "title": "Jaký je rozdíl mezi populací a vzorkem?",
+    "section": "Proč je důležité rozlišovat mezi populací a vzorkem?",
+    "text": "Proč je důležité rozlišovat mezi populací a vzorkem?\nSprávné rozlišení mezi populací a vzorkem je zásadní pro správný návrh a interpretaci studie. Ve statistikách často používáme data z vybraných vzorků k tomu, abychom mohli učinit závěry o celé populaci. Tato generalizace je možná pouze tehdy, pokud vzorek přesně reprezentuje populaci a pokud používáme vhodné statistické techniky. Nezastupitelnou metodou pro dosažení tohoto cíle je náhodné vzorkování, které omezuje zkreslení a zajišťuje reprezentativnost vzorku.",
+    "crumbs": [
+      "R",
+      "Generating Materials",
+      "Qmds",
+      "Jaký je rozdíl mezi populací a vzorkem?"
+    ]
+  },
+  {
+    "objectID": "R/generating_materials/qmds/jaky_je_rozdil_mezi_populaci_a_vzorkem.html#závěr",
+    "href": "R/generating_materials/qmds/jaky_je_rozdil_mezi_populaci_a_vzorkem.html#závěr",
+    "title": "Jaký je rozdíl mezi populací a vzorkem?",
+    "section": "Závěr",
+    "text": "Závěr\nPopulace a vzorek jsou základní pojmy ve světě statistiky. Pamatujte, že populace je celková množina, kterou chceme zkoumat, zatímco vzorek je její reprezentativní podmnožina. Správná práce se vzorkem nám umožňuje získat relevantní data a vyvodit spolehlivé závěry pro celou populaci, aniž bychom museli shromažďovat data od všech jednotlivců. Doufám, že po přečtení tohoto studijního materiálu máte jasnou představu o rozdílu mezi těmito dvěma pojmy a významu jejich správného používání.",
+    "crumbs": [
+      "R",
+      "Generating Materials",
+      "Qmds",
+      "Jaký je rozdíl mezi populací a vzorkem?"
+    ]
+  },
+  {
+    "objectID": "R/generating_materials/qmds/jak_delime_statisticke_promenne.html",
+    "href": "R/generating_materials/qmds/jak_delime_statisticke_promenne.html",
+    "title": "Dělení statistických proměnných",
+    "section": "",
+    "text": "Statistické proměnné jsou jedním ze základních stavebních kamenů statistické analýzy. Představte si statistickou proměnnou jako krabici, do které vkládáme různá data, jež chceme zkoumat a analyzovat. Tyto proměnné nám umožňují chápat a organizovat data z reálného světa.\nStatistické proměnné můžeme rozdělit na různé typy, které se liší svými vlastnostmi a možnostmi zpracování. Pochopení těchto typů je klíčové pro výběr správných statistických metod.",
+    "crumbs": [
+      "R",
+      "Generating Materials",
+      "Qmds",
+      "Dělení statistických proměnných"
+    ]
+  },
+  {
+    "objectID": "R/generating_materials/qmds/jak_delime_statisticke_promenne.html#kategorické-proměnné",
+    "href": "R/generating_materials/qmds/jak_delime_statisticke_promenne.html#kategorické-proměnné",
+    "title": "Dělení statistických proměnných",
+    "section": "1. Kategorické proměnné",
+    "text": "1. Kategorické proměnné\nKategorické proměnné, také známé jako kvalitativní proměnné, reprezentují data, která mohu být rozdělena do kategorií. Tyto kategorie nemusí mít přirozené pořadí.\n\nPříklady:\n\nBarva auta: červená, modrá, zelená\nTyp ovoce: jablko, pomeranč, banán\nPohlaví: muž, žena (případně více kategorií pro genderově neutrální formy)\n\nKdyž například zkoumáme oblíbenou barvu aut ve městě, můžeme vytvořit kategorickou proměnnou, kde každá možnost (např. červená, modrá) představuje kategorii.",
+    "crumbs": [
+      "R",
+      "Generating Materials",
+      "Qmds",
+      "Dělení statistických proměnných"
+    ]
+  },
+  {
+    "objectID": "R/generating_materials/qmds/jak_delime_statisticke_promenne.html#ordinální-proměnné",
+    "href": "R/generating_materials/qmds/jak_delime_statisticke_promenne.html#ordinální-proměnné",
+    "title": "Dělení statistických proměnných",
+    "section": "2. Ordinální proměnné",
+    "text": "2. Ordinální proměnné\nOrdinální proměnné jsou kategoriemi, kde je důležité pořadí jednotlivých kategorií. Na rozdíl od čistě kategorických proměnných, mají ordinální proměnné přirozené pořadí a často představují různé stupně nebo úrovně některé vlastnosti.\n\nPříklady:\n\nSpokojenost zákazníků: velmi nespokojený, nespokojený, neutrální, spokojený, velmi spokojený\nStupeň vzdělání: základní, střední, vysokoškolské\n\nPředstavte si ordinální proměnnou jako řadu schodiště, kde každá úroveň představuje vyšší či nižší stupeň.",
+    "crumbs": [
+      "R",
+      "Generating Materials",
+      "Qmds",
+      "Dělení statistických proměnných"
+    ]
+  },
+  {
+    "objectID": "R/generating_materials/qmds/jak_delime_statisticke_promenne.html#kvantitativní-proměnné",
+    "href": "R/generating_materials/qmds/jak_delime_statisticke_promenne.html#kvantitativní-proměnné",
+    "title": "Dělení statistických proměnných",
+    "section": "3. Kvantitativní proměnné",
+    "text": "3. Kvantitativní proměnné\nKvantitativní proměnné, také známé jako číselné nebo numerické proměnné, zahrnují data, která mohou být měřena a jsou vyjádřena čísly. Tyto typy proměnných lze dále rozdělit na disktrétní a spojité.\n\nA. Diskrétní proměnné\nDiskrétní proměnné představují data, která mohou nabývat pouze specifických hodnot, obvykle celých čísel. Mohou být sčítaná, ale nemohou nabývat žádné hodnoty v mezích.\n\nPříklady:\n\nPočet knih v knihovně: 100, 150, 200\nPočet studentů ve třídě: 20, 25, 30\n\nDiskrétní proměnné jsou jako kroky na schodišti - nemůžete stát mezi dvěma schody.\n\n\n\nB. Spojité proměnné\nSpojité proměnné představují data, která mohou nabývat jakékoli hodnoty v určitém rozmezí. Tyto proměnné umožňují nekonečné možnosti v rámci svého intervalu.\n\nPříklady:\n\nVýška v centimetrech: 160.5, 170.2\nHmotnost v kilogramech: 60.75, 80.25\n\nSpojité proměnné si můžete představit jako vodu v nádobě - můžete mít jakoukoli úroveň vody mezi “prázdná” a “plná”.",
+    "crumbs": [
+      "R",
+      "Generating Materials",
+      "Qmds",
+      "Dělení statistických proměnných"
+    ]
+  },
+  {
+    "objectID": "R/generating_materials/qmds/jaky_je_rozdil_mezi_diskretni_a_spojitou_promennou.html",
+    "href": "R/generating_materials/qmds/jaky_je_rozdil_mezi_diskretni_a_spojitou_promennou.html",
+    "title": "Rozdíl mezi diskrétní a spojitou proměnnou",
+    "section": "",
+    "text": "V oblasti statistiky a analýzy dat existují různé typy proměnných, které se liší svými vlastnostmi a způsobem, jakým mohou být zaznamenávány. Rozdělení na diskrétní a spojité proměnné je jedním z nejdůležitějších. V tomto materiálu se budeme zabývat tím, co každá z těchto kategorií znamená, jak je identifikovat a jaké příklady z běžného života jim můžeme přiřadit.",
+    "crumbs": [
+      "R",
+      "Generating Materials",
+      "Qmds",
+      "Rozdíl mezi diskrétní a spojitou proměnnou"
+    ]
+  },
+  {
+    "objectID": "R/generating_materials/qmds/jaky_je_rozdil_mezi_diskretni_a_spojitou_promennou.html#co-jsou-diskrétní-proměnné",
+    "href": "R/generating_materials/qmds/jaky_je_rozdil_mezi_diskretni_a_spojitou_promennou.html#co-jsou-diskrétní-proměnné",
+    "title": "Rozdíl mezi diskrétní a spojitou proměnnou",
+    "section": "Co jsou diskrétní proměnné?",
+    "text": "Co jsou diskrétní proměnné?\nDiskrétní proměnné jsou takové, které lze počítat a mají specifické, oddělené hodnoty. To znamená, že mezi každými dvěma možnými hodnotami je mezera, nemohou nabývat hodnoty mezi těmito specifickými body. Obvykle se jedná o celé čísla.",
+    "crumbs": [
+      "R",
+      "Generating Materials",
+      "Qmds",
+      "Rozdíl mezi diskrétní a spojitou proměnnou"
+    ]
+  },
+  {
+    "objectID": "R/generating_materials/qmds/jaky_je_rozdil_mezi_diskretni_a_spojitou_promennou.html#praktické-příklady-diskrétních-proměnných",
+    "href": "R/generating_materials/qmds/jaky_je_rozdil_mezi_diskretni_a_spojitou_promennou.html#praktické-příklady-diskrétních-proměnných",
+    "title": "Rozdíl mezi diskrétní a spojitou proměnnou",
+    "section": "Praktické příklady diskrétních proměnných",
+    "text": "Praktické příklady diskrétních proměnných\n\nPočet lidí v místnosti: Můžeš mít 10, 25 nebo 30 lidí v místnosti, ale nemůžeš mít 15,5 lidí.\nPočet aut v garáži: Můžeš mít jedno auto, dvě auta, ale nemůžeš mít 1,75 auta.\nPořadí studentů ve třídě: První, druhý, třetí atd., ale nemůžeš být 1,5. v pořadí.",
+    "crumbs": [
+      "R",
+      "Generating Materials",
+      "Qmds",
+      "Rozdíl mezi diskrétní a spojitou proměnnou"
+    ]
+  },
+  {
+    "objectID": "R/generating_materials/qmds/jaky_je_rozdil_mezi_diskretni_a_spojitou_promennou.html#vizualizace-diskrétních-dat",
+    "href": "R/generating_materials/qmds/jaky_je_rozdil_mezi_diskretni_a_spojitou_promennou.html#vizualizace-diskrétních-dat",
+    "title": "Rozdíl mezi diskrétní a spojitou proměnnou",
+    "section": "Vizualizace diskrétních dat",
+    "text": "Vizualizace diskrétních dat\nDiskrétní proměnné jsou často prezentovány pomocí sloupcových grafů nebo histogramů, kde výška sloupce představuje frekvenci jednotlivých hodnot.",
+    "crumbs": [
+      "R",
+      "Generating Materials",
+      "Qmds",
+      "Rozdíl mezi diskrétní a spojitou proměnnou"
+    ]
+  },
+  {
+    "objectID": "R/generating_materials/qmds/jaky_je_rozdil_mezi_diskretni_a_spojitou_promennou.html#co-jsou-spojité-proměnné",
+    "href": "R/generating_materials/qmds/jaky_je_rozdil_mezi_diskretni_a_spojitou_promennou.html#co-jsou-spojité-proměnné",
+    "title": "Rozdíl mezi diskrétní a spojitou proměnnou",
+    "section": "Co jsou spojité proměnné?",
+    "text": "Co jsou spojité proměnné?\nSpojité proměnné jsou takové, které mohou nabývat libovolnou hodnotu v daném intervalu. Na rozdíl od diskrétních proměnných mohou mít nekonečně mnoho možných hodnot a mohou zahrnovat zlomky a desetiná čísla.",
+    "crumbs": [
+      "R",
+      "Generating Materials",
+      "Qmds",
+      "Rozdíl mezi diskrétní a spojitou proměnnou"
+    ]
+  },
+  {
+    "objectID": "R/generating_materials/qmds/jaky_je_rozdil_mezi_diskretni_a_spojitou_promennou.html#praktické-příklady-spojitých-proměnných",
+    "href": "R/generating_materials/qmds/jaky_je_rozdil_mezi_diskretni_a_spojitou_promennou.html#praktické-příklady-spojitých-proměnných",
+    "title": "Rozdíl mezi diskrétní a spojitou proměnnou",
+    "section": "Praktické příklady spojitých proměnných",
+    "text": "Praktické příklady spojitých proměnných\n\nVýška osoby: Může být 175,3 cm nebo 180,5 cm. Výška může mít libovolné hodnoty v určitém rozsahu.\nDélka času: Např. čas, který trvá, než se dostaneš z domova do školy, může být 20,5 min, 21,3 min atd.\nTeplota: Můžete mít teplotu 22,5 °C nebo 22,55 °C.",
+    "crumbs": [
+      "R",
+      "Generating Materials",
+      "Qmds",
+      "Rozdíl mezi diskrétní a spojitou proměnnou"
+    ]
+  },
+  {
+    "objectID": "R/generating_materials/qmds/jaky_je_rozdil_mezi_diskretni_a_spojitou_promennou.html#vizualizace-spojitých-dat",
+    "href": "R/generating_materials/qmds/jaky_je_rozdil_mezi_diskretni_a_spojitou_promennou.html#vizualizace-spojitých-dat",
+    "title": "Rozdíl mezi diskrétní a spojitou proměnnou",
+    "section": "Vizualizace spojitých dat",
+    "text": "Vizualizace spojitých dat\nSpojité proměnné jsou často prezentovány pomocí čárových grafů nebo jiných vizualizací, které ukazují kontinuitu dat. Histogramy lze také použít, ale v tomto případě hodně záleží na výběru šířky intervalů (tzv. “bins”).",
+    "crumbs": [
+      "R",
+      "Generating Materials",
+      "Qmds",
+      "Rozdíl mezi diskrétní a spojitou proměnnou"
+    ]
+  },
+  {
+    "objectID": "R/generating_materials/qmds/jaky_je_rozdil_mezi_nominalni_a_ordinalni_promennou.html",
+    "href": "R/generating_materials/qmds/jaky_je_rozdil_mezi_nominalni_a_ordinalni_promennou.html",
+    "title": "Rozdíl mezi nominální a ordinální proměnnou ve statistice",
+    "section": "",
+    "text": "Ve světě statistiky se často setkáváme s potřebou kategorizovat data do různých typů proměnných. Mezi základní typy kategorií patří nominální a ordinální proměnné. Tyto dvě kategorie jsou používány ke klasifikaci kvalifikativních dat a jsou klíčové pro výběr správné statistické metody analýzy. V tomto dokumentu se podíváme na hlavní rozdíly mezi nominálními a ordinálními proměnnými, a na to, jaké příklady z reálného života si můžete představit.",
+    "crumbs": [
+      "R",
+      "Generating Materials",
+      "Qmds",
+      "Rozdíl mezi nominální a ordinální proměnnou ve statistice"
+    ]
+  },
+  {
+    "objectID": "R/generating_materials/qmds/jaky_je_rozdil_mezi_nominalni_a_ordinalni_promennou.html#definice",
+    "href": "R/generating_materials/qmds/jaky_je_rozdil_mezi_nominalni_a_ordinalni_promennou.html#definice",
+    "title": "Jaký je rozdíl mezi nominální a ordinální proměnnou?",
+    "section": "Definice",
+    "text": "Definice\nNominální proměnná je typ proměnné, která kategorizuje data do diskrétních skupin nebo kategorií bez jakéhokoliv přirozeného pořadí. Když říkáme, že proměnná je nominální, znamená to, že jednotlivé kategorie jsou rovnocenné a nelze mezi nimi stanovit žádný hierarchický vztah.\n\nPříklady\n\nBarva očí: Data mohou být rozdělena do kategorií jako modrá, hnědá, zelená atd., ale žádná z těchto barev není “větší” nebo “menší” než ostatní.\nTyp ovoce: Rozlišení mezi jablkem, pomerančem, banánem atd. Opět zde není žádné přirozené pořadí.\nZnačka automobilu: Např. Ford, Toyota, BMW; i zde nemá smysl řadit tyto značky podle velikosti nebo hodnoty.",
+    "crumbs": [
+      "R",
+      "Generating Materials",
+      "Qmds",
+      "Jaký je rozdíl mezi nominální a ordinální proměnnou?"
+    ]
+  },
+  {
+    "objectID": "R/generating_materials/qmds/jaky_je_rozdil_mezi_nominalni_a_ordinalni_promennou.html#vlastnosti",
+    "href": "R/generating_materials/qmds/jaky_je_rozdil_mezi_nominalni_a_ordinalni_promennou.html#vlastnosti",
+    "title": "Jaký je rozdíl mezi nominální a ordinální proměnnou?",
+    "section": "Vlastnosti",
+    "text": "Vlastnosti\n\nNominální proměnné se často kódují čísly za účelem snadnějšího zpracování v softwaru, ale tato čísla nemají matematický význam.\nNení možné provádět aritmetické operace (sčítání, odčítání) mezi kategoriemi nominální proměnné.",
+    "crumbs": [
+      "R",
+      "Generating Materials",
+      "Qmds",
+      "Jaký je rozdíl mezi nominální a ordinální proměnnou?"
+    ]
+  },
+  {
+    "objectID": "R/generating_materials/qmds/jaky_je_rozdil_mezi_nominalni_a_ordinalni_promennou.html#v-praxi",
+    "href": "R/generating_materials/qmds/jaky_je_rozdil_mezi_nominalni_a_ordinalni_promennou.html#v-praxi",
+    "title": "Jaký je rozdíl mezi nominální a ordinální proměnnou?",
+    "section": "V praxi",
+    "text": "V praxi\nPředstavte si, že pracujete v obchodě s obuví a zaznamenáváte nejpopulárnější barvy bot. Každému prodeji přiřadíme barvu, což je nominální proměnná. Chceme-li vědět, který odstín je oblíbený, nesnažíme se seřadit barvy podle nějakého číselného kritéria, ale spíše vypočítáme frekvenci každé barvy.",
+    "crumbs": [
+      "R",
+      "Generating Materials",
+      "Qmds",
+      "Jaký je rozdíl mezi nominální a ordinální proměnnou?"
+    ]
+  },
+  {
+    "objectID": "R/generating_materials/qmds/jaky_je_rozdil_mezi_nominalni_a_ordinalni_promennou.html#definice-1",
+    "href": "R/generating_materials/qmds/jaky_je_rozdil_mezi_nominalni_a_ordinalni_promennou.html#definice-1",
+    "title": "Jaký je rozdíl mezi nominální a ordinální proměnnou?",
+    "section": "Definice",
+    "text": "Definice\nOrdinální proměnná je typ proměnné, kde lze kategorie seřadit nebo uspořádat podle nějakého pořadí, ale rozdíly mezi jednotlivými kategoriemi nejsou nutně stejné nebo měřitelné.\n\nPříklady\n\nStupnice spokojenosti: Např. velmi nespokojený, nespokojený, neutrální, spokojený, velmi spokojený. Zde můžeme říct, že “velmi spokojený” je nad “spokojený”.\nŠkolní známkování: Např. A, B, C, D, F, kde A je lepší než B a tak dále.\nSocioekonomická třída: Např. nízká třída, střední třída, vysoká třída.",
+    "crumbs": [
+      "R",
+      "Generating Materials",
+      "Qmds",
+      "Jaký je rozdíl mezi nominální a ordinální proměnnou?"
+    ]
+  },
+  {
+    "objectID": "R/generating_materials/qmds/jaky_je_rozdil_mezi_nominalni_a_ordinalni_promennou.html#vlastnosti-1",
+    "href": "R/generating_materials/qmds/jaky_je_rozdil_mezi_nominalni_a_ordinalni_promennou.html#vlastnosti-1",
+    "title": "Jaký je rozdíl mezi nominální a ordinální proměnnou?",
+    "section": "Vlastnosti",
+    "text": "Vlastnosti\n\nKategorie lze seřadit od nejmenší po největší nebo opačně, ale nelze přesně kvantifikovat rozdíl mezi nimi.\nMůžeme provádět určité typy statistik, které berou v úvahu pořadí, např. medián nebo pořadové korelace.",
+    "crumbs": [
+      "R",
+      "Generating Materials",
+      "Qmds",
+      "Jaký je rozdíl mezi nominální a ordinální proměnnou?"
+    ]
+  },
+  {
+    "objectID": "R/generating_materials/qmds/jaky_je_rozdil_mezi_nominalni_a_ordinalni_promennou.html#v-praxi-1",
+    "href": "R/generating_materials/qmds/jaky_je_rozdil_mezi_nominalni_a_ordinalni_promennou.html#v-praxi-1",
+    "title": "Jaký je rozdíl mezi nominální a ordinální proměnnou?",
+    "section": "V praxi",
+    "text": "V praxi\nPředstavte si restauraci, která chce zhodnotit úroveň spokojenosti zákazníků se službami. Zákazníkům je nabídnuta možnost hodnotit služby na stupnici od “velmi nespokojený” po “velmi spokojený”. Toto je typická ordinální proměnná, protože máme pořadí odpovědí, ale nemůžeme přesně říct, jaký rozdíl v úrovni spokojenosti je mezi “spokojený” a “velmi spokojený”.",
+    "crumbs": [
+      "R",
+      "Generating Materials",
+      "Qmds",
+      "Jaký je rozdíl mezi nominální a ordinální proměnnou?"
+    ]
+  },
+  {
+    "objectID": "R/generating_materials/qmds/jaky_je_rozdil_mezi_ordinalni_a_ciselnou_promennou.html",
+    "href": "R/generating_materials/qmds/jaky_je_rozdil_mezi_ordinalni_a_ciselnou_promennou.html",
+    "title": "Rozdíl mezi ordinální a číselnou proměnnou",
+    "section": "",
+    "text": "author: Filip Děchtěrenko date: “{&lt; meta date &gt;}” execute: warning: false message: false cache: false format: html: toc: true code-fold: true code-summary: “Show the code” embed-resources: true editor: source",
+    "crumbs": [
+      "R",
+      "Generating Materials",
+      "Qmds",
+      "editor: source"
+    ]
+  },
+  {
+    "objectID": "R/generating_materials/qmds/jaky_je_rozdil_mezi_ordinalni_a_ciselnou_promennou.html#co-je-ordinální-proměnná",
+    "href": "R/generating_materials/qmds/jaky_je_rozdil_mezi_ordinalni_a_ciselnou_promennou.html#co-je-ordinální-proměnná",
+    "title": "Ordinální vs. Číselná Proměnná",
+    "section": "Co je Ordinální Proměnná?",
+    "text": "Co je Ordinální Proměnná?\nOrdinální proměnná je typ kategorické proměnné, u které je možné jednotlivé kategorie seřadit nebo ohodnotit ve vztahu k jejich velikosti či hodnotě. Nicméně, rozdíly mezi těmito kategoriemi nejsou nutně rovnoměrné nebo kvantitativně vyjádřitelné.\n\nPříklady Ordinálních Proměnných:\n\nVzdělání: Kategorie jako základní, střední, vyšší odborné, vysokoškolské jsou seřazené, ale rozdíl mezi nimi nemáme kvantitativně vyjádřen.\nSpokojenost zákazníků: Možné odpovědi jako velmi nespokojený, nespokojený, neutrální, spokojený, a velmi spokojený jsou jednoznačně seřazeny, ale těžko kvantifikovatelné.\n\n\n\nPříklad v Běžném Životě:\nPředstavte si, že se ptáte skupiny lidí, jak byli spokojeni s filmem, na který právě šli. Mohou odpovědět na stupnici od “velmi nespokojený” až po “velmi spokojený”. I když je zřejmé, že “velmi spokojený” je lepší než “spokojený”, nemůžeme říci, že je to dvakrát tak dobré.",
+    "crumbs": [
+      "R",
+      "Generating Materials",
+      "Qmds",
+      "Ordinální vs. Číselná Proměnná"
+    ]
+  },
+  {
+    "objectID": "R/generating_materials/qmds/jaky_je_rozdil_mezi_ordinalni_a_ciselnou_promennou.html#co-je-číselná-proměnná",
+    "href": "R/generating_materials/qmds/jaky_je_rozdil_mezi_ordinalni_a_ciselnou_promennou.html#co-je-číselná-proměnná",
+    "title": "Ordinální vs. Číselná Proměnná",
+    "section": "Co je Číselná Proměnná?",
+    "text": "Co je Číselná Proměnná?\nČíselná proměnná, někdy také nazývána jako kvantitativní proměnná, vyjadřuje veličiny, které mají jak řád, tak ekvidistantní intervaly a což je důležité, jsou kvantitativně měřitelné. Tyto proměnné lze podrobit aritmetickým operacím jako sčítání a násobení.\n\nPříklady Číselných Proměnných:\n\nVěk: Například 23 let, 35 let, 42 let.\nVýška: Například 150 cm, 165 cm, 180 cm.\n\n\n\nPříklad v Běžném Životě:\nKdyž změříte vysokí několika stromů na zahradě, vyjadřujete jejich výšku v metrech nebo centimetrech. Jakýkoli rozdíl mezi dvěma stromy - například rozdíl mezi stromem vysokým 150 cm a stromem vysokým 180 cm - je kvantitativně významný a používá běžných aritmetických operací.",
+    "crumbs": [
+      "R",
+      "Generating Materials",
+      "Qmds",
+      "Ordinální vs. Číselná Proměnná"
+    ]
+  },
+  {
+    "objectID": "R/generating_materials/qmds/jaky_je_rozdil_mezi_ordinalni_a_ciselnou_promennou.html#klíčové-rozdíly",
+    "href": "R/generating_materials/qmds/jaky_je_rozdil_mezi_ordinalni_a_ciselnou_promennou.html#klíčové-rozdíly",
+    "title": "Ordinální vs. Číselná Proměnná",
+    "section": "Klíčové Rozdíly",
+    "text": "Klíčové Rozdíly\n\nMěření: Ordinální proměnné mají pořadí, ale rozdíly nelze měřit stejnou jednotkou; číselné proměnné mají nejen pořadí, ale i ekvidistantní měřitelné rozdíly.\nAritmetika: S číselnými proměnnými lze provádět aritmetické výpočty, zatímco ordinální proměnné omezujeme většinou na pořadové úpravy.",
+    "crumbs": [
+      "R",
+      "Generating Materials",
+      "Qmds",
+      "Ordinální vs. Číselná Proměnná"
+    ]
+  },
+  {
+    "objectID": "R/generating_materials/qmds/jaky_je_rozdil_mezi_ordinalni_a_ciselnou_promennou.html#shrnutí",
+    "href": "R/generating_materials/qmds/jaky_je_rozdil_mezi_ordinalni_a_ciselnou_promennou.html#shrnutí",
+    "title": "Ordinální vs. Číselná Proměnná",
+    "section": "Shrnutí",
+    "text": "Shrnutí\nSprávná identifikace typu proměnné je klíčovým krokem při analýze dat. Rozdíly mezi ordinálními a číselnými proměnnými ovlivňují druhy analýz, které lze provádět, stejně jako způsob, jakým by měly být interpretovány výsledky.\nPokud máte před sebou datovou sadu, vždy si položte otázku: “Co tyto proměnné skutečně představují a jak bychom je měli numericky nebo kategoriálně chápat?” Při správném pochopení všech typů proměnných zvýšíte šance na úspěšnou analýzu a závěry.",
+    "crumbs": [
+      "R",
+      "Generating Materials",
+      "Qmds",
+      "Ordinální vs. Číselná Proměnná"
+    ]
+  },
+  {
+    "objectID": "R/generating_materials/qmds/jaky_je_rozdil_mezi_populaci_a_vzorkem.html#úvod",
+    "href": "R/generating_materials/qmds/jaky_je_rozdil_mezi_populaci_a_vzorkem.html#úvod",
+    "title": "Rozdíl mezi Populací a Vzorkem",
+    "section": "",
+    "text": "Statistika je vědecký obor, který se zabývá sběrem, analýzou, interpretací a prezentací číselných dat. Při studiu statistiky se často setkáváme s pojmy jako populace a vzorek. Tyto dva koncepty jsou základem pochopení, jak provádíme statistické analýzy a jak vyvozujeme závěry.",
+    "crumbs": [
+      "R",
+      "Generating Materials",
+      "Qmds",
+      "Rozdíl mezi Populací a Vzorkem"
+    ]
+  },
+  {
+    "objectID": "R/generating_materials/qmds/jaky_je_rozdil_mezi_populaci_a_vzorkem.html#definice-populace",
+    "href": "R/generating_materials/qmds/jaky_je_rozdil_mezi_populaci_a_vzorkem.html#definice-populace",
+    "title": "Rozdíl mezi Populací a Vzorkem",
+    "section": "Definice Populace",
+    "text": "Definice Populace\nPopulace je kompletní soubor všech možných jedinců, objektů nebo událostí, které nás zajímají v rámci našeho výzkumu. Prakticky vzato, je to celá skupina, o kterou chceme získat informace. Populace může být malá, například všichni studenti v jedné třídě, ale také velmi velká, jako například všichni občané určité země.\n\nPříklady Populací\n\nVšichni obyvatelé České republiky - pokud zjišťujeme průměrný věk občanů ČR.\nVšechny knihy v místní knihovně - pokud sledujeme průměrný počet stran knih.\nVšechny automobily v autoškole - pokud analyzujeme spotřebu paliva vozidel v autoškole.",
+    "crumbs": [
+      "R",
+      "Generating Materials",
+      "Qmds",
+      "Rozdíl mezi Populací a Vzorkem"
+    ]
+  },
+  {
+    "objectID": "R/generating_materials/qmds/jaky_je_rozdil_mezi_populaci_a_vzorkem.html#definice-vzorku",
+    "href": "R/generating_materials/qmds/jaky_je_rozdil_mezi_populaci_a_vzorkem.html#definice-vzorku",
+    "title": "Rozdíl mezi Populací a Vzorkem",
+    "section": "Definice Vzorku",
+    "text": "Definice Vzorku\nVzorek je část populace, kterou skutečně studujeme. Je to podmnožina populace, která je vybraná tak, aby reprezentovala populaci co nejpřesněji. Vzorek používáme, protože ve většině případů je nemožné nebo příliš nákladné studovat celou populaci. Výběr vzorku nám umožňuje provádět výzkumy a analýzy efektivněji.\n\nPříklady Vzorků\n\n1000 náhodně vybraných obyvatel ČR - pro odhad průměrného věku obyvatel.\n500 knih z knihovny - pro zjištění průměrného počtu stran.\n20 automobilů z autoškoly - pro analýzu spotřeby paliva.",
+    "crumbs": [
+      "R",
+      "Generating Materials",
+      "Qmds",
+      "Rozdíl mezi Populací a Vzorkem"
+    ]
+  },
+  {
+    "objectID": "R/generating_materials/qmds/jaky_je_rozdil_mezi_populaci_a_vzorkem.html#proč-jsou-tyto-pojmy-důležité",
+    "href": "R/generating_materials/qmds/jaky_je_rozdil_mezi_populaci_a_vzorkem.html#proč-jsou-tyto-pojmy-důležité",
+    "title": "Rozdíl mezi Populací a Vzorkem",
+    "section": "Proč jsou tyto pojmy důležité?",
+    "text": "Proč jsou tyto pojmy důležité?\nRozlišování mezi populací a vzorkem je klíčové, protože určuje, jaké statistické metody použijeme k analýze dat. Když pracujeme se vzorkem, musíme si uvědomit, že výsledky nebudou absolutně přesné pro celou populaci, ale můžeme je použít k vytvoření odhadů a předpovědí.",
+    "crumbs": [
+      "R",
+      "Generating Materials",
+      "Qmds",
+      "Rozdíl mezi Populací a Vzorkem"
+    ]
+  },
+  {
+    "objectID": "R/generating_materials/qmds/jaky_je_rozdil_mezi_populaci_a_vzorkem.html#jak-vybrat-správný-vzorek",
+    "href": "R/generating_materials/qmds/jaky_je_rozdil_mezi_populaci_a_vzorkem.html#jak-vybrat-správný-vzorek",
+    "title": "Rozdíl mezi Populací a Vzorkem",
+    "section": "Jak vybrat správný Vzorek?",
+    "text": "Jak vybrat správný Vzorek?\nVybrat správný vzorek znamená zajistit, aby byl reprezentativní pro populaci. Existuje několik technik výběru vzorku, které minimalizují zkreslení a chyby v datech. Mezi ně patří:\n\nNáhodný výběr: Každý prvek populace má stejnou šanci být vybrán.\nStratifikovaný výběr: Populace je rozdělena do skupin (strat) podle určitého kritéria a vzorek je vybrán z každé skupiny.\nKlastrový výběr: Populace je rozdělena do klastrů a ty jsou náhodně vybrány pro studium.",
+    "crumbs": [
+      "R",
+      "Generating Materials",
+      "Qmds",
+      "Rozdíl mezi Populací a Vzorkem"
+    ]
+  },
+  {
+    "objectID": "R/generating_materials/qmds/jaky_je_rozdil_mezi_populaci_a_vzorkem.html#shrnutí",
+    "href": "R/generating_materials/qmds/jaky_je_rozdil_mezi_populaci_a_vzorkem.html#shrnutí",
+    "title": "Rozdíl mezi Populací a Vzorkem",
+    "section": "Shrnutí",
+    "text": "Shrnutí\nJe důležité si uvědomit rozdíl mezi populací a vzorkem, protože ovlivňuje interpretaci výsledků výzkumu. Populace představuje celý soubor, zatímco vzorek je jeho část, kterou studujeme. Rozumný výběr vzorku je klíčový pro získání spolehlivých a validních výsledků, které mohou být aplikovány na populaci.\nDoufám, že tento studijní materiál pomůže k lepšímu pochopení těchto základních pojmů ve statistice a jejich aplikaci v praxi.",
+    "crumbs": [
+      "R",
+      "Generating Materials",
+      "Qmds",
+      "Rozdíl mezi Populací a Vzorkem"
+    ]
+  },
+  {
+    "objectID": "R/generating_materials/qmds/jak_delime_statisticke_promenne.html#dělení-statistických-proměnných",
+    "href": "R/generating_materials/qmds/jak_delime_statisticke_promenne.html#dělení-statistických-proměnných",
+    "title": "Rozdělení statistických proměnných",
+    "section": "",
+    "text": "Statistické proměnné můžeme rozdělit do několika kategorií, které nám pomáhají porozumět datům, která zpracováváme. Pojďme si představit, jaké druhy proměnných existují.\n\n\nKvalitativní nebo kategoriální proměnné jsou proměnné, které nabývají kategorií nebo jmen, a nikoli číselné hodnoty. Tyto proměnné nám pomáhají kategorizovat a třídit data do různých skupin. Mohou být:\n\nNominální: Nemají přirozené pořadí. Příklady zahrnují barvu očí, typ auta nebo město, kde někdo žije.\n\nPříklad: Barva očí může být modrá, zelená, hnědá atd. Zde mezi barvami neexistuje žádné přirozené pořadí.\n\nOrdinální: Mají přirozené pořadí, ale rozdíly mezi jednotlivými hodnotami nejsou měřitelné. Příklady zahrnují hodnocení spokojenosti (“nespokojen”, “neutralní”, “spokojen”) nebo vzdělání (“základní”, “střední”, “vysokoškolské”).\n\nPříklad: Hodnocení filmu: 1 hvězdička, 2 hvězdičky, až do 5 hvězdiček. Pořadí existuje, ale rozdíl mezi 1 a 2 hvězdičkami není stejný jako mezi 4 a 5 hvězdičkami.\n\n\n\n\n\nKvantitativní proměnné obsahují číselné hodnoty a lze s nimi provádět aritmetické operace. Tyto proměnné mohou být dále rozděleny na:\n\nDiskrétní: Mohou nabývat pouze určitých hodnot, často celých čísel. Příklady zahrnují počet dětí v rodině, počet aut na parkovišti.\n\nPříklad: Počet studentů v učebně – nemůžete mít “2.5” studentů.\n\nSpojité: Mohou nabývat jakékoli hodnoty v určitém rozmezí. Příklady zahrnují výšku, váhu nebo čas.\n\nPříklad: Výška osoby může být 175,3 cm, což je spojité měření.",
+    "crumbs": [
+      "R",
+      "Generating Materials",
+      "Qmds",
+      "Rozdělení statistických proměnných"
+    ]
+  },
+  {
+    "objectID": "R/generating_materials/qmds/jak_delime_statisticke_promenne.html#proč-je-důležité-dělení-proměnných",
+    "href": "R/generating_materials/qmds/jak_delime_statisticke_promenne.html#proč-je-důležité-dělení-proměnných",
+    "title": "Rozdělení statistických proměnných",
+    "section": "",
+    "text": "Dělení proměnných na kvalitativní a kvantitativní nám pomáhá vybrat vhodné statistické metody pro analýzu dat. Například:\n\nPro nominální proměnné můžeme použít metody jako jsou frekvenční tabulky nebo diagramy.\nPro ordinální proměnné můžeme kromě frekvenčních tabulek také použít metody pro hodnocení pořadí.\nU diskrétních kvantitativních proměnných často využíváme různé testy pro určení pravděpodobností a distribucí.\nPro spojité kvantitativní proměnné jsou vhodné metody zahrnující regresní analýzu či analýzu rozptylu (ANOVA).",
+    "crumbs": [
+      "R",
+      "Generating Materials",
+      "Qmds",
+      "Rozdělení statistických proměnných"
+    ]
+  },
+  {
+    "objectID": "R/generating_materials/qmds/jak_delime_statisticke_promenne.html#aplikace-v-reálném-světě",
+    "href": "R/generating_materials/qmds/jak_delime_statisticke_promenne.html#aplikace-v-reálném-světě",
+    "title": "Rozdělení statistických proměnných",
+    "section": "",
+    "text": "Obchodní analýza: Obchodní analytik může použít nominální proměnné k analýze preferencí zákazníků (např. oblíbené značky) a kvantitativní proměnné k určení průměrného měsíčního prodeje produktu.\nZdravotnictví: V medicíně jsou ordinální proměnné užitečné při hodnocení stupně bolesti nebo závažnosti nemoci, zatímco kvantitativní proměnné jako krevní tlak pomáhají přesněji měřit zdravotní stav.\nVzdělávání: Učitelé mohou použít ordinální proměnné k hodnocení spokojenosti studentů s konkrétními kurzy a kvantitativní proměnné k měření průměrných výsledků ve zkouškách.\n\nDíky tomuto rozdělení a pochopení odlišných typů proměnných se stává analýza dat nejen efektivnější, ale také přesnější. Porozumění tomu, jaké typy proměnných máme k dispozici, nám pomáhá lépe strukturovat naši analýzu a přijímat informovaná rozhodnutí.",
+    "crumbs": [
+      "R",
+      "Generating Materials",
+      "Qmds",
+      "Rozdělení statistických proměnných"
+    ]
+  },
+  {
+    "objectID": "R/generating_materials/qmds/jaky_je_rozdil_mezi_diskretni_a_spojitou_promennou.html#úvod",
+    "href": "R/generating_materials/qmds/jaky_je_rozdil_mezi_diskretni_a_spojitou_promennou.html#úvod",
+    "title": "Rozdíl mezi diskrétní a spojitou proměnnou",
+    "section": "",
+    "text": "V oblasti statistiky a analýzy dat existují různé typy proměnných, které se liší svými vlastnostmi a způsobem, jakým mohou být zaznamenávány. Rozdělení na diskrétní a spojité proměnné je jedním z nejdůležitějších. V tomto materiálu se budeme zabývat tím, co každá z těchto kategorií znamená, jak je identifikovat a jaké příklady z běžného života jim můžeme přiřadit.",
+    "crumbs": [
+      "R",
+      "Generating Materials",
+      "Qmds",
+      "Rozdíl mezi diskrétní a spojitou proměnnou"
+    ]
+  },
+  {
+    "objectID": "R/generating_materials/qmds/jaky_je_rozdil_mezi_diskretni_a_spojitou_promennou.html#diskrétní-proměnná",
+    "href": "R/generating_materials/qmds/jaky_je_rozdil_mezi_diskretni_a_spojitou_promennou.html#diskrétní-proměnná",
+    "title": "Rozdíl mezi diskrétní a spojitou proměnnou",
+    "section": "Diskrétní proměnná",
+    "text": "Diskrétní proměnná\nDiskrétní proměnnou můžeme popsat jako takovou, která nabývá konkrétních, oddělených hodnot. Tyto hodnoty jsou obvykle celá čísla a mezi nimi nejsou žádné hodnoty.\n\nPříklady diskrétních proměnných:\n\nPočet dětí v rodině: Rodina může mít 0, 1, 2, 3, atd. dětí. Mezi těmito hodnotami nejsou žádná “mezilehlá” čísla, například 2.5 dítěte.\nPočet aut na parkovišti: Můžeme mít na parkovišti např. 0, 1, 2, 3 auta, ale nikdy nemůžeme mít 1.5 auta.\nVálky vyhrané během sezóny: Ve sportu, například v hokeji, tým může vyhrát určitý počet zápasů, jako 60, 61, 62 atd. Není možné vyhrát polovinu zápasu.\n\nDiskrétní proměnné jsou běžně zaznamenávány pomocí čísel a často se s nimi setkáte v situacích, kdy výsledky lze spočítat či vyjádřit celým číslem.",
+    "crumbs": [
+      "R",
+      "Generating Materials",
+      "Qmds",
+      "Rozdíl mezi diskrétní a spojitou proměnnou"
+    ]
+  },
+  {
+    "objectID": "R/generating_materials/qmds/jaky_je_rozdil_mezi_diskretni_a_spojitou_promennou.html#spojitá-proměnná",
+    "href": "R/generating_materials/qmds/jaky_je_rozdil_mezi_diskretni_a_spojitou_promennou.html#spojitá-proměnná",
+    "title": "Rozdíl mezi diskrétní a spojitou proměnnou",
+    "section": "Spojitá proměnná",
+    "text": "Spojitá proměnná\nSpojitá proměnná, na druhé straně, může nabývat jakékoli hodnoty v určitém rozsahu. Tyto proměnné mohou obsahovat nekonečně mnoho hodnot, včetně desetinných čísel a zlomků.\n\nPříklady spojitých proměnných:\n\nVýška osoby: Výška může být 170 cm, ale také 170.5 cm či 170.55 cm atd. Je možné měřit ji s jakoukoli úrovní přesnosti.\nTeplota: Například 24.7 stupňů Celsia, 24.75 stupňů atd. Teplota může mít nekonečné možné hodnoty v rámci fyzikálně definovaných mezí.\nČas: Čas může být 5 sekund, 5.1 sekund, 5.123 sekund atd. Souvisí s otázkami, kde je důležitá přesnost a kontinuální měření.\n\n\n\nJaké otázky si klást pro určení typu proměnné:\n\nLze jednotlivé hodnoty spočítat či pojmenovat konkrétními celými čísly? Pokud ano, jedná se o diskrétní proměnnou.\nLze hodnoty měřit a jsou v rozmezí, kde každá další hodnota může být blíže k jinému číslu, než jaké jste zaznamenali? Pokud ano, jedná se o spojitou proměnnou.",
+    "crumbs": [
+      "R",
+      "Generating Materials",
+      "Qmds",
+      "Rozdíl mezi diskrétní a spojitou proměnnou"
+    ]
+  },
+  {
+    "objectID": "R/generating_materials/qmds/jaky_je_rozdil_mezi_diskretni_a_spojitou_promennou.html#závěr",
+    "href": "R/generating_materials/qmds/jaky_je_rozdil_mezi_diskretni_a_spojitou_promennou.html#závěr",
+    "title": "Rozdíl mezi diskrétní a spojitou proměnnou",
+    "section": "Závěr",
+    "text": "Závěr\nRozlišení mezi diskrétními a spojitými proměnnými je klíčové pro správné pochopení dat, se kterými pracujete, a pro výběr vhodných metod analýzy. Diskrétní proměnné nabývají jasně definovaných hodnot, které mohou být spočítány, zatímco spojité proměnné lze měřit na škále s potenciálně nekonečnými hodnotami. Ujistěte se, že pečlivě zvážíte povahu proměnné, když analyzujete data ve statistické studii.",
+    "crumbs": [
+      "R",
+      "Generating Materials",
+      "Qmds",
+      "Rozdíl mezi diskrétní a spojitou proměnnou"
+    ]
+  },
+  {
+    "objectID": "R/generating_materials/qmds/jaky_je_rozdil_mezi_nominalni_a_ordinalni_promennou.html#kdy-použít-analýzu-nominální-proměnné",
+    "href": "R/generating_materials/qmds/jaky_je_rozdil_mezi_nominalni_a_ordinalni_promennou.html#kdy-použít-analýzu-nominální-proměnné",
+    "title": "Rozdíl mezi nominální a ordinální proměnnou ve statistice",
+    "section": "Kdy použít analýzu nominální proměnné",
+    "text": "Kdy použít analýzu nominální proměnné\nNominální proměnné jsou užitečné, když chceme pouze roztřídit subjekty do různých skupin, aniž bychom se zabývali jejich pořadím. V praxi se často používají v dotaznících a anketách pro seskupování odpovědí.",
+    "crumbs": [
+      "R",
+      "Generating Materials",
+      "Qmds",
+      "Rozdíl mezi nominální a ordinální proměnnou ve statistice"
+    ]
+  },
+  {
+    "objectID": "R/generating_materials/qmds/jaky_je_rozdil_mezi_nominalni_a_ordinalni_promennou.html#využití-ordinální-proměnné",
+    "href": "R/generating_materials/qmds/jaky_je_rozdil_mezi_nominalni_a_ordinalni_promennou.html#využití-ordinální-proměnné",
+    "title": "Rozdíl mezi nominální a ordinální proměnnou ve statistice",
+    "section": "Využití ordinální proměnné",
+    "text": "Využití ordinální proměnné\nOrdinální proměnné se hojně používají ve výzkumech, kde je důležité nejen kategorizování dat, ale i určení hierarchie nebo pořadí. Například v hodnocení služeb zákazníků, kde chcete znát míru jejich spokojenosti.",
+    "crumbs": [
+      "R",
+      "Generating Materials",
+      "Qmds",
+      "Rozdíl mezi nominální a ordinální proměnnou ve statistice"
+    ]
+  },
+  {
+    "objectID": "R/generating_materials/qmds/jaky_je_rozdil_mezi_ordinalni_a_ciselnou_promennou.html#ordinální-proměnná",
+    "href": "R/generating_materials/qmds/jaky_je_rozdil_mezi_ordinalni_a_ciselnou_promennou.html#ordinální-proměnná",
+    "title": "Rozdíl mezi ordinální a číselnou proměnnou",
+    "section": "Ordinální proměnná",
+    "text": "Ordinální proměnná\n\nDefinice\nOrdinální proměnná je typ kategorické proměnné, u které mají hodnoty určitý řád nebo pořadí, ale rozdíly mezi hodnotami nejsou kvantifikovatelné. Jinými slovy, víme, že jedna hodnota je větší nebo menší než jiná, ale nevíme přesně o kolik.\n\n\nPříklady z běžného života\n\nŠkolní známky:\n\nKlasické české známky (1, 2, 3, 4, 5) mají jasný pořadí — 1 je lepší než 2, 2 je lepší než 3, atd. Ale nelze přesně říci, že rozdíl mezi 1 a 2 je stejný jako mezi 2 a 3.\n\nStupně zadostiučinění:\n\nNapříklad úroveň spokojenosti s nějakým produktem: velmi nespokojený, nespokojený, neutrální, spokojený, velmi spokojený. Op",
+    "crumbs": [
+      "R",
+      "Generating Materials",
+      "Qmds",
+      "editor: source"
+    ]
+  }
+]

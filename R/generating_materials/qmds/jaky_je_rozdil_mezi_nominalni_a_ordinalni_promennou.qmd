@@ -1,0 +1,56 @@
+
+---
+title: "Rozdíl mezi nominální a ordinální proměnnou ve statistice"
+author: Filip Děchtěrenko
+date: "{< meta date >}"
+execute:
+  warning: false
+  message: false
+  cache: false
+format:
+  html:
+    toc: true
+    code-fold: true
+    code-summary: "Show the code"
+    embed-resources: true
+editor: source
+---
+
+# Úvod
+
+Ve světě statistiky se často setkáváme s potřebou kategorizovat data do různých typů proměnných. Mezi základní typy kategorií patří *nominální* a *ordinální* proměnné. Tyto dvě kategorie jsou používány ke klasifikaci kvalifikativních dat a jsou klíčové pro výběr správné statistické metody analýzy. V tomto dokumentu se podíváme na hlavní rozdíly mezi nominálními a ordinálními proměnnými, a na to, jaké příklady z reálného života si můžete představit.
+
+# Nominální proměnná
+
+Nominální proměnná je typ kvalifikativní proměnné, která označuje kategorie bez jakéhokoli implicitního pořadí nebo hodnocení. Jako příklad si můžeme představit různé barvy: modrá, zelená, červená atd. Další příklady nominálních proměnných zahrnují:
+
+- **Pohlaví**: muž, žena, jiné
+- **Druh auta**: sedan, hatchback, SUV
+- **Národnost**: Čech, Slovák, Němec
+
+Důležité si zapamatovat je, že v případě nominálních proměnných nelze stanovit pořadí mezi kategoriemi. Modrá není nadřazená zelené ani naopak.
+
+## Kdy použít analýzu nominální proměnné
+
+Nominální proměnné jsou užitečné, když chceme pouze roztřídit subjekty do různých skupin, aniž bychom se zabývali jejich pořadím. V praxi se často používají v dotaznících a anketách pro seskupování odpovědí.
+
+# Ordinální proměnná
+
+Ordinální proměnná, na rozdíl od nominální, obsahuje kategorie, které lze uspořádat nebo seřadit ve smysluplném pořadí. Nicméně rozdíly mezi těmito kategoriemi nejsou nutně stejné. Příklady zahrnují:
+
+- **Hodnocení spokojenosti**: velmi nespokojen, nespokojen, neutrální, spokojen, velmi spokojen
+- **Školní známky**: 1 (výborný), 2 (chvalitebný), 3 (dobrý)
+- **Frekvence nákupů**: nikdy, zřídka, občas, často, vždy
+
+Podobně jako u nominálních proměnných, i zde kategorie představují různé skupiny. Ovšem na rozdíl od nominálních proměnných, ordinální proměnné umožňují srovnávat, co je "více" nebo "méně".
+
+## Využití ordinální proměnné
+
+Ordinální proměnné se hojně používají ve výzkumech, kde je důležité nejen kategorizování dat, ale i určení hierarchie nebo pořadí. Například v hodnocení služeb zákazníků, kde chcete znát míru jejich spokojenosti.
+
+# Závěr
+
+Základní rozdíl mezi nominálními a ordinálními proměnnými spočívá v možnosti jejich uspořádání. Nominální proměnné nám umožňují kategorizovat data bez jakéhokoli pořadí, zatímco ordinální proměnné nám umožňují uspořádání dle určitých atributů nebo preferencí. Je důležité tento rozdíl chápat, aby bylo možné správně interpretovat a analyzovat data. V praxi přináší využití těchto typů proměnných hlubší porozumění statistikám a poskytuje užitečný náhled na kvalifikativní data.
+
+
+

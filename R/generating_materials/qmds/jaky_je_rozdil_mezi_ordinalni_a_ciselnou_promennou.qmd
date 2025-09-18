@@ -1,0 +1,33 @@
+
+author: Filip Děchtěrenko
+date: "{< meta date >}"
+execute:
+  warning: false
+  message: false
+  cache: false
+format:
+  html:
+    toc: true
+    code-fold: true
+    code-summary: "Show the code"
+    embed-resources: true
+editor: source
+---
+
+# Rozdíl mezi ordinální a číselnou proměnnou
+
+Vítejte u studijního materiálu, který vám pomůže pochopit rozdíl mezi **ordinální** a **číselnou** (též kvantitativní nebo numerickou) proměnnou ve statistice. Tento koncept je základním stavebním kamenem pro analýzu dat, a proto jej potřebujeme dobře pochopit. Odlišení těchto dvou druhů proměnných má zásadní vliv na to, jak s daty můžeme pracovat a jaké metody analýzy můžeme na různorodá data aplikovat.
+
+## Ordinální proměnná
+
+### Definice
+
+Ordinální proměnná je typ kategorické proměnné, u které mají hodnoty určitý řád nebo pořadí, ale rozdíly mezi hodnotami nejsou kvantifikovatelné. Jinými slovy, víme, že jedna hodnota je větší nebo menší než jiná, ale nevíme přesně o kolik.
+
+### Příklady z běžného života
+
+1. **Školní známky:** 
+   - Klasické české známky (1, 2, 3, 4, 5) mají jasný pořadí — 1 je lepší než 2, 2 je lepší než 3, atd. Ale nelze přesně říci, že rozdíl mezi 1 a 2 je stejný jako mezi 2 a 3.
+
+2. **Stupně zadostiučinění:**
+   - Například úroveň spokojenosti s nějakým produktem: velmi nespokojený, nespokojený, neutrální, spokojený, velmi spokojený. Op
