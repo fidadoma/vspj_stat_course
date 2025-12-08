@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+<!-- question: 0  -->
+  <question type="category">
+    <category>
+      <text>$course$/top/Dataset1_Zamestnanci</text>
+    </category>
+    <info format="html">
+      <text></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+
+<!-- Note: Questions 1-16 are in the previous file moodle_questions_dataset_1_complete.xml -->
+<!-- This file contains questions 17-25 ONLY -->
+<!-- For complete set, merge both files or use this as continuation -->
+
+<!-- OTÁZKA 17: Test normality (Shapiro-Wilk) -->
+  <question type="cloze">
+    <name>
+      <text>Test normality: Shapiro-Wilkův test</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align: left;">Před provedením parametrických testů musíme ověřit předpoklady. Jedním z klíčových předpokladů je <strong>normalita dat</strong>.</p>
+<p dir="ltr" style="text-align: left;">Otestujte normalitu proměnné <strong>performance_score</strong> pomocí <strong>Shapiro-Wilkova testu</strong>.</p>
+<p dir="ltr" style="text-align: left;">W = {1:NM:=0.7659:0.02}</p>
+<p dir="ltr" style="text-align: left;">p-hodnota < {2:NM:=0.001:0.005}</p>
+<p dir="ltr" style="text-align: left;">Při α = 0.05 zamítáme nulovou hypotézu o normalitě: {3:MCS:=ANO~NE}</p>
+<p dir="ltr" style="text-align: left;">Data {4:MCS:~mají normální rozdělení=NEMAJÍ normální rozdělení}.</p>
+<p dir="ltr" style="text-align: left;">To znamená, že pro analýzu performance_score bychom měli {5:MCS:~použít parametrické testy=zvážit neparametrické alternativy~obojí je možné}.</p>
+<p dir="ltr" style="text-align: left;">Pro proměnnou <strong>salary</strong> je W = 0.984, p = 0.006. Tato proměnná {6:MCS:~má=NEMÁ} normální rozdělení (p < 0.05).</p>
+<p dir="ltr" style="text-align: left;">Pokud máme velký vzorek (n > 30), porušení normality {7:MCS:=není tak kritické díky centrální limitní větě~je stále velmi problematické~znamená, že nemůžeme dělat žádnou analýzu}.</p>
+<br>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align: left;"><strong>V Jamovi:</strong> Analyses → Exploration → Descriptives</p>
+<p dir="ltr" style="text-align: left;">Vyberte proměnnou, Statistics → zaškrtněte "Shapiro-Wilk"</p>
+<p dir="ltr" style="text-align: left;"><strong>Interpretace:</strong></p>
+<p dir="ltr" style="text-align: left;">• p > 0.05: Data jsou konzistentní s normálním rozdělením</p>
+<p dir="ltr" style="text-align: left;">• p < 0.05: Významná odchylka od normality</p>
+<p dir="ltr" style="text-align: left;">Pro velké vzorky (n > 30-50) jsou parametrické testy robustní vůči porušení normality.</p>]]></text>
+    </generalfeedback>
+    <penalty>0</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+  </question>
+
+<!-- OTÁZKA 18: Levene's test for homogeneity -->
+  <question type="cloze">
+    <name>
+      <text>Levenův test: Homogenita rozptylů</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align: left;">Dalším důležitým předpokladem pro ANOVA a t-test je <strong>homogenita rozptylů</strong> (homoskedasticita).</p>
+<p dir="ltr" style="text-align: left;">Otestujte homogenitu rozptylů <strong>performance_score</strong> mezi různými <strong>odděleními</strong> pomocí <strong>Levenova testu</strong>.</p>
+<p dir="ltr" style="text-align: left;">F({1:NM:=4:0},{2:NM:=245:5}) = {3:NM:=5.55:0.5}, p < {4:NM:=0.001:0.005}</p>
+<p dir="ltr" style="text-align: left;">Nulová hypotéza (rozptyly jsou rovné) se {5:MCS:=zamítá~nezamítá} (α = 0.05).</p>
+<p dir="ltr" style="text-align: left;">To znamená, že rozptyly {6:MCS:~jsou homogenní=NEJSOU homogenní} mezi odděleními.</p>
+<p dir="ltr" style="text-align: left;">Když je tento předpoklad porušen, měli bychom {7:MCS:=použít Welchovu ANOVA~použít standardní ANOVA~nemůžeme dělat žádný test}.</p>
+<p dir="ltr" style="text-align: left;">V případě t-testu bychom použili {8:MCS:=Welchův t-test (unequal variances)~standardní t-test~Mann-Whitney test}.</p>
+<br>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align: left;"><strong>V Jamovi:</strong> Analyses → ANOVA → One-Way ANOVA</p>
+<p dir="ltr" style="text-align: left;">Assumption Checks → zaškrtněte "Homogeneity test"</p>
+<p dir="ltr" style="text-align: left;"><strong>Interpretace:</strong></p>
+<p dir="ltr" style="text-align: left;">• p > 0.05: Rozptyly jsou homogenní → OK pro standardní ANOVA</p>
+<p dir="ltr" style="text-align: left;">• p < 0.05: Rozptyly nejsou homogenní → použít Welchovu ANOVA</p>]]></text>
+    </generalfeedback>
+    <penalty>0</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+  </question>
+
+<!-- OTÁZKA 19: Comparing groups based on median split -->
+  <question type="cloze">
+    <name>
+      <text>Rozdělení podle mediánu: Přesčasy podle výkonu</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align: left;">Vytvořte novou proměnnou rozdělující zaměstnance podle <strong>mediánu performance_score</strong>:</p>
+<p dir="ltr" style="text-align: left;">• "High performers" = performance_score > medián</p>
+<p dir="ltr" style="text-align: left;">• "Low performers" = performance_score ≤ medián</p>
+<p dir="ltr" style="text-align: left;">Porovnejte průměrný počet <strong>overtime_hours</strong> (přesčasové hodiny) mezi těmito skupinami.</p>
+<p dir="ltr" style="text-align: left;">Průměr High performers: {1:NM:=29.7:2} hodin/měsíc</p>
+<p dir="ltr" style="text-align: left;">Průměr Low performers: {2:NM:=25.2:2} hodin/měsíc</p>
+<p dir="ltr" style="text-align: left;">Použijte nezávislý t-test.</p>
+<p dir="ltr" style="text-align: left;">t({3:NM:=244:10}) = {4:NM:=3.71:0.3}, p < {5:NM:=0.001:0.005}</p>
+<p dir="ltr" style="text-align: left;">Rozdíl je statisticky {6:MCS:=významný~nevýznamný} (α = 0.05).</p>
+<p dir="ltr" style="text-align: left;">Zaměstnanci s vyšším výkonem pracují v průměru {7:MCS:=více~méně~stejně} přesčas než zaměstnanci s nižším výkonem.</p>
+<p dir="ltr" style="text-align: left;">Rozdíl je přibližně {8:NM:=4.5:1} hodin měsíčně.</p>
+<br>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align: left;"><strong>Vytvoření nové proměnné v Jamovi:</strong></p>
+<p dir="ltr" style="text-align: left;">1) Data → Compute new variable</p>
+<p dir="ltr" style="text-align: left;">2) IF(performance_score > MEDIAN(performance_score), 'High', 'Low')</p>
+<p dir="ltr" style="text-align: left;">Nebo jednodušeji najděte medián a použijte podmínku > hodnota_mediánu</p>]]></text>
+    </generalfeedback>
+    <penalty>0</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+  </question>
+
+<!-- OTÁZKA 20: Multiple comparisons with correction -->
+  <question type="cloze">
+    <name>
+      <text>Mnohonásobné porovnání s Bonferroni korekcí</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align: left;">Testujte, zda se liší <strong>work_life_balance</strong> mezi úrovněmi <strong>vzdělání</strong>.</p>
+<p dir="ltr" style="text-align: left;">Použijte jednocestnou ANOVA.</p>
+<p dir="ltr" style="text-align: left;">F({1:NM:=3:0},{2:NM:=246:5}) = {3:NM:=2.07:0.3}, p = {4:NM:=0.105:0.02}</p>
+<p dir="ltr" style="text-align: left;">Celkový efekt vzdělání na work-life balance je {5:MCS:~významný=nevýznamný} (α = 0.05).</p>
+<p dir="ltr" style="text-align: left;">I když celková ANOVA není významná, provedeme post-hoc testy s <strong>Bonferroni korekcí</strong>.</p>
+<p dir="ltr" style="text-align: left;">Bonferroni korekce {6:MCS:=snižuje~zvyšuje~nemění} pravděpodobnost chyby I. druhu při mnohonásobném testování.</p>
+<p dir="ltr" style="text-align: left;">Při porovnání Master vs PhD s Bonferroni korekcí je p ≈ {7:NM:=0.097:0.05}.</p>
+<p dir="ltr" style="text-align: left;">To znamená, že ani po korekci tento rozdíl {8:MCS:~je=není} statisticky významný (α = 0.05).</p>
+<p dir="ltr" style="text-align: left;">Bonferroni korekce je {9:MCS:=konzervativní (snižuje sílu testu)~liberální (zvyšuje riziko chyby)~neutrální}.</p>
+<br>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align: left;"><strong>V Jamovi:</strong> Analyses → ANOVA → One-Way ANOVA</p>
+<p dir="ltr" style="text-align: left;">Post Hoc Tests → vyberte "Bonferroni"</p>
+<p dir="ltr" style="text-align: left;"><strong>Proč korekce:</strong></p>
+<p dir="ltr" style="text-align: left;">Při k porovnáních je pravděpodobnost alespoň jedné chyby I. druhu: 1 - (1-α)^k</p>
+<p dir="ltr" style="text-align: left;">Pro 6 porovnání s α=0.05: 1-(0.95)^6 = 0.265 (26.5%!)</p>
+<p dir="ltr" style="text-align: left;">Bonferroni: nová α = 0.05/k (pro 6 porovnání: α = 0.0083)</p>]]></text>
+    </generalfeedback>
+    <penalty>0</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+  </question>
+
+<!-- OTÁZKA 21: Contingency table with percentages -->
+  <question type="cloze">
+    <name>
+      <text>Kontingenční tabulka s procenty</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align: left;">Vytvořte kontingenční tabulku pro <strong>department</strong> × <strong>employment_type</strong>.</p>
+<p dir="ltr" style="text-align: left;">Spočítejte <strong>řádková procenta</strong> (row percentages) - tj. procento každého typu úvazku v rámci každého oddělení.</p>
+<p dir="ltr" style="text-align: left;">Oddělení, které má nejvyšší procento zaměstnanců na plný úvazek (Full-time), je {1:MCS:~IT~Sales~HR~Finance=Operations}.</p>
+<p dir="ltr" style="text-align: left;">V tomto oddělení je přibližně {2:NM:=85.7:3}% zaměstnanců na plný úvazek.</p>
+<p dir="ltr" style="text-align: left;">Oddělení {3:MCS:=IT~Sales~Operations} má nejvyšší procento Part-time zaměstnanců (přibližně 25%).</p>
+<p dir="ltr" style="text-align: left;">Řádková procenta součtem vždy dávají {4:NM:=100:1}% (pro každé oddělení zvlášť).</p>
+<p dir="ltr" style="text-align: left;">Kdyby všechna oddělení měla stejné rozložení typů úvazků, řádková procenta by byla {5:MCS:=stejná pro všechna oddělení~různá~náhodná}.</p>
+<br>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align: left;"><strong>V Jamovi:</strong> Analyses → Frequencies → Independent Samples → Contingency Tables</p>
+<p dir="ltr" style="text-align: left;">Rows: department, Columns: employment_type</p>
+<p dir="ltr" style="text-align: left;">Cells: zaškrtněte "Row" v Percentages</p>
+<p dir="ltr" style="text-align: left;"><strong>Interpretace procentěčet:</strong></p>
+<p dir="ltr" style="text-align: left;">• Řádková %: rozdělení sloupců v rámci každého řádku (100% = součet přes řádek)</p>
+<p dir="ltr" style="text-align: left;">• Sloupcová %: rozdělení řádků v rámci každého sloupce</p>
+<p dir="ltr" style="text-align: left;">• Celková %: podíl z celkového N</p>]]></text>
+    </generalfeedback>
+    <penalty>0</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+  </question>
+
+<!-- OTÁZKA 22: FILTR + Model comparison -->
+  <question type="cloze">
+    <name>
+      <text>FILTR: Porovnání regresních modelů</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align: left;">Vytvořte dva regresní modely predikující <strong>salary</strong>:</p>
+<p dir="ltr" style="text-align: left;">Prediktory: years_experience + education + department</p>
+<p dir="ltr" style="text-align: left;"><strong>Model 1:</strong> Všichni zaměstnanci (N = 250)</p>
+<p dir="ltr" style="text-align: left;">R² = {1:NM:=0.829:0.02}, Adjusted R² = {2:NM:=0.823:0.02}</p>
+<p dir="ltr" style="text-align: left;"><strong>Model 2:</strong> Pouze Full-time zaměstnanci (N = 176)</p>
+<p dir="ltr" style="text-align: left;"><strong>DŮLEŽITÉ: Před vytvořením Modelu 2 aplikujte filtr!</strong></p>
+<p dir="ltr" style="text-align: left;">Filtr: <code>employment_type == 'Full-time'</code></p>
+<p dir="ltr" style="text-align: left;">R² = {3:NM:=0.816:0.02}, Adjusted R² = {4:NM:=0.808:0.02}</p>
+<p dir="ltr" style="text-align: left;">Model s filtrem (pouze Full-time) má {5:MCS:~vyšší=nižší~stejný} R² než model na všech datech.</p>
+<p dir="ltr" style="text-align: left;">Rozdíl v R² je {6:NM:=0.013:0.01} (v absolutní hodnotě).</p>
+<p dir="ltr" style="text-align: left;">To naznačuje, že prediktory {7:MCS:~lépe vysvětlují plat=hůře vysvětlují plat~stejně vysvětlují plat} v heterogenní skupině (všichni typy úvazků) než v homogenní skupině (pouze Full-time).</p>
+<p dir="ltr" style="text-align: left;">Vyšší R² v Modelu 1 může být způsobeno tím, že {8:MCS:=employment_type sám vysvětluje část variability platu~modely jsou identické~je to náhodný jev}.</p>
+<br>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align: left;"><strong>Postup:</strong></p>
+<p dir="ltr" style="text-align: left;">1) Model 1: Vytvořte regresi bez filtru</p>
+<p dir="ltr" style="text-align: left;">2) Model 2: Data → Filters → <code>employment_type == 'Full-time'</code></p>
+<p dir="ltr" style="text-align: left;">3) Vytvořte stejnou regresi znovu (na filtrovaných datech)</p>
+<p dir="ltr" style="text-align: left;">4) Porovnejte R²</p>
+<p dir="ltr" style="text-align: left;"><strong>Důvod:</strong> Testování robustnosti modelu v různých podskupinách</p>]]></text>
+    </generalfeedback>
+    <penalty>0</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+  </question>
+
+<!-- OTÁZKA 23: Non-parametric test (Mann-Whitney) -->
+  <question type="cloze">
+    <name>
+      <text>Neparametrický test: Mann-Whitney U test</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align: left;">V otázce 17 jsme zjistili, že některé proměnné nemají normální rozdělení. Proto použijeme <strong>neparametrickou alternativu k t-testu</strong>.</p>
+<p dir="ltr" style="text-align: left;">Porovnejte <strong>sick_days</strong> (dny nemocenské) mezi zaměstnanci s/bez možnosti <strong>remote_work</strong>.</p>
+<p dir="ltr" style="text-align: left;">Použijte <strong>Mann-Whitney U test</strong> (také známý jako Wilcoxonův test pro dva nezávislé výběry).</p>
+<p dir="ltr" style="text-align: left;">W = {1:NM:=7415:100}, p = {2:NM:=0.813:0.05}</p>
+<p dir="ltr" style="text-align: left;">Medián sick_days (No remote): {3:NM:=8:1} dní</p>
+<p dir="ltr" style="text-align: left;">Medián sick_days (Yes remote): {4:NM:=8:1} dní</p>
+<p dir="ltr" style="text-align: left;">Rozdíl v distribucích je {5:MCS:~významný=nevýznamný} (α = 0.05).</p>
+<p dir="ltr" style="text-align: left;">Mann-Whitney test testuje, zda {6:MCS:~průměry=mediány/distribuce~rozptyly} se liší mezi skupinami.</p>
+<p dir="ltr" style="text-align: left;">Výhodou Mann-Whitney testu oproti t-testu je {7:MCS:=robustnost vůči odlehlým hodnotám a nenormalitě~vyšší síla testu~jednoduchost výpočtu}.</p>
+<p dir="ltr" style="text-align: left;">Nevýhodou je {8:MCS:=nižší síla testu při splnění předpokladů t-testu~složitější interpretace~nemožnost spočítat intervaly spolehlivosti}.</p>
+<br>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align: left;"><strong>V Jamovi:</strong> Analyses → T-Tests → Independent Samples T-Test</p>
+<p dir="ltr" style="text-align: left;">Tests: zaškrtněte "Mann-Whitney U"</p>
+<p dir="ltr" style="text-align: left;"><strong>Kdy použít Mann-Whitney:</strong></p>
+<p dir="ltr" style="text-align: left;">• Data nejsou normálně rozdělená</p>
+<p dir="ltr" style="text-align: left;">• Přítomnost odlehlých hodnot</p>
+<p dir="ltr" style="text-align: left;">• Ordinální data</p>
+<p dir="ltr" style="text-align: left;">• Malý vzorek</p>]]></text>
+    </generalfeedback>
+    <penalty>0</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+  </question>
+
+<!-- OTÁZKA 24: Stratified analysis -->
+  <question type="cloze">
+    <name>
+      <text>Stratifikovaná analýza: Korelace podle oddělení</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align: left;">Někdy chceme zjistit, zda vztah mezi dvěma proměnnými je konzistentní napříč podskupinami.</p>
+<p dir="ltr" style="text-align: left;">Spočítejte korelaci mezi <strong>job_satisfaction</strong> a <strong>performance_score</strong> <strong>zvlášť pro každé oddělení</strong>.</p>
+<p dir="ltr" style="text-align: left;">Pro každé oddělení použijte filtr a spočítejte Pearsonovu korelaci.</p>
+<p dir="ltr" style="text-align: left;">Oddělení s <strong>nejvyšší</strong> korelací je {1:MCS:=IT~Sales~HR~Finance~Operations}.</p>
+<p dir="ltr" style="text-align: left;">V tomto oddělení je r ≈ {2:NM:=0.691:0.05}, což je {3:MCS:~slabá~střední=silná} korelace.</p>
+<p dir="ltr" style="text-align: left;">Oddělení s <strong>nejnižší</strong> korelací je {4:MCS:~IT~Sales~HR=Finance~Operations}.</p>
+<p dir="ltr" style="text-align: left;">V tomto oddělení je r ≈ {5:NM:=0.452:0.05}.</p>
+<p dir="ltr" style="text-align: left;">Fakt, že korelace se liší mezi odděleními, naznačuje přítomnost {6:MCS:=moderátoru (interakčního efektu)~mediátoru~konfounderu~collideru}.</p>
+<p dir="ltr" style="text-align: left;">To znamená, že vztah mezi spokojeností a výkonem {7:MCS:=závisí na oddělení~je stejný všude~neexistuje}.</p>
+<br>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align: left;"><strong>Postup pro stratifikovanou analýzu:</strong></p>
+<p dir="ltr" style="text-align: left;">1) Pro IT: Data → Filters → <code>department == 'IT'</code></p>
+<p dir="ltr" style="text-align: left;">   Spočítejte korelaci, zaznamenejte r</p>
+<p dir="ltr" style="text-align: left;">2) Opakujte pro Sales, HR, Finance, Operations</p>
+<p dir="ltr" style="text-align: left;">3) Porovnejte hodnoty r</p>
+<p dir="ltr" style="text-align: left;"><strong>Interpretace:</strong> Pokud se korelace výrazně liší, máme heterogenitu vztahu (moderátor).</p>]]></text>
+    </generalfeedback>
+    <penalty>0</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+  </question>
+
+<!-- OTÁZKA 25: Effect size comparison -->
+  <question type="cloze">
+    <name>
+      <text>Porovnání velikostí efektu napříč testy</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align: left;">Statistická významnost (p-hodnota) nám říká, zda efekt existuje, ale ne jak je <strong>velký a prakticky významný</strong>.</p>
+<p dir="ltr" style="text-align: left;">Spočítejte a porovnejte velikosti efektu pro různé testy:</p>
+<p dir="ltr" style="text-align: left;"><strong>A) T-test:</strong> remote_work → salary</p>
+<p dir="ltr" style="text-align: left;">Cohen's d = {1:NM:=0.342:0.05}, což je {2:MCS:=malý efekt~střední efekt~velký efekt}</p>
+<p dir="ltr" style="text-align: left;"><strong>B) ANOVA:</strong> department → performance_score</p>
+<p dir="ltr" style="text-align: left;">η² (eta-squared) = {3:NM:=0.087:0.02}, což je {4:MCS:~malý efekt=střední efekt~velký efekt}</p>
+<p dir="ltr" style="text-align: left;"><strong>C) Chi-square:</strong> education × remote_work</p>
+<p dir="ltr" style="text-align: left;">Cramerovo V = {5:NM:=0.131:0.03}, což je {6:MCS:=malý efekt~střední efekt~velký efekt}</p>
+<p dir="ltr" style="text-align: left;">Z těchto tří, největší efekt má {7:MCS:~remote_work na plat=department na výkon~vzdělání na práci na dálku}.</p>
+<p dir="ltr" style="text-align: left;"><strong>Interpretační pravidla (Cohen):</strong></p>
+<p dir="ltr" style="text-align: left;">Cohen's d: malý = {8:NM:=0.2:0.1}, střední = {9:NM:=0.5:0.1}, velký = {10:NM:=0.8:0.1}</p>
+<p dir="ltr" style="text-align: left;">η²: malý = 0.01, střední = {11:NM:=0.06:0.02}, velký = 0.14</p>
+<p dir="ltr" style="text-align: left;">Test může být statisticky významný (p < 0.05) i při {12:MCS:=malém praktickém významu~velkém praktickém významu}.</p>
+<br>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align: left;"><strong>Jak získat velikosti efektu v Jamovi:</strong></p>
+<p dir="ltr" style="text-align: left;">• T-test: zaškrtněte "Effect size" → Cohen's d</p>
+<p dir="ltr" style="text-align: left;">• ANOVA: zaškrtněte "η²" v Effect Size</p>
+<p dir="ltr" style="text-align: left;">• Chi-square: zaškrtněte "Phi and Cramer's V"</p>
+<p dir="ltr" style="text-align: left;"><strong>Proč je to důležité:</strong></p>
+<p dir="ltr" style="text-align: left;">Při velkých vzorcích může být i triviální efekt statisticky významný.</p>
+<p dir="ltr" style="text-align: left;">Velikost efektu nám říká, zda je výsledek prakticky využitelný.</p>]]></text>
+    </generalfeedback>
+    <penalty>0</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+  </question>
+
+</quiz>

@@ -1,0 +1,810 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+
+<!-- ============================================ -->
+<!-- QUESTION 1: Descriptive Statistics -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset4_Q01_Deskriptivní statistika částky nákupu</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 4: Spotřebitelské chování</strong></p>
+<p>Pracujte s datasetem o zákaznících maloobchodního řetězce. Analyzujte proměnnou <strong>castka_nakupu</strong> (průměrná částka za jeden nákup v CZK).</p>
+
+<p><strong>Doplňte základní deskriptivní statistiky (zaokrouhlujte na celá čísla):</strong></p>
+
+<p>1. Průměrná částka nákupu: {1:NM:=7029:100} CZK</p>
+<p>2. Medián částky nákupu: {2:NM:=7150:100} CZK</p>
+<p>3. Směrodatná odchylka: {3:NM:=2649:100} CZK</p>
+
+<p><strong>4. Na základě vztahu průměru a mediánu, jak byste charakterizovali rozdělení?</strong></p>
+<p>{4:MCS:=Přibližně symetrické (průměr ≈ medián)~Mírně zešikmené doprava (průměr > medián)~Mírně zešikmené doleva (medián > průměr)}</p>
+
+<p><strong>5. Co nám říká SD = 2649 CZK v kontextu průměrné částky?</strong></p>
+<p>{5:MCS:=Střední variabilita - zákazníci mají různé nákupní vzorce~Nízká variabilita - všichni nakupují za podobné částky~Velmi vysoká variabilita}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<ol>
+<li>Exploration → Descriptives</li>
+<li>Přesuňte <strong>castka_nakupu</strong> do Variables</li>
+<li>V Statistics zaškrtněte: Mean, Median, Std. deviation</li>
+</ol>
+<p>Průměr (7029 CZK) a medián (7150 CZK) jsou velmi blízké, což naznačuje přibližně symetrické rozdělení. Směrodatná odchylka ukazuje na střední variabilitu v nákupním chování.</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 2: T-test with FILTER -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset4_Q02_Ttest částka prémiový vs rozpočtový</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 4: Spotřebitelské chování</strong></p>
+<p><strong>⚠️ POUŽIJTE FILTR!</strong></p>
+
+<p>Porovnejte průměrnou částku nákupu (<strong>castka_nakupu</strong>) mezi <strong>prémiovými</strong> a <strong>rozpočtovými</strong> zákazníky.</p>
+
+<p><strong>FILTR:</strong> Vylučte standardní zákazníky!</p>
+<p>V Jamovi: <code>segment_zakaznika == 'Prémiový' || segment_zakaznika == 'Rozpočtový'</code></p>
+
+<p><strong>Výsledky t-testu:</strong></p>
+
+<p>1. Počet zákazníků po filtrování: {1:NM:=175:10}</p>
+<p>2. Hodnota t-statistiky: {2:NM:=6.00:0.3} (absolutní hodnota)</p>
+<p>3. p-hodnota: {3:NM:=0.000:0.001}</p>
+<p>4. Cohenovo d: {4:NM:=0.92:0.05}</p>
+
+<p><strong>5. Který segment má vyšší průměrnou částku nákupu?</strong></p>
+<p>{5:MCS:=Prémiový segment (≈8474 CZK)~Rozpočtový segment (≈6070 CZK)~Oba mají stejnou}</p>
+
+<p><strong>6. Interpretace Cohenova d = 0.92:</strong></p>
+<p>{6:MCS:=Velký efekt (d > 0.8) - segment má výrazný vliv na částku nákupu~Střední efekt~Malý efekt}</p>
+
+<p><strong>7. Kolik zákazníků jsme vyloučili filtrováním (standardní segment)?</strong></p>
+<p>{7:MCS:=145 zákazníků (320 - 175)~175 zákazníků~100 zákazníků}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<ol>
+<li><strong>NEJPRVE FILTR:</strong> Data → Filters</li>
+<li>Vytvořte: <code>segment_zakaznika != 'Standardní'</code></li>
+<li>Analyses → T-Tests → Independent Samples T-Test</li>
+<li>DV: <strong>castka_nakupu</strong>, Grouping: <strong>segment_zakaznika</strong></li>
+<li>Zaškrtněte: Cohen's d</li>
+</ol>
+<p><strong>Interpretace:</strong> Prémiový zákazníci nakupují za statisticky významně vyšší částky (8474 CZK) než rozpočtový (6070 CZK), t = 6.00, p < 0.001. Velikost efektu je velká (d = 0.92).</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 3: ANOVA - CLV by Category -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset4_Q03_ANOVA CLV podle kategorie</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 4: Spotřebitelské chování</strong></p>
+<p>Testujte, zda se liší celoživotní hodnota zákazníka (<strong>hodnota_zakaznika</strong> / Customer Lifetime Value) podle kategorie produktů (<strong>kategorie_produktu</strong>: Elektronika, Oblečení, Potraviny, Domácnost).</p>
+
+<p><strong>Výsledky ANOVA:</strong></p>
+
+<p>1. F-statistika: {1:NM:=4.34:0.3}</p>
+<p>2. Stupně volnosti čitatele: {2:NM:=3:0}</p>
+<p>3. Stupně volnosti jmenovatele: {3:NM:=316:0}</p>
+<p>4. p-hodnota: {4:NM:=0.005:0.002}</p>
+<p>5. Eta-squared (η²): {5:NM:=0.040:0.01}</p>
+
+<p><strong>6. Je efekt kategorie produktu statisticky významný?</strong></p>
+<p>{6:MCS:=Ano, p = 0.005 < 0.05~Ne, p > 0.05}</p>
+
+<p><strong>7. Jak interpretovat η² = 0.040?</strong></p>
+<p>{7:MCS:=Malý efekt (η² < 0.06) - kategorie vysvětluje 4 % variability CLV~Střední efekt~Velký efekt}</p>
+
+<p><strong>8. Post-hoc analýza: Největší rozdíl v CLV je mezi kategoriemi:</strong></p>
+<p>{8:MCS:=Domácnost - Elektronika (≈46 000 CZK)~Oblečení - Potraviny~Elektronika - Potraviny}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<ol>
+<li>Analyses → ANOVA → One-Way ANOVA</li>
+<li>DV: <strong>hodnota_zakaznika</strong>, Grouping: <strong>kategorie_produktu</strong></li>
+<li>V Effect Size zaškrtněte: η²</li>
+<li>V Post Hoc Tests vyberte <strong>kategorie_produktu</strong> a zaškrtněte Tukey</li>
+</ol>
+<p><strong>Interpretace:</strong> Kategorie produktů má statisticky významný vliv na CLV (F(3,316) = 4.34, p = 0.005), ale velikost efektu je malá (η² = 0.040). Zákazníci domácích potřeb mají nejvyšší CLV.</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 4: Spearman Correlation -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset4_Q04_Korelace věrnost a frekvence</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 4: Spotřebitelské chování</strong></p>
+<p>Analyzujte vztah mezi věrností značce (<strong>vernost_znacce</strong>, škála 1-5) a frekvencí nákupů (<strong>frekvence_nakupu</strong>, škála 1-4).</p>
+<p>Obě proměnné jsou ordinální, použijte <strong>Spearmanovu korelaci</strong>.</p>
+
+<p><strong>Výsledky Spearmanovy korelace:</strong></p>
+
+<p>1. Spearmanovo ρ (rho): {1:NM:=0.381:0.03}</p>
+<p>2. p-hodnota: {2:NM:=0.000:0.001}</p>
+
+<p><strong>3. Jaký je směr vztahu?</strong></p>
+<p>{3:MCS:=Pozitivní (vyšší věrnost = častější nákupy)~Negativní (vyšší věrnost = méně nákupů)~Žádný vztah}</p>
+
+<p><strong>4. Jak byste charakterizovali sílu vztahu?</strong></p>
+<p>{4:MCS:=Střední pozitivní korelace (0.3 < ρ < 0.5)~Slabá korelace~Silná korelace}</p>
+
+<p><strong>5. Praktická interpretace pro marketing:</strong></p>
+<p>{5:MCS:=Věrní zákazníci nakupují častěji - investice do loajality se vyplácí~Věrnost nemá vliv na frekvenci nákupů~Vztah je příliš slabý pro praktické využití}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<ol>
+<li>Analyses → Regression → Correlation Matrix</li>
+<li>Přesuňte <strong>vernost_znacce</strong> a <strong>frekvence_nakupu</strong></li>
+<li>Vyberte Spearman correlation</li>
+</ol>
+<p><strong>Interpretace:</strong> Existuje statisticky významná pozitivní korelace střední síly (ρ = 0.381, p < 0.001). Zákazníci s vyšší loajalitou ke značce nakupují častěji. To podporuje investice do programů věrnosti zákazníků.</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 5: Simple Regression -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset4_Q05_Regrese částka nákupu příjem</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 4: Spotřebitelské chování</strong></p>
+<p>Vytvořte jednoduchou lineární regresi, která predikuje částku nákupu (<strong>castka_nakupu</strong>) z měsíčního příjmu zákazníka (<strong>mesicni_prijem</strong>).</p>
+<p>Regresní rovnice: castka_nakupu = b₀ + b₁ × mesicni_prijem</p>
+
+<p><strong>Parametry regresního modelu:</strong></p>
+
+<p>1. Intercept (b₀): {1:NM:=5168:100} CZK</p>
+<p>2. Slope (b₁) pro mesicni_prijem: {2:NM:=0.0406:0.005} (CZK nákupu na CZK příjmu)</p>
+<p>3. R² (koeficient determinace): {3:NM:=0.117:0.02}</p>
+<p>4. p-hodnota pro slope: {4:NM:=0.000:0.001}</p>
+
+<p><strong>5. Interpretace slope: Když se měsíční příjem zvýší o 1000 CZK...</strong></p>
+<p>{5:MCS:=Průměrná částka nákupu se zvýší o 40.6 CZK (1000 × 0.0406)~Částka nákupu se zvýší o 0.0406 CZK~Částka nákupu se nezmění}</p>
+
+<p><strong>6. Kolik procent variability částky nákupu vysvětluje příjem?</strong></p>
+<p>{6:MCS:=11.7 % (R² = 0.117)~1.17 %~88.3 %}</p>
+
+<p><strong>7. Pokud má zákazník měsíční příjem 50 000 CZK, jaká je predikovaná částka nákupu?</strong></p>
+<p>{7:MCS:=Přibližně 7198 CZK (5168 + 50000 × 0.0406)~5168 CZK~2030 CZK}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<ol>
+<li>Analyses → Regression → Linear Regression</li>
+<li>DV: <strong>castka_nakupu</strong></li>
+<li>Covariates: <strong>mesicni_prijem</strong></li>
+<li>Zaškrtněte: R, R²</li>
+</ol>
+<p><strong>Interpretace:</strong> Měsíční příjem je statisticky významný prediktor částky nákupu (p < 0.001). S každým zvýšením příjmu o 1000 CZK se průměrná částka nákupu zvyšuje o 40.6 CZK. Model vysvětluje 11.7 % variability - příjem má vliv, ale existují i další důležité faktory.</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 6: Multiple Regression -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset4_Q06_Vícenásobná regrese CLV</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 4: Spotřebitelské chování</strong></p>
+<p>Vytvořte vícenásobnou regresi pro predikci celoživotní hodnoty zákazníka (<strong>hodnota_zakaznika</strong>) s prediktory:</p>
+<ul>
+<li><strong>mesicni_prijem</strong> (měsíční příjem)</li>
+<li><strong>vernost_znacce</strong> (věrnost značce)</li>
+<li><strong>kategorie_produktu</strong> (kategorie - faktoriální)</li>
+</ul>
+
+<p><strong>Celkové charakteristiky modelu:</strong></p>
+
+<p>1. R² modelu: {1:NM:=0.201:0.02}</p>
+<p>2. Adjusted R² modelu: {2:NM:=0.189:0.02}</p>
+
+<p><strong>3. Kolik procent variability CLV vysvětluje tento model?</strong></p>
+<p>{3:MCS:=20.1 % (R² = 0.201)~18.9 %~79.9 %}</p>
+
+<p><strong>4. Který prediktor má nejvýznamnější vliv na CLV?</strong></p>
+<p>{4:MCS:=vernost_znacce (nejnižší p-hodnota)~mesicni_prijem~kategorie_produktu~Všechny mají podobný vliv}</p>
+
+<p><strong>5. Interpretace R² = 0.201:</strong></p>
+<p>{5:MCS:=Model vysvětluje přibližně pětinu variability CLV~Model je velmi přesný~Model je nepoužitelný}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<ol>
+<li>Analyses → Regression → Linear Regression</li>
+<li>DV: <strong>hodnota_zakaznika</strong></li>
+<li>Covariates: <strong>mesicni_prijem</strong>, <strong>vernost_znacce</strong></li>
+<li>Factors: <strong>kategorie_produktu</strong></li>
+<li>Zaškrtněte: R², Adjusted R²</li>
+</ol>
+<p><strong>Interpretace:</strong> Model vysvětluje 20.1 % variability CLV. Věrnost značce má nejsilnější vliv, následovaná příjmem. Zbývajících 80 % variability je vysvětleno jinými faktory (např. spokojenost, konkurence, životní situace).</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 7: Chi-square Test -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset4_Q07_Chíkvadrát platba a segment</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 4: Spotřebitelské chování</strong></p>
+<p>Testujte, zda existuje asociace mezi způsobem platby (<strong>zpusob_platby</strong>: Hotovost, Karta, Online platba) a zákaznickým segmentem (<strong>segment_zakaznika</strong>: Rozpočtový, Standardní, Prémiový).</p>
+
+<p><strong>Výsledky chí-kvadrát testu:</strong></p>
+
+<p>1. Hodnota χ² statistiky: {1:NM:=4.93:0.5}</p>
+<p>2. Počet stupňů volnosti: {2:NM:=4:0}</p>
+<p>3. p-hodnota: {3:NM:=0.294:0.03}</p>
+<p>4. Cramérovo V: {4:NM:=0.088:0.02}</p>
+
+<p><strong>5. Je asociace statisticky významná na α = 0.05?</strong></p>
+<p>{5:MCS:=Ne, p = 0.294 > 0.05~Ano, p < 0.05}</p>
+
+<p><strong>6. Interpretace Cramérova V = 0.088:</strong></p>
+<p>{6:MCS:=Velmi slabá asociace (V < 0.1)~Střední asociace~Silná asociace}</p>
+
+<p><strong>7. Závěr pro firemní strategii:</strong></p>
+<p>{7:MCS:=Způsob platby není závislý na segmentu - nabízejte všechny metody všem segmentům~Prémiový zákazníci preferují jiné platební metody~Je třeba přizpůsobit platební metody podle segmentu}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<ol>
+<li>Analyses → Frequencies → Contingency Tables</li>
+<li>Rows: <strong>zpusob_platby</strong></li>
+<li>Columns: <strong>segment_zakaznika</strong></li>
+<li>V Statistics zaškrtněte: χ² test, Cramér's V</li>
+</ol>
+<p><strong>Interpretace:</strong> Neexistuje statisticky významná asociace mezi způsobem platby a zákaznickým segmentem (χ²(4) = 4.93, p = 0.294). Všechny segmenty používají platební metody podobně, není třeba segmentovat nabídku platebních metod.</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 8: Correlation Website × Purchase -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset4_Q08_Korelace návštěvy webu a částka</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 4: Spotřebitelské chování</strong></p>
+<p>Analyzujte vztah mezi počtem návštěv e-shopu za měsíc (<strong>navstevy_webu</strong>) a průměrnou částkou nákupu (<strong>castka_nakupu</strong>).</p>
+
+<p><strong>Výsledky Pearsonovy korelace:</strong></p>
+
+<p>1. Pearsonovo r: {1:NM:=0.313:0.03}</p>
+<p>2. p-hodnota: {2:NM:=0.000:0.001}</p>
+
+<p><strong>3. Jaký je směr vztahu?</strong></p>
+<p>{3:MCS:=Pozitivní (více návštěv = vyšší částky nákupu)~Negativní (více návštěv = nižší částky)~Žádný vztah}</p>
+
+<p><strong>4. Jak byste charakterizovali sílu vztahu?</strong></p>
+<p>{4:MCS:=Střední pozitivní korelace (0.3 < r < 0.5)~Slabá korelace (r < 0.3)~Silná korelace (r > 0.5)}</p>
+
+<p><strong>5. Je korelace statisticky významná?</strong></p>
+<p>{5:MCS:=Ano, p < 0.001~Ne, p > 0.05}</p>
+
+<p><strong>6. Praktická interpretace pro e-commerce:</strong></p>
+<p>{6:MCS:=Strategie zvyšující návštěvnost webu mohou vést k vyšším částkám nákupů~Návštěvnost webu nemá vliv na nákupy~Je to náhodná korelace bez praktického významu}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<ol>
+<li>Analyses → Regression → Correlation Matrix</li>
+<li>Přesuňte <strong>navstevy_webu</strong> a <strong>castka_nakupu</strong></li>
+<li>Vyberte Pearson correlation</li>
+</ol>
+<p><strong>Interpretace:</strong> Existuje statisticky významná pozitivní korelace střední síly (r = 0.313, p < 0.001) mezi návštěvností webu a částkou nákupu. Zákazníci, kteří navštěvují web častěji, mají tendenci nakupovat za vyšší částky. To podporuje investice do uživatelské zkušenosti a obsahového marketingu.</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 9: Shapiro-Wilk Test -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset4_Q09_Test normality příjmu</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 4: Spotřebitelské chování</strong></p>
+<p>Testujte normalitu proměnné <strong>mesicni_prijem</strong> pomocí Shapiro-Wilkova testu.</p>
+
+<p><strong>Výsledky Shapiro-Wilkova testu:</strong></p>
+
+<p>1. W statistika: {1:NM:=0.958:0.01}</p>
+<p>2. p-hodnota: {2:NM:=0.000:0.001}</p>
+
+<p><strong>3. Na základě p-hodnoty, jaký je závěr?</strong></p>
+<p>{3:MCS:=Zamítáme H₀: data NEJSOU normálně rozdělená (p < 0.001)~Nezamítáme H₀: data JSOU normálně rozdělená}</p>
+
+<p><strong>4. Co znamená W = 0.958 (relativně blízko 1)?</strong></p>
+<p>{4:MCS:=Rozdělení se blíží normálnímu, ale není přesně normální~Rozdělení je naprosto normální~Rozdělení je velmi nenormální}</p>
+
+<p><strong>5. Proč může být měsíční příjem nenormální?</strong></p>
+<p>{5:MCS:=Příjmy mají typicky pozitivní zešikmení (více lidí s nízkými příjmy, málo s vysokými)~Příjmy jsou vždy normální~Data jsou chybná}</p>
+
+<p><strong>6. Můžeme použít parametrické testy i přes nenormalitu?</strong></p>
+<p>{6:MCS:=Ano, při velkém vzorku (N=320) jsou parametrické testy robustní díky CLT~Ne, musíme vždy použít neparametrické testy~Ne, data jsou nepoužitelná}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<ol>
+<li>Analyses → Exploration → Descriptives</li>
+<li>Variables: <strong>mesicni_prijem</strong></li>
+<li>V Statistics → Normality zaškrtněte: Shapiro-Wilk</li>
+</ol>
+<p><strong>Interpretace:</strong> Měsíční příjem NENÍ normálně rozdělený (W = 0.958, p < 0.001), což je typické pro příjmové rozdělení (pozitivní skewness). Díky velkému vzorku (N=320) a centrálnímu limitnímu teorému můžeme stále bezpečně používat parametrické testy jako t-test a ANOVA.</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 10: Mediator Analysis -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset4_Q10_Mediace návštěvy webu</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 4: Spotřebitelské chování</strong></p>
+<p><strong>Kauzální inference - Mediační analýza</strong></p>
+
+<p>Prozkoumejte, zda <strong>návštěvy webu</strong> fungují jako mediátor mezi marketingovým kanálem a částkou nákupu. Porovnáváme zákazníky oslovené <strong>sociálními sítěmi</strong> vs <strong>žádný marketing</strong>.</p>
+
+<p><strong>Poznámka:</strong> V této analýze jsou zákazníci oslovení sociálními sítěmi vs žádným marketingem (ostatní kanály vyloučeny).</p>
+
+<p><strong>Porovnejte korelace:</strong></p>
+
+<p>1. <strong>Celkový efekt</strong> Marketing (Social vs None) × Částka nákupu:</p>
+<p>r = {1:NM:=-0.207:0.03} (včetně znaménka)</p>
+
+<p>2. <strong>Přímý efekt</strong> (S KONTROLOU návštěv webu - parciální korelace):</p>
+<p>r = {2:NM:=0.039:0.05}</p>
+
+<p>3. <strong>Marketing × Návštěvy webu</strong>:</p>
+<p>r = {3:NM:=-0.669:0.03}</p>
+
+<p><strong>4. Co se stalo s korelací po kontrole návštěv webu?</strong></p>
+<p>{4:MCS:=Změnila se z -0.207 na téměř nulovou (0.039) - návštěvy vysvětlují vztah~Korelace zůstala stejná~Korelace vzrostla}</p>
+
+<p><strong>5. Interpretace negativní korelace Marketing × Návštěvy (r = -0.669):</strong></p>
+<p>{5:MCS:=Zákazníci BEZ marketingu navštěvují web výrazně více (jsou již aktivní)~Marketing snižuje návštěvnost webu~Je to chyba v datech}</p>
+
+<p><strong>6. Závěr o mediaci:</strong></p>
+<p>{6:MCS:=Návštěvy webu jsou úplný mediátor - celý efekt marketingu jde přes návštěvnost~Návštěvy jsou částečný mediátor~Návštěvy nejsou mediátor}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Interpretace:</strong></p>
+<p>Tato analýza ukazuje zajímavý jev: Zákazníci BEZ marketingu navštěvují web častěji (r = -0.669) - jsou to pravděpodobně již zapojení, aktivní zákazníci. Zákazníci oslovení marketingem jsou méně aktivní, ale to je kompenzováno tím, že marketing je přivádí k nákupu. Po kontrole návštěvnosti webu zmizí efekt marketingu na částku nákupu, což ukazuje, že celý vztah je zprostředkován návštěvností webu.</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 11: FILTER - Card vs Online Payment -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset4_Q11_FILTR Karta vs Online platba</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 4: Spotřebitelské chování</strong></p>
+<p><strong>⚠️ POUŽIJTE FILTR!</strong></p>
+
+<p>Porovnejte průměrnou částku nákupu (<strong>castka_nakupu</strong>) mezi zákazníky platícími <strong>kartou</strong> a <strong>online platbou</strong>.</p>
+
+<p><strong>FILTR:</strong> Vylučte zákazníky platící hotovostí!</p>
+<p>V Jamovi: <code>zpusob_platby == 'Karta' || zpusob_platby == 'Online platba'</code></p>
+
+<p><strong>Po aplikaci filtru:</strong></p>
+
+<p>1. Počet zákazníků po filtrování: {1:NM:=252:10}</p>
+<p>2. t-statistika: {2:NM:=0.41:0.15} (absolutní hodnota)</p>
+<p>3. p-hodnota: {3:NM:=0.684:0.05}</p>
+
+<p><strong>4. Je rozdíl statisticky významný?</strong></p>
+<p>{4:MCS:=Ne, p = 0.684 > 0.05~Ano, p < 0.05}</p>
+
+<p><strong>5. Závěr analýzy:</strong></p>
+<p>{5:MCS:=Způsob platby (karta vs online) nemá vliv na výši nákupu~Online platby vedou k vyšším částkám~Platby kartou vedou k vyšším částkám}</p>
+
+<p><strong>6. Kolik zákazníků jsme vyloučili (platba hotovostí)?</strong></p>
+<p>{6:MCS:=68 zákazníků (320 - 252)~252 zákazníků~100 zákazníků}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<ol>
+<li><strong>NEJPRVE FILTR:</strong> Data → Filters</li>
+<li>Vytvořte: <code>zpusob_platby != 'Hotovost'</code></li>
+<li>Analyses → T-Tests → Independent Samples T-Test</li>
+<li>DV: <strong>castka_nakupu</strong>, Grouping: <strong>zpusob_platby</strong></li>
+</ol>
+<p><strong>Interpretace:</strong> Po vyfiltrování zákazníků platících hotovostí (N=252 zbývá) zjišťujeme, že neexistuje statisticky významný rozdíl v částkách nákupu mezi platbou kartou a online platbou (t = 0.41, p = 0.684). Obě moderní platební metody vedou k podobným částkám nákupů.</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 12: FILTER - Premium Customers -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset4_Q12_FILTR prémiový zákazníci</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 4: Spotřebitelské chování</strong></p>
+<p><strong>⚠️ POUŽIJTE FILTR!</strong></p>
+
+<p>Analyzujte korelaci mezi kvalitou služeb (<strong>kvalita_sluzeb</strong>) a věrností značce (<strong>vernost_znacce</strong>) <strong>pouze u prémiových zákazníků</strong>.</p>
+
+<p><strong>FILTR v Jamovi:</strong> <code>segment_zakaznika == 'Prémiový'</code></p>
+
+<p><strong>Po aplikaci filtru (použijte Spearmanovu korelaci pro ordinální proměnné):</strong></p>
+
+<p>1. Počet zákazníků po filtrování: {1:NM:=69:5}</p>
+<p>2. Spearmanovo ρ: {2:NM:=0.095:0.05}</p>
+<p>3. p-hodnota: {3:NM:=0.439:0.05}</p>
+
+<p><strong>4. Je korelace statisticky významná?</strong></p>
+<p>{4:MCS:=Ne, p = 0.439 > 0.05~Ano, p < 0.05}</p>
+
+<p><strong>5. Interpretace ρ = 0.095:</strong></p>
+<p>{5:MCS:=Velmi slabá téměř nulová korelace~Střední pozitivní korelace~Silná pozitivní korelace}</p>
+
+<p><strong>6. Proč může být korelace slabá u prémiových zákazníků?</strong></p>
+<p>{6:MCS:=Prémiový zákazníci mají již vysokou věrnost nezávisle na kvalitě služeb~Kvalita služeb je špatná~Je to chyba v datech}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<ol>
+<li><strong>NEJPRVE FILTR:</strong> Data → Filters → <code>segment_zakaznika == 'Prémiový'</code></li>
+<li>Zkontrolujte N (≈69)</li>
+<li>Analyses → Regression → Correlation Matrix</li>
+<li>Přesuňte <strong>kvalita_sluzeb</strong> a <strong>vernost_znacce</strong></li>
+<li>Vyberte Spearman correlation</li>
+</ol>
+<p><strong>Interpretace:</strong> U prémiových zákazníků (N=69) neexistuje statisticky významný vztah mezi kvalitou služeb a věrností (ρ = 0.095, p = 0.439). To může naznačovat ceiling effect - prémiový zákazníci jsou již velmi věrní nezávisle na kvalitě služeb, protože jejich loajalita je ovlivněna jinými faktory (cena, prestiž, sortiment).</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 13: Mann-Whitney Test -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset4_Q13_Mann Whitney čas na webu</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 4: Spotřebitelské chování</strong></p>
+<p><strong>Neparametrický test</strong></p>
+
+<p>Porovnejte čas strávený na webu (<strong>cas_na_webu</strong>) mezi <strong>prémiovými</strong> a <strong>rozpočtovými</strong> zákazníky. Použijte Mann-Whitney U test.</p>
+
+<p><strong>FILTR:</strong> <code>segment_zakaznika == 'Prémiový' || segment_zakaznika == 'Rozpočtový'</code></p>
+
+<p><strong>Výsledky Mann-Whitney U testu:</strong></p>
+
+<p>1. Počet zákazníků po filtrování: {1:NM:=175:10}</p>
+<p>2. W statistika: {2:NM:=4076:100}</p>
+<p>3. p-hodnota: {3:NM:=0.201:0.05}</p>
+
+<p><strong>4. Mediány obou skupin:</strong></p>
+<p>Rozpočtový: {4:NM:=18.2:1} minut, Prémiový: {5:NM:=16.7:1} minut</p>
+
+<p><strong>6. Je rozdíl statisticky významný?</strong></p>
+<p>{6:MCS:=Ne, p = 0.201 > 0.05~Ano, p < 0.05}</p>
+
+<p><strong>7. Závěr analýzy:</strong></p>
+<p>{7:MCS:=Čas na webu se neliší mezi prémiovými a rozpočtovými zákazníky~Prémiový zákazníci tráví výrazně více času na webu~Rozpočtový zákazníci tráví více času na webu}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<ol>
+<li><strong>FILTR:</strong> Data → Filters → <code>segment_zakaznika != 'Standardní'</code></li>
+<li>Analyses → T-Tests → Independent Samples T-Test</li>
+<li>DV: <strong>cas_na_webu</strong>, Grouping: <strong>segment_zakaznika</strong></li>
+<li>V Tests zaškrtněte: Mann-Whitney U</li>
+</ol>
+<p><strong>Interpretace:</strong> Neexistuje statisticky významný rozdíl v čase stráveném na webu mezi prémiovými a rozpočtovými zákazníky (W = 4076, p = 0.201). Obě skupiny mají podobné mediány (18.2 vs 16.7 minut). Mann-Whitney test porovnává distribuci a je robustní vůči odlehlým hodnotám.</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 14: Contingency Table -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset4_Q14_Kontingenční tabulka marketing a kategorie</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 4: Spotřebitelské chování</strong></p>
+<p>Vytvořte kontingenční tabulku pro proměnné <strong>marketingovy_kanal</strong> (Email, Žádný, Sociální sítě, TV reklama) a <strong>kategorie_produktu</strong> (Oblečení, Elektronika, Potraviny, Domácnost).</p>
+
+<p><strong>Výsledky chí-kvadrát testu nezávislosti:</strong></p>
+
+<p>1. Hodnota χ² statistiky: {1:NM:=14.16:1}</p>
+<p>2. Stupně volnosti: {2:NM:=9:0}</p>
+<p>3. p-hodnota: {3:NM:=0.117:0.02}</p>
+
+<p><strong>4. Jsou marketingový kanál a kategorie produktu nezávislé?</strong></p>
+<p>{4:MCS:=Ano, jsou nezávislé (p = 0.117 > 0.05)~Ne, jsou statisticky významně asociovány}</p>
+
+<p><strong>5. Jak se počítají stupně volnosti pro tuto tabulku?</strong></p>
+<p>{5:MCS:=(4 kanály - 1) × (4 kategorie - 1) = 3 × 3 = 9~4 × 4 = 16~počet buněk - 1 = 15}</p>
+
+<p><strong>6. Závěr pro marketingovou strategii:</strong></p>
+<p>{6:MCS:=Marketingové kanály fungují podobně napříč všemi kategoriemi produktů~Je třeba přizpůsobit kanály podle kategorie~Některé kategorie nefungují s marketingem}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<ol>
+<li>Analyses → Frequencies → Contingency Tables</li>
+<li>Rows: <strong>marketingovy_kanal</strong></li>
+<li>Columns: <strong>kategorie_produktu</strong></li>
+<li>V Statistics zaškrtněte: χ² test</li>
+</ol>
+<p><strong>Interpretace:</strong> Neexistuje statisticky významná asociace mezi marketingovým kanálem a kategorií produktu (χ²(9) = 14.16, p = 0.117). Všechny marketingové kanály fungují podobně napříč kategoriemi - není nutné kategorizovat marketingovou strategii podle typu produktu.</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 15: Effect Size Interpretation -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset4_Q15_Interpretace velikosti efektu</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 4: Spotřebitelské chování</strong></p>
+<p><strong>Interpretace velikosti efektu</strong></p>
+
+<p>V Otázce 3 jsme testovali vliv kategorie produktů na CLV pomocí ANOVA. Výsledky:</p>
+<ul>
+<li>F(3, 316) = 4.34, p = 0.005</li>
+<li>η² = 0.040</li>
+</ul>
+
+<p><strong>Zodpovězte otázky:</strong></p>
+
+<p>1. Hodnota η² = {1:NM:=0.040:0.01}</p>
+
+<p><strong>2. Podle Cohenových kritérií:</strong></p>
+<p>{2:MCS:=Malý efekt (η² < 0.06)~Střední efekt (η² = 0.06-0.14)~Velký efekt (η² > 0.14)}</p>
+
+<p><strong>3. Co znamená η² = 0.040?</strong></p>
+<p>{3:MCS:=4 % variability CLV je vysvětleno kategorií produktů~40 % variability je vysvětleno~Kategorie zvyšuje CLV o 4 %}</p>
+
+<p><strong>4. Test je statisticky významný (p = 0.005), ale efekt je malý. Proč?</strong></p>
+<p>{4:MCS:=Velký vzorek (N=320) umožňuje detekovat i malé efekty~Test je špatně proveden~P-hodnota je chybná}</p>
+
+<p><strong>5. Praktický význam pro obchodní strategii:</strong></p>
+<p>{5:MCS:=Kategorie má statisticky významný, ale malý vliv - CLV je ovlivněna hlavně jinými faktory~Kategorie je klíčová pro CLV~Výsledky jsou nepoužitelné pro praxi}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Interpretace:</strong></p>
+<p>Kategorie produktů má statisticky významný vliv na CLV (p = 0.005), ale velikost efektu je malá (η² = 0.040). To znamená, že kategorie vysvětluje pouze 4 % variability - 96 % je ovlivněno jinými faktory jako věrnost, příjem, spokojenost, konkurence atd.</p>
+<p><strong>Důležité rozlišení:</strong> Statistická významnost ≠ praktická významnost. Při velkém vzorku můžeme detekovat i velmi malé efekty, které mohou být statisticky významné, ale prakticky zanedbatelné. Pro obchodní strategii jsou důležitější jiné faktory než kategorie produktu.</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 16: Stratified Analysis -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset4_Q16_Stratifikace podle frekvence</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 4: Spotřebitelské chování</strong></p>
+<p><strong>Stratifikovaná analýza - částka nákupu podle frekvence</strong></p>
+
+<p>Analyzujte průměrnou částku nákupu (<strong>castka_nakupu</strong>) pro každou kategorii frekvence nákupů (<strong>frekvence_nakupu</strong>: 2=Příležitostně, 3=Pravidelně, 4=Často).</p>
+
+<p><strong>Poznámka:</strong> Kategorie 1 (Zřídka) má jen 0 zákazníků v datech.</p>
+
+<p><strong>Vypočítejte průměry (zaokrouhlujte na celá čísla):</strong></p>
+
+<p>1. Často (4): průměr = {1:NM:=7429:100} CZK</p>
+<p>2. Pravidelně (3): průměr = {2:NM:=6394:100} CZK</p>
+<p>3. Příležitostně (2): průměr = {3:NM:=4094:200} CZK</p>
+
+<p><strong>4. Jaký je trend v datech?</strong></p>
+<p>{4:MCS:=Čím častěji zákazník nakupuje, tím vyšší jsou průměrné částky nákupu~Frekvence nemá vliv na částku~Trend je opačný}</p>
+
+<p><strong>5. Rozdíl mezi častými a příležitostnými nákupčími:</strong></p>
+<p>{5:MCS:=Přibližně 3335 CZK (7429 - 4094)~Přibližně 1000 CZK~Více než 5000 CZK}</p>
+
+<p><strong>6. Praktická interpretace pro marketingovou strategii:</strong></p>
+<p>{6:MCS:=Investice do zvýšení frekvence nákupů může vést k vyšším částkám - např. věrnostní programy~Frekvence není důležitá pro obrat~Stačí se zaměřit na příležitostné zákazníky}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<ol>
+<li>Analyses → Exploration → Descriptives</li>
+<li>Variables: <strong>castka_nakupu</strong></li>
+<li>Split by: <strong>frekvence_nakupu</strong></li>
+<li>V Statistics zaškrtněte: Mean</li>
+</ol>
+<p><strong>Interpretace:</strong> Existuje jasný pozitivní trend - zákazníci nakupující často (7429 CZK) utrácejí v průměru o ~3335 CZK více než příležitostní nákupčí (4094 CZK). To podporuje investice do programů zvyšujících frekvenci nákupů (věrnostní karty, pravidelné e-maily, personalizované nabídky).</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 17: Complex Filter -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset4_Q17_Komplexní filtr prémiový elektronika</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 4: Spotřebitelské chování</strong></p>
+<p><strong>⚠️ KOMPLEXNÍ FILTR - DVĚ PODMÍNKY!</strong></p>
+
+<p>Analyzujte pouze zákazníky, kteří splňují OBĚ podmínky:</p>
+<ul>
+<li>Jsou z <strong>prémiového segmentu</strong> (segment_zakaznika == 'Prémiový')</li>
+<li>Nakupují <strong>elektroniku</strong> (kategorie_produktu == 'Elektronika')</li>
+</ul>
+
+<p><strong>FILTR v Jamovi:</strong></p>
+<p><code>segment_zakaznika == 'Prémiový' && kategorie_produktu == 'Elektronika'</code></p>
+
+<p><strong>Po aplikaci filtru analyzujte:</strong></p>
+
+<p>1. Počet zákazníků splňujících obě podmínky: {1:NM:=13:3}</p>
+<p>2. Průměrná částka nákupu v této podskupině: {2:NM:=6912:300} CZK</p>
+<p>3. Průměrné CLV: {3:NM:=366154:10000} CZK (zaokrouhlete na tisíce)</p>
+
+<p><strong>4. Operátor && v filtru znamená:</strong></p>
+<p>{4:MCS:=Logické AND - obě podmínky musí být splněny současně~Logické OR - stačí jedna podmínka~Násobení}</p>
+
+<p><strong>5. Kolik zákazníků jsme vyfiltrovali?</strong></p>
+<p>{5:MCS:=307 zákazníků (320 - 13)~13 zákazníků~69 zákazníků}</p>
+
+<p><strong>6. K čemu je užitečný takový filtr v retailu?</strong></p>
+<p>{6:MCS:=K analýze specifických zákaznických mikrosegmentů pro cílený marketing~K odstranění odlehlých hodnot~K testování normality}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<ol>
+<li>Data → Filters</li>
+<li>Vytvořte: <code>segment_zakaznika == 'Prémiový' && kategorie_produktu == 'Elektronika'</code></li>
+<li>Zkontrolujte N (≈13)</li>
+<li>Analyses → Exploration → Descriptives</li>
+<li>Analyzujte <strong>castka_nakupu</strong> a <strong>hodnota_zakaznika</strong></li>
+</ol>
+<p><strong>Interpretace:</strong> Pouze 13 zákazníků splňuje obě podmínky. Tento mikrosegment (prémiový + elektronika) má průměrnou částku nákupu 6912 CZK a CLV 366,154 CZK. Takové detailní analýzy umožňují vytvářet vysoce personalizované marketingové kampaně pro specifické zákaznické skupiny.</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 18: Levene's Test -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset4_Q18_Leveneho test</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 4: Spotřebitelské chování</strong></p>
+<p><strong>Leveneho test homogenity rozptylů</strong></p>
+
+<p>Testujte předpoklad homogenity rozptylů pro částku nákupu (<strong>castka_nakupu</strong>) podle zákaznického segmentu (<strong>segment_zakaznika</strong>).</p>
+
+<p><strong>Výsledky Leveneho testu:</strong></p>
+
+<p>1. F-statistika: {1:NM:=0.621:0.1}</p>
+<p>2. Stupně volnosti (čitatel): {2:NM:=2:0}</p>
+<p>3. Stupně volnosti (jmenovatel): {3:NM:=317:0}</p>
+<p>4. p-hodnota: {4:NM:=0.538:0.05}</p>
+
+<p><strong>5. Na základě p-hodnoty, jaký je závěr?</strong></p>
+<p>{5:MCS:=Nezamítáme H₀: rozptyly JSOU homogenní (p = 0.538 > 0.05)~Zamítáme H₀: rozptyly NEJSOU homogenní}</p>
+
+<p><strong>6. Můžeme bezpečně použít klasickou ANOVA?</strong></p>
+<p>{6:MCS:=Ano, předpoklad homogenity je splněn~Ne, musíme použít Welch's ANOVA~Ne, ANOVA nelze použít}</p>
+
+<p><strong>7. Proč testujeme homogenitu rozptylů před ANOVA?</strong></p>
+<p>{7:MCS:=ANOVA předpokládá, že všechny skupiny mají podobnou variabilitu~ANOVA vyžaduje normální rozdělení~Je to jen formální krok bez významu}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<ol>
+<li>Analyses → ANOVA → One-Way ANOVA</li>
+<li>DV: <strong>castka_nakupu</strong></li>
+<li>Grouping: <strong>segment_zakaznika</strong></li>
+<li>V Assumption Checks zaškrtněte: Homogeneity test (Levene's)</li>
+</ol>
+<p><strong>Interpretace:</strong> Leveneho test ukazuje, že rozptyly částky nákupu jsou homogenní napříč zákaznickými segmenty (F(2,317) = 0.621, p = 0.538). Předpoklad homogenity rozptylů pro ANOVA je splněn, můžeme bezpečně použít klasickou ANOVA bez nutnosti používat robustnější verzi (Welch's ANOVA).</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+</quiz>

@@ -1,0 +1,803 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+
+<!-- ============================================ -->
+<!-- QUESTION 1: Descriptive Statistics -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset3_Q01_Deskriptivní statistika GPA</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 3: Akademický výkon studentů</strong></p>
+<p>Pracujte s datasetem o studentech univerzity. Analyzujte proměnnou <strong>prumer</strong> (GPA - Grade Point Average, studijní průměr na škále 1.0-4.0, kde 4.0 = A výborný).</p>
+
+<p><strong>Doplňte základní deskriptivní statistiky (zaokrouhlujte na 2 desetinná místa):</strong></p>
+
+<p>1. Průměrný GPA: {1:NM:=3.81:0.05}</p>
+<p>2. Medián GPA: {2:NM:=4.00:0.05}</p>
+<p>3. Směrodatná odchylka: {3:NM:=0.29:0.03}</p>
+
+<p><strong>4. Na základě vztahu průměru a mediánu, jak byste charakterizovali rozdělení?</strong></p>
+<p>{4:MCS:=Mírně zešikmené doleva (medián > průměr)~Mírně zešikmené doprava (průměr > medián)~Symetrické (průměr ≈ medián)}</p>
+
+<p><strong>5. Co nám říká SD = 0.29 v kontextu GPA (škála 1-4)?</strong></p>
+<p>{5:MCS:=Nízká variabilita - studenti mají podobné výsledky~Vysoká variabilita - výsledky se hodně liší~Střední variabilita}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<ol>
+<li>Exploration → Descriptives</li>
+<li>Přesuňte <strong>prumer</strong> do Variables</li>
+<li>V Statistics zaškrtněte: Mean, Median, Std. deviation</li>
+</ol>
+<p>Medián (4.00) je mírně vyšší než průměr (3.81), což naznačuje mírné zešikmení doleva. Směrodatná odchylka 0.29 je relativně malá, což ukazuje, že většina studentů má podobné GPA.</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 2: T-test - GPA by Part-time Job -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset3_Q02_Ttest GPA podle brigády</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 3: Akademický výkon studentů</strong></p>
+<p>Porovnejte studijní průměr (<strong>prumer</strong> / GPA) mezi studenty, kteří <strong>pracují na brigádě</strong> (<code>brigada == 'Ano'</code>) a těmi, kteří <strong>nepracují</strong> (<code>brigada == 'Ne'</code>).</p>
+
+<p><strong>Výsledky t-testu (zaokrouhlujte na 2-3 desetinná místa):</strong></p>
+
+<p>1. Hodnota t-statistiky: {1:NM:=7.34:0.3} (zadejte absolutní hodnotu)</p>
+<p>2. Počet stupňů volnosti: {2:NM:=226.8:5}</p>
+<p>3. p-hodnota: {3:NM:=0.000:0.001}</p>
+<p>4. Cohenovo d (velikost efektu): {4:NM:=0.83:0.05}</p>
+
+<p><strong>5. Který průměrný GPA je vyšší?</strong></p>
+<p>{5:MCS:=Studenti BEZ brigády (průměr ≈ 3.93)~Studenti S brigádou (průměr ≈ 3.71)~Oba mají stejný průměr}</p>
+
+<p><strong>6. Jak byste interpretovali Cohenovo d = 0.83?</strong></p>
+<p>{6:MCS:=Velký efekt (d > 0.8) - brigáda má významný dopad na GPA~Střední efekt (d ≈ 0.5)~Malý efekt (d < 0.3)}</p>
+
+<p><strong>7. Závěr analýzy:</strong></p>
+<p>{7:MCS:=Studenti bez brigády mají statisticky významně vyšší GPA než studenti s brigádou~Brigáda nemá vliv na GPA~Studenti s brigádou mají vyšší GPA}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<ol>
+<li>Analyses → T-Tests → Independent Samples T-Test</li>
+<li>Přesuňte <strong>prumer</strong> do Dependent Variables</li>
+<li>Přesuňte <strong>brigada</strong> do Grouping Variable</li>
+<li>V Effect Size zaškrtněte: Cohen's d</li>
+</ol>
+<p><strong>Interpretace:</strong> Studenti bez brigády mají statisticky významně vyšší GPA (3.93) než studenti s brigádou (3.71), t = 7.34, p < 0.001. Velikost efektu je velká (d = 0.83), což naznačuje, že brigáda má podstatný negativní dopad na studijní výsledky.</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 3: ANOVA - Exam Score by Program -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset3_Q03_ANOVA skóre podle programu</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 3: Akademický výkon studentů</strong></p>
+<p>Testujte, zda se liší skóre ze závěrečné zkoušky (<strong>skore_zkousky</strong>) podle studijního programu (<strong>studijni_program</strong>: Ekonomie, Inženýrství, Medicína, Umění, Přírodní vědy).</p>
+
+<p><strong>Výsledky ANOVA:</strong></p>
+
+<p>1. F-statistika: {1:NM:=1.83:0.15}</p>
+<p>2. Stupně volnosti čitatele: {2:NM:=4:0}</p>
+<p>3. Stupně volnosti jmenovatele: {3:NM:=275:0}</p>
+<p>4. p-hodnota: {4:NM:=0.123:0.02}</p>
+<p>5. Eta-squared (η²): {5:NM:=0.026:0.01}</p>
+
+<p><strong>6. Je efekt studijního programu statisticky významný na α = 0.05?</strong></p>
+<p>{6:MCS:=Ne, p = 0.123 > 0.05~Ano, p < 0.05}</p>
+
+<p><strong>7. Jak byste interpretovali η² = 0.026?</strong></p>
+<p>{7:MCS:=Malý efekt - pouze 2.6 % variability vysvětleno~Střední efekt~Velký efekt}</p>
+
+<p><strong>8. Závěr analýzy:</strong></p>
+<p>{8:MCS:=Studijní program nemá statisticky významný vliv na zkouškové skóre~Studijní program má velký vliv na výsledky~Je nutné použít post-hoc testy}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<ol>
+<li>Analyses → ANOVA → One-Way ANOVA</li>
+<li>Přesuňte <strong>skore_zkousky</strong> do Dependent Variable</li>
+<li>Přesuňte <strong>studijni_program</strong> do Grouping Variable</li>
+<li>V Effect Size zaškrtněte: η²</li>
+</ol>
+<p><strong>Interpretace:</strong> Studijní program nemá statisticky významný vliv na zkouškové skóre ze statistiky, F(4,275) = 1.83, p = 0.123. Velikost efektu je malá (η² = 0.026). To naznačuje, že všichni studenti, bez ohledu na obor, dosahují podobných výsledků v kurzu statistiky.</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 4: Spearman - Study Hours × Exam -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset3_Q04_Korelace hodiny studia a zkouška</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 3: Akademický výkon studentů</strong></p>
+<p>Analyzujte vztah mezi kategorií hodin studia (<strong>kategorie_hodin_studia</strong>: 1=0-10h, 2=11-20h, 3=21-30h, 4=31+h) a skóre ze zkoušky (<strong>skore_zkousky</strong>).</p>
+<p>Protože hodiny studia jsou ordinální proměnná, použijte <strong>Spearmanovu korelaci</strong>.</p>
+
+<p><strong>Výsledky Spearmanovy korelace:</strong></p>
+
+<p>1. Spearmanovo ρ (rho): {1:NM:=0.677:0.03}</p>
+<p>2. p-hodnota: {2:NM:=0.000:0.001}</p>
+
+<p><strong>3. Jaký je směr vztahu?</strong></p>
+<p>{3:MCS:=Pozitivní (více hodin studia = vyšší skóre)~Negativní (více hodin studia = nižší skóre)~Žádný vztah}</p>
+
+<p><strong>4. Jak byste charakterizovali sílu vztahu (|ρ| = 0.677)?</strong></p>
+<p>{4:MCS:=Silná korelace (> 0.5)~Střední korelace (0.3-0.5)~Slabá korelace (< 0.3)}</p>
+
+<p><strong>5. Praktická interpretace:</strong></p>
+<p>{5:MCS:=Studenti, kteří studují více hodin, dosahují výrazně lepších výsledků u zkoušky~Počet hodin studia nemá vliv na výsledky~Vztah je slabý a nepraktický}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<ol>
+<li>Analyses → Regression → Correlation Matrix</li>
+<li>Přesuňte <strong>kategorie_hodin_studia</strong> a <strong>skore_zkousky</strong></li>
+<li>V Correlation Coefficients vyberte <strong>Spearman</strong></li>
+</ol>
+<p><strong>Interpretace:</strong> Existuje silná pozitivní korelace mezi počtem hodin studia a výsledkem zkoušky (ρ = 0.677, p < 0.001). To potvrzuje intuitivní očekávání: studenti, kteří věnují více času studiu, dosahují lepších výsledků.</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 5: Simple Regression -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset3_Q05_Regrese zkouška motivace</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 3: Akademický výkon studentů</strong></p>
+<p>Vytvořte jednoduchou lineární regresi, která predikuje skóre ze zkoušky (<strong>skore_zkousky</strong>) z úrovně motivace (<strong>uroven_motivace</strong>, škála 1-5).</p>
+<p>Regresní rovnice: skore_zkousky = b₀ + b₁ × uroven_motivace</p>
+
+<p><strong>Parametry regresního modelu:</strong></p>
+
+<p>1. Intercept (b₀): {1:NM:=77.23:1} bodů</p>
+<p>2. Slope (b₁) pro uroven_motivace: {2:NM:=4.32:0.3} bodů na jednotku motivace</p>
+<p>3. R² (koeficient determinace): {3:NM:=0.266:0.02}</p>
+<p>4. p-hodnota pro slope: {4:NM:=0.000:0.001}</p>
+
+<p><strong>5. Interpretace slope: Když se úroveň motivace zvýší o 1 stupeň...</strong></p>
+<p>{5:MCS:=Skóre ze zkoušky se v průměru zvýší o 4.32 bodu~Skóre se v průměru sníží o 4.32 bodu~Skóre se nezmění}</p>
+
+<p><strong>6. Kolik procent variability zkouškového skóre vysvětluje motivace?</strong></p>
+<p>{6:MCS:=26.6 % (R² = 0.266)~2.66 %~73.4 %}</p>
+
+<p><strong>7. Pokud má student motivaci na úrovni 5 (nejvyšší), jaké je predikované skóre?</strong></p>
+<p>{7:MCS:=Přibližně 98.8 bodů (77.23 + 5 × 4.32)~77.23 bodů~104.6 bodů}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<ol>
+<li>Analyses → Regression → Linear Regression</li>
+<li>Přesuňte <strong>skore_zkousky</strong> do Dependent Variable</li>
+<li>Přesuňte <strong>uroven_motivace</strong> do Covariates</li>
+<li>V Model Fit zaškrtněte: R, R²</li>
+</ol>
+<p><strong>Interpretace:</strong> Úroveň motivace je statisticky významný prediktor zkouškového skóre (p < 0.001). S každým nárůstem motivace o 1 stupeň se skóre v průměru zvyšuje o 4.32 bodu. Model vysvětluje 26.6 % variability.</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 6: Multiple Regression -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset3_Q06_Vícenásobná regrese GPA</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 3: Akademický výkon studentů</strong></p>
+<p>Vytvořte vícenásobnou regresi pro predikci GPA (<strong>prumer</strong>) s následujícími prediktory:</p>
+<ul>
+<li><strong>uroven_motivace</strong> (úroveň motivace)</li>
+<li><strong>mira_dochazky</strong> (míra docházky)</li>
+<li><strong>studijni_program</strong> (studijní program - kategoriální)</li>
+</ul>
+
+<p><strong>Celkové charakteristiky modelu:</strong></p>
+
+<p>1. R² modelu: {1:NM:=0.293:0.02}</p>
+<p>2. Adjusted R² modelu: {2:NM:=0.277:0.02}</p>
+
+<p><strong>3. Kolik procent variability GPA vysvětluje tento model?</strong></p>
+<p>{3:MCS:=29.3 % (R² = 0.293)~27.7 %~70.7 %}</p>
+
+<p><strong>4. Proč je Adjusted R² (0.277) nižší než R²?</strong></p>
+<p>{4:MCS:=Adjusted R² penalizuje za počet prediktorů v modelu~Je to chyba výpočtu~Adjusted R² je vždy nižší}</p>
+
+<p><strong>5. Který prediktor je nejdůležitější pro GPA?</strong></p>
+<p>{5:MCS:=uroven_motivace (nejvýznamnější p-hodnota)~studijni_program~mira_dochazky~Všechny mají podobný vliv}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<ol>
+<li>Analyses → Regression → Linear Regression</li>
+<li>Přesuňte <strong>prumer</strong> do Dependent Variable</li>
+<li>Přesuňte <strong>uroven_motivace</strong> a <strong>mira_dochazky</strong> do Covariates</li>
+<li>Přesuňte <strong>studijni_program</strong> do Factors</li>
+<li>V Model Fit zaškrtněte: R², Adjusted R²</li>
+</ol>
+<p><strong>Interpretace:</strong> Model vysvětluje 29.3 % variability GPA. Motivace je nejsilnější prediktor, následovaná docházkou. Studijní program má menší, ale stále statisticky významný vliv.</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 7: Chi-square Test -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset3_Q07_Chíkvadrát metoda studia a ubytování</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 3: Akademický výkon studentů</strong></p>
+<p>Testujte, zda existuje asociace mezi formou studia (<strong>metoda_studia</strong>: Tradiční, Online, Hybridní) a typem ubytování (<strong>ubytovani</strong>: Kolej, Doma s rodiči, Nájem).</p>
+
+<p><strong>Výsledky chí-kvadrát testu:</strong></p>
+
+<p>1. Hodnota χ² statistiky: {1:NM:=3.51:0.3}</p>
+<p>2. Počet stupňů volnosti: {2:NM:=4:0}</p>
+<p>3. p-hodnota: {3:NM:=0.476:0.03}</p>
+<p>4. Cramérovo V (velikost efektu): {4:NM:=0.079:0.02}</p>
+
+<p><strong>5. Je asociace statisticky významná na α = 0.05?</strong></p>
+<p>{5:MCS:=Ne, p = 0.476 > 0.05~Ano, p < 0.05}</p>
+
+<p><strong>6. Jak se počítají stupně volnosti pro tuto tabulku?</strong></p>
+<p>{6:MCS:=(řádky - 1) × (sloupce - 1) = (3-1) × (3-1) = 4~řádky × sloupce~počet buněk - 1}</p>
+
+<p><strong>7. Závěr analýzy:</strong></p>
+<p>{7:MCS:=Forma studia a typ ubytování nejsou statisticky významně asociovány~Existuje silná závislost mezi formou studia a ubytováním~Výsledek je neprůkazný}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<ol>
+<li>Analyses → Frequencies → Contingency Tables</li>
+<li>Přesuňte <strong>metoda_studia</strong> do Rows</li>
+<li>Přesuňte <strong>ubytovani</strong> do Columns</li>
+<li>V Statistics zaškrtněte: χ² test, Cramér's V</li>
+</ol>
+<p><strong>Interpretace:</strong> Neexistuje statisticky významná asociace mezi formou studia a typem ubytování (χ²(4) = 3.51, p = 0.476). Studenti volí formu studia nezávisle na svém ubytování.</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 8: Correlation - Stress × Sleep -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset3_Q08_Korelace stres a spánek</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 3: Akademický výkon studentů</strong></p>
+<p>Analyzujte vztah mezi indexem stresu (<strong>index_stresu</strong>, škála 0-100, vyšší = více stresu) a průměrným počtem hodin spánku (<strong>hodiny_spanku</strong>).</p>
+
+<p><strong>Výsledky Pearsonovy korelace:</strong></p>
+
+<p>1. Pearsonovo r: {1:NM:=-0.562:0.03} (včetně znaménka)</p>
+<p>2. p-hodnota: {2:NM:=0.000:0.001}</p>
+
+<p><strong>3. Jaký je směr vztahu?</strong></p>
+<p>{3:MCS:=Negativní (více stresu = méně spánku)~Pozitivní (více stresu = více spánku)~Žádný vztah}</p>
+
+<p><strong>4. Jak byste charakterizovali sílu vztahu?</strong></p>
+<p>{4:MCS:=Silná negativní korelace (|r| > 0.5)~Střední negativní korelace~Slabá negativní korelace}</p>
+
+<p><strong>5. Je korelace statisticky významná?</strong></p>
+<p>{5:MCS:=Ano, p < 0.001~Ne, p > 0.05}</p>
+
+<p><strong>6. Praktická interpretace:</strong></p>
+<p>{6:MCS:=Studenti s vyšším stresem spí výrazně méně~Stres a spánek nejsou souvislé~Více spánku způsobuje více stresu}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<ol>
+<li>Analyses → Regression → Correlation Matrix</li>
+<li>Přesuňte <strong>index_stresu</strong> a <strong>hodiny_spanku</strong></li>
+<li>Vyberte Pearson correlation</li>
+</ol>
+<p><strong>Interpretace:</strong> Existuje silná negativní korelace mezi stresem a spánkem (r = -0.562, p < 0.001). Studenti s vyšší úrovní akademického stresu spí výrazně méně. Poznámka: Korelace neimplikuje kauzalitu - může jít o obousměrný vztah.</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 9: Shapiro-Wilk Test -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset3_Q09_Test normality zkouškové skóre</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 3: Akademický výkon studentů</strong></p>
+<p>Testujte normalitu proměnné <strong>skore_zkousky</strong> pomocí Shapiro-Wilkova testu.</p>
+
+<p><strong>Výsledky Shapiro-Wilkova testu:</strong></p>
+
+<p>1. W statistika: {1:NM:=0.726:0.02}</p>
+<p>2. p-hodnota: {2:NM:=0.000:0.001}</p>
+
+<p><strong>3. Na základě p-hodnoty, jaký je závěr?</strong></p>
+<p>{3:MCS:=Zamítáme H₀: data NEJSOU normálně rozdělená (p < 0.001)~Nezamítáme H₀: data JSOU normálně rozdělená}</p>
+
+<p><strong>4. Co znamená W = 0.726 (výrazně méně než 1)?</strong></p>
+<p>{4:MCS:=Rozdělení se výrazně odchyluje od normálního~Rozdělení je téměř normální~W nemá interpretaci}</p>
+
+<p><strong>5. Můžeme použít parametrické testy (t-test, ANOVA) pro zkouškové skóre?</strong></p>
+<p>{5:MCS:=Ano, při velkém vzorku (N=280) jsou parametrické testy robustní vůči nenormalitě~Ne, musíme vždy použít neparametrické testy~Ne, data jsou nepoužitelná}</p>
+
+<p><strong>6. Proč mohou být zkouškové skóre nenormální?</strong></p>
+<p>{6:MCS:=Ceiling effect - mnoho studentů dosahuje vysokých skóre blízko maxima~Data jsou chybně měřená~Vzorek je příliš malý}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<ol>
+<li>Analyses → Exploration → Descriptives</li>
+<li>Přesuňte <strong>skore_zkousky</strong> do Variables</li>
+<li>V Statistics → Normality zaškrtněte: Shapiro-Wilk</li>
+</ol>
+<p><strong>Interpretace:</strong> Zkouškové skóre NENÍ normálně rozdělené (W = 0.726, p < 0.001). To je typické pro akademická data - mnoho studentů dosahuje vysokých skóre (ceiling effect). Při velkém vzorku (N=280) jsou však parametrické testy stále robustní díky centrálnímu limitnímu teorému.</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 10: Mediator Analysis -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset3_Q10_Mediační analýza spánek</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 3: Akademický výkon studentů</strong></p>
+<p><strong>Kauzální inference - Mediační analýza</strong></p>
+
+<p>Prozkoumejte, zda <strong>hodiny spánku</strong> fungují jako <em>mediátor</em> mezi brigádou a GPA. Hypotéza: Brigáda → méně spánku → nižší GPA.</p>
+
+<p><strong>Porovnejte korelace:</strong></p>
+
+<p>1. <strong>Celkový (totální) efekt</strong> brigáda × GPA (BEZ kontroly spánku):</p>
+<p>Pearsonovo r = {1:NM:=-0.382:0.03}</p>
+
+<p>2. <strong>Přímý efekt</strong> brigáda × GPA (S KONTROLOU spánku - parciální korelace):</p>
+<p>Pearsonovo r = {2:NM:=-0.161:0.03}</p>
+
+<p>3. <strong>Efekt mediátoru</strong> brigáda × spánek:</p>
+<p>Pearsonovo r = {3:NM:=-0.668:0.03}</p>
+
+<p><strong>4. Co se stalo s korelací po kontrole spánku?</strong></p>
+<p>{4:MCS:=Korelace klesla z -0.382 na -0.161 (oslabila se)~Korelace zůstala stejná~Korelace vzrostla}</p>
+
+<p><strong>5. Co to znamená pro mediaci?</strong></p>
+<p>{5:MCS:=Spánek je částečný mediátor - část efektu brigády na GPA jde přes spánek~Spánek není mediátor~Spánek je úplný mediátor}</p>
+
+<p><strong>6. Interpretace silného efektu brigády na spánek (r = -0.668):</strong></p>
+<p>{6:MCS:=Studenti s brigádou spí výrazně méně~Spánek ovlivňuje, zda student má brigádu~Není zde kauzální vztah}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<p><strong>Celkový efekt:</strong></p>
+<ol>
+<li>Correlation Matrix: <strong>brigada</strong> × <strong>prumer</strong></li>
+</ol>
+<p><strong>Přímý efekt (kontrola spánku):</strong></p>
+<ol>
+<li>Partial Correlation: <strong>brigada</strong> × <strong>prumer</strong>, control <strong>hodiny_spanku</strong></li>
+</ol>
+<p><strong>Interpretace mediace:</strong> Brigáda má celkový negativní efekt na GPA (r = -0.382). Po kontrole spánku se tento efekt oslabí na r = -0.161. To znamená, že část negativního vlivu brigády na GPA je zprostředkována nedostatkem spánku. Brigáda vede k méně spánku (r = -0.668), což následně negativně ovlivňuje GPA.</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 11: FILTER - Traditional vs Online -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset3_Q11_FILTR Tradiční vs Online</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 3: Akademický výkon studentů</strong></p>
+<p><strong>⚠️ POUŽIJTE FILTR!</strong></p>
+
+<p>Porovnejte zkouškové skóre (<strong>skore_zkousky</strong>) mezi studenty s <strong>tradiční</strong> prezenční formou a <strong>online</strong> formou studia.</p>
+
+<p><strong>FILTR:</strong> Vylučte studenty s hybridní formou!</p>
+<p>V Jamovi: <code>metoda_studia == 'Tradiční' || metoda_studia == 'Online'</code></p>
+
+<p><strong>Po aplikaci filtru:</strong></p>
+
+<p>1. Počet studentů po filtrování: {1:NM:=226:10}</p>
+<p>2. t-statistika: {2:NM:=0.99:0.2} (absolutní hodnota)</p>
+<p>3. p-hodnota: {3:NM:=0.324:0.05}</p>
+
+<p><strong>4. Je rozdíl statisticky významný?</strong></p>
+<p>{4:MCS:=Ne, p = 0.324 > 0.05~Ano, p < 0.05}</p>
+
+<p><strong>5. Závěr analýzy:</strong></p>
+<p>{5:MCS:=Neexistuje statisticky významný rozdíl mezi tradiční a online formou~Tradiční forma má signifikantně lepší výsledky~Online forma má signifikantně lepší výsledky}</p>
+
+<p><strong>6. Kolik studentů jsme vyloučili filtrováním (hybridní forma)?</strong></p>
+<p>{6:MCS:=54 studentů (280 - 226)~226 studentů~100 studentů}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<ol>
+<li><strong>NEJPRVE FILTR:</strong> Data → Filters</li>
+<li>Vytvořte: <code>metoda_studia == 'Tradiční' || metoda_studia == 'Online'</code></li>
+<li>Nebo: <code>metoda_studia != 'Hybridní'</code></li>
+<li>Analyses → T-Tests → Independent Samples T-Test</li>
+<li>DV: <strong>skore_zkousky</strong>, Grouping: <strong>metoda_studia</strong></li>
+</ol>
+<p><strong>Interpretace:</strong> Po vyfiltrování studentů s hybridní formou (N=226 zbývá) zjišťujeme, že neexistuje statisticky významný rozdíl ve zkouškových výsledcích mezi tradiční a online formou (t = 0.99, p = 0.324). Obě formy jsou tedy srovnatelně efektivní.</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 12: FILTER - Students with Job -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset3_Q12_FILTR studenti s brigádou</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 3: Akademický výkon studentů</strong></p>
+<p><strong>⚠️ POUŽIJTE FILTR!</strong></p>
+
+<p>Analyzujte korelaci mezi indexem stresu (<strong>index_stresu</strong>) a GPA (<strong>prumer</strong>) <strong>pouze u studentů, kteří pracují na brigádě</strong>.</p>
+
+<p><strong>FILTR v Jamovi:</strong> <code>brigada == 'Ano'</code></p>
+
+<p><strong>Po aplikaci filtru:</strong></p>
+
+<p>1. Počet studentů po filtrování: {1:NM:=154:10}</p>
+<p>2. Pearsonovo r: {2:NM:=-0.036:0.05}</p>
+<p>3. p-hodnota: {3:NM:=0.656:0.05}</p>
+
+<p><strong>4. Je korelace statisticky významná?</strong></p>
+<p>{4:MCS:=Ne, p = 0.656 > 0.05~Ano, p < 0.05}</p>
+
+<p><strong>5. Interpretace r = -0.036:</strong></p>
+<p>{5:MCS:=Velmi slabá téměř nulová korelace~Střední negativní korelace~Silná negativní korelace}</p>
+
+<p><strong>6. Závěr pro studenty s brigádou:</strong></p>
+<p>{6:MCS:=U studentů s brigádou není prokázán vztah mezi stresem a GPA~Stres výrazně snižuje GPA u studentů s brigádou~Je třeba větší vzorek}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<ol>
+<li><strong>NEJPRVE FILTR:</strong> Data → Filters → <code>brigada == 'Ano'</code></li>
+<li>Zkontrolujte N (mělo by být ~154)</li>
+<li>Analyses → Regression → Correlation Matrix</li>
+<li>Přesuňte <strong>index_stresu</strong> a <strong>prumer</strong></li>
+</ol>
+<p><strong>Interpretace:</strong> U studentů pracujících na brigádě (N=154) neexistuje statisticky významný vztah mezi stresem a GPA (r = -0.036, p = 0.656). Korelace je téměř nulová. To může naznačovat, že studenti s brigádou už mají nižší GPA z jiných důvodů (např. méně času) a stres už nepřidává další efekt.</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 13: Mann-Whitney Test -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset3_Q13_Mann Whitney návštěvy knihovny</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 3: Akademický výkon studentů</strong></p>
+<p><strong>Neparametrický test</strong></p>
+
+<p>Porovnejte počet návštěv knihovny (<strong>navstevy_knihovny</strong>) mezi studenty bydlícími na <strong>koleji</strong> a <strong>doma s rodiči</strong>. Použijte Mann-Whitney U test.</p>
+
+<p><strong>FILTR:</strong> <code>ubytovani == 'Kolej' || ubytovani == 'Doma s rodiči'</code></p>
+
+<p><strong>Výsledky Mann-Whitney U testu:</strong></p>
+
+<p>1. Počet studentů po filtrování: {1:NM:=175:10}</p>
+<p>2. W statistika: {2:NM:=3881.5:100}</p>
+<p>3. p-hodnota: {3:NM:=0.867:0.05}</p>
+
+<p><strong>4. Mediány obou skupin:</strong></p>
+<p>Kolej: {4:NM:=11:2} návštěv, Doma: {5:NM:=11:2} návštěv</p>
+
+<p><strong>6. Je rozdíl statisticky významný?</strong></p>
+<p>{6:MCS:=Ne, p = 0.867 > 0.05~Ano, p < 0.05}</p>
+
+<p><strong>7. Závěr analýzy:</strong></p>
+<p>{7:MCS:=Typ ubytování nemá vliv na návštěvnost knihovny~Studenti na koleji navštěvují knihovnu výrazně více~Studenti doma navštěvují knihovnu více}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<ol>
+<li><strong>FILTR:</strong> Data → Filters → <code>ubytovani == 'Kolej' || ubytovani == 'Doma s rodiči'</code></li>
+<li>Analyses → T-Tests → Independent Samples T-Test</li>
+<li>DV: <strong>navstevy_knihovny</strong>, Grouping: <strong>ubytovani</strong></li>
+<li>V Tests zaškrtněte: Mann-Whitney U</li>
+</ol>
+<p><strong>Interpretace:</strong> Neexistuje statisticky významný rozdíl v návštěvnosti knihovny mezi studenty na koleji a doma (W = 3881.5, p = 0.867). Obě skupiny mají stejný medián (11 návštěv/měsíc). Typ ubytování tedy neovlivňuje, jak často studenti využívají knihovnu.</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 14: Contingency Table -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset3_Q14_Kontingenční tabulka program a brigáda</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 3: Akademický výkon studentů</strong></p>
+<p>Vytvořte kontingenční tabulku pro proměnné <strong>studijni_program</strong> (5 oborů) a <strong>brigada</strong> (Ano/Ne).</p>
+
+<p><strong>Výsledky chí-kvadrát testu nezávislosti:</strong></p>
+
+<p>1. Hodnota χ² statistiky: {1:NM:=2.63:0.3}</p>
+<p>2. Stupně volnosti: {2:NM:=4:0}</p>
+<p>3. p-hodnota: {3:NM:=0.621:0.05}</p>
+
+<p><strong>4. Jsou studijní program a brigáda nezávislé?</strong></p>
+<p>{4:MCS:=Ano, jsou nezávislé (p = 0.621 > 0.05)~Ne, jsou statisticky významně asociovány}</p>
+
+<p><strong>5. Jak se počítají stupně volnosti?</strong></p>
+<p>{5:MCS:=(5 programů - 1) × (2 kategorie brigády - 1) = 4~5 × 2 = 10~počet buněk - 1 = 9}</p>
+
+<p><strong>6. Co tento výsledek znamená v praxi?</strong></p>
+<p>{6:MCS:=Pravděpodobnost práce na brigádě je podobná napříč všemi obory~Některé obory mají výrazně více studentů s brigádou~Test je neprůkazný}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<ol>
+<li>Analyses → Frequencies → Contingency Tables</li>
+<li>Přesuňte <strong>studijni_program</strong> do Rows</li>
+<li>Přesuňte <strong>brigada</strong> do Columns</li>
+<li>V Statistics zaškrtněte: χ² test</li>
+</ol>
+<p><strong>Interpretace:</strong> Neexistuje statisticky významná asociace mezi studijním programem a prací na brigádě (χ²(4) = 2.63, p = 0.621). Studenti všech oborů pracují na brigádě s podobnou pravděpodobností.</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 15: Effect Size Interpretation -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset3_Q15_Interpretace velikosti efektu</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 3: Akademický výkon studentů</strong></p>
+<p><strong>Interpretace velikosti efektu</strong></p>
+
+<p>V Otázce 3 jsme testovali vliv studijního programu na zkouškové skóre pomocí ANOVA. Výsledky:</p>
+<ul>
+<li>F(4, 275) = 1.83, p = 0.123</li>
+<li>η² = 0.026</li>
+</ul>
+
+<p><strong>Zodpovězte otázky:</strong></p>
+
+<p>1. Hodnota η² = {1:NM:=0.026:0.01}</p>
+
+<p><strong>2. Podle Cohenových kritérií, jak klasifikovat η² = 0.026?</strong></p>
+<p>{2:MCS:=Malý efekt (η² < 0.06)~Střední efekt (η² = 0.06-0.14)~Velký efekt (η² > 0.14)}</p>
+
+<p><strong>3. Co znamená η² = 0.026?</strong></p>
+<p>{3:MCS:=2.6 % variability zkouškového skóre je vysvětleno studijním programem~26 % variability je vysvětleno~Studijní program zvyšuje skóre o 2.6 bodů}</p>
+
+<p><strong>4. Proč je p = 0.123 > 0.05, přestože existuje nějaký efekt (η² = 0.026)?</strong></p>
+<p>{4:MCS:=Efekt je příliš malý na to, aby byl statisticky detekovatelný při tomto vzorku~Test je špatně proveden~P-hodnota je chybná}</p>
+
+<p><strong>5. Praktický význam pro výuku:</strong></p>
+<p>{5:MCS:=Studijní program má zanedbatelný vliv - kurz statistiky funguje podobně pro všechny obory~Studijní program je klíčový pro úspěch v kurzu~Je třeba upravit výuku podle oborů}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Interpretace:</strong></p>
+<p>I když ANOVA není statisticky významná (p = 0.123), můžeme stále posoudit velikost efektu pomocí η².</p>
+<p>η² = 0.026 znamená, že studijní program vysvětluje pouze 2.6 % variability ve zkouškových výsledcích - to je malý efekt podle Cohenových kritérií.</p>
+<p><strong>Praktický význam:</strong> Kurz statistiky je efektivní napříč všemi obory - studenti ekonomie, medicíny, inženýrství i umění dosahují podobných výsledků. Program nemá prakticky významný vliv na úspěšnost.</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 16: Stratified Analysis -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset3_Q16_Stratifikace podle docházky</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 3: Akademický výkon studentů</strong></p>
+<p><strong>Stratifikovaná analýza - zkouškové skóre podle docházky</strong></p>
+
+<p>Analyzujte průměrné zkouškové skóre (<strong>skore_zkousky</strong>) pro každou kategorii docházky (<strong>mira_dochazky</strong>: 1=Slabá, 2=Dostatečná, 3=Dobrá, 4=Výborná).</p>
+
+<p><strong>Vypočítejte průměry (zaokrouhlujte na 1 des. místo):</strong></p>
+
+<p>1. Výborná docházka (4): průměr = {1:NM:=95.7:1} bodů</p>
+<p>2. Dobrá docházka (3): průměr = {2:NM:=90.2:1} bodů</p>
+<p>3. Dostatečná docházka (2): průměr = {3:NM:=87.8:1} bodů</p>
+
+<p><strong>4. Jaký je trend v datech?</strong></p>
+<p>{4:MCS:=Čím lepší docházka, tím vyšší průměrné zkouškové skóre~Docházka nemá vliv na výsledky~Trend je nejasný}</p>
+
+<p><strong>5. Rozdíl mezi výbornou a dostatečnou docházkou:</strong></p>
+<p>{5:MCS:=Přibližně 8 bodů (95.7 - 87.8)~Přibližně 3 body~Více než 15 bodů}</p>
+
+<p><strong>6. Praktický závěr pro studenty:</strong></p>
+<p>{6:MCS:=Docházka na přednášky a semináře má významný pozitivní dopad na zkouškové výsledky~Docházka není důležitá pro úspěch~Stačí občasná docházka}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<ol>
+<li>Analyses → Exploration → Descriptives</li>
+<li>Přesuňte <strong>skore_zkousky</strong> do Variables</li>
+<li>Přesuňte <strong>mira_dochazky</strong> do Split by</li>
+<li>V Statistics zaškrtněte: Mean</li>
+</ol>
+<p><strong>Interpretace:</strong> Existuje jasný pozitivní trend - studenti s výbornou docházkou (95.7 bodů) dosahují v průměru o ~8 bodů lepších výsledků než studenti s dostatečnou docházkou (87.8 bodů). Docházka je tedy důležitým faktorem akademického úspěchu.</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 17: Assignment vs Exam Comparison -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset3_Q17_Porovnání projekt a zkouška</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 3: Akademický výkon studentů</strong></p>
+<p><strong>Porovnání dvou typů hodnocení</strong></p>
+
+<p>Porovnejte skóre z projektů (<strong>skore_projektu</strong>) a skóre ze zkoušky (<strong>skore_zkousky</strong>). Obě proměnné jsou na škále 0-100.</p>
+
+<p><strong>Základní statistiky:</strong></p>
+
+<p>1. Průměrné skóre z projektů: {1:NM:=91.63:0.5} bodů</p>
+<p>2. Průměrné skóre ze zkoušky: {2:NM:=92.41:0.5} bodů</p>
+<p>3. Průměrný rozdíl (projekty - zkouška): {3:NM:=-0.78:0.3} bodů</p>
+
+<p><strong>Párový t-test:</strong></p>
+
+<p>4. t-statistika: {4:NM:=-1.56:0.3} (včetně znaménka)</p>
+<p>5. p-hodnota: {5:NM:=0.120:0.02}</p>
+
+<p><strong>6. Je rozdíl statisticky významný?</strong></p>
+<p>{6:MCS:=Ne, p = 0.120 > 0.05~Ano, p < 0.05}</p>
+
+<p><strong>7. Interpretace výsledků:</strong></p>
+<p>{7:MCS:=Studenti dosahují podobných výsledků v projektech i ve zkoušce~Projekty jsou výrazně jednodušší než zkouška~Zkouška je výrazně jednodušší než projekty}</p>
+
+<p><strong>8. Proč používáme párový t-test?</strong></p>
+<p>{8:MCS:=Obě skóre jsou měřena na stejných studentech~Máme pouze 2 skupiny~Data nejsou normální}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<ol>
+<li>Analyses → T-Tests → Paired Samples T-Test</li>
+<li>Přesuňte <strong>skore_projektu</strong> a <strong>skore_zkousky</strong> do Paired Variables</li>
+</ol>
+<p><strong>Interpretace:</strong> Neexistuje statisticky významný rozdíl mezi průměrnými skóre z projektů (91.63) a ze zkoušky (92.41), t(279) = -1.56, p = 0.120. Rozdíl je pouze -0.78 bodu. To naznačuje, že oba způsoby hodnocení měří podobnou úroveň znalostí a jsou srovnatelně náročné.</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 18: Levene's Test -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset3_Q18_Leveneho test</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 3: Akademický výkon studentů</strong></p>
+<p><strong>Leveneho test homogenity rozptylů</strong></p>
+
+<p>Testujte předpoklad homogenity rozptylů pro ANOVA z Otázky 3 (zkouškové skóre podle studijního programu).</p>
+
+<p><strong>Výsledky Leveneho testu:</strong></p>
+
+<p>1. F-statistika: {1:NM:=1.908:0.2}</p>
+<p>2. Stupně volnosti (čitatel): {2:NM:=4:0}</p>
+<p>3. Stupně volnosti (jmenovatel): {3:NM:=275:0}</p>
+<p>4. p-hodnota: {4:NM:=0.109:0.02}</p>
+
+<p><strong>5. Na základě p-hodnoty, jaký je závěr?</strong></p>
+<p>{5:MCS:=Nezamítáme H₀: rozptyly JSOU homogenní (p = 0.109 > 0.05)~Zamítáme H₀: rozptyly NEJSOU homogenní}</p>
+
+<p><strong>6. Můžeme bezpečně použít klasickou ANOVA?</strong></p>
+<p>{6:MCS:=Ano, předpoklad homogenity je splněn~Ne, musíme použít Welch's ANOVA~Ne, ANOVA nelze použít}</p>
+
+<p><strong>7. Co testuje Leveneho test?</strong></p>
+<p>{7:MCS:=Zda mají všechny skupiny podobnou variabilitu (stejné rozptyly)~Zda mají skupiny stejné průměry~Zda jsou data normální}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<ol>
+<li>Analyses → ANOVA → One-Way ANOVA</li>
+<li>DV: <strong>skore_zkousky</strong>, Grouping: <strong>studijni_program</strong></li>
+<li>V Assumption Checks zaškrtněte: Homogeneity test (Levene's)</li>
+</ol>
+<p><strong>Interpretace:</strong> Leveneho test ukazuje, že rozptyly zkouškového skóre jsou homogenní napříč studijními programy (F(4,275) = 1.908, p = 0.109). Předpoklad homogenity rozptylů pro ANOVA je tedy splněn a můžeme bezpečně použít klasickou ANOVA.</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+</quiz>

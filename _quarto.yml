@@ -2,17 +2,22 @@ project:
   type: website
   output-dir: docs
   render:
-    - "*.qmd"   # list, not a single string
+    - index.qmd
+    - R/generating_materials/qmds/*.qmd   # all generated lessons
 
 website:
-  title: "My Reports"
+  title: "Moje statistika"
   navbar:
-    left: []    # empty list (no items). Remove navbar block or add items if you want links.
+    left:
+      - href: index.html
+        text: Úvod
   sidebar:
     style: floating
+    search: true
     contents: auto
 
 format:
   html:
     theme: cosmo
     toc: true
+    code-fold: true

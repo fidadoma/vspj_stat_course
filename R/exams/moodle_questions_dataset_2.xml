@@ -1,0 +1,936 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+
+<!-- ============================================ -->
+<!-- QUESTION 1: Descriptive Statistics -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset2_Q01_Deskriptivní statistika času zotavení</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 2: Zotavení pacientů</strong></p>
+<p>Pracujte s datasetem o pacientech po chirurgických zákrocích. Analyzujte proměnnou <strong>cas_zotaveni</strong> (čas do plného zotavení v týdnech).</p>
+
+<p><strong>Doplňte základní deskriptivní statistiky (zaokrouhlujte na 2 desetinná místa):</strong></p>
+
+<p>1. Průměrný čas zotavení: {1:NM:=22.96:0.3} týdnů</p>
+<p>2. Medián času zotavení: {2:NM:=23.8:0.3} týdnů</p>
+<p>3. Směrodatná odchylka: {3:NM:=3.29:0.2} týdnů</p>
+
+<p><strong>4. Na základě vztahu průměru a mediánu, jak byste charakterizovali rozdělení?</strong></p>
+<p>{4:MCS:=Mírně zešikmené doleva (medián > průměr)~Mírně zešikmené doprava (průměr > medián)~Symetrické (průměr ≈ medián)~Silně zešikmené doprava}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<ol>
+<li>Exploration → Descriptives</li>
+<li>Přesuňte <strong>cas_zotaveni</strong> do Variables</li>
+<li>V Statistics zaškrtněte: Mean, Median, Std. deviation</li>
+</ol>
+<p>Medián (23.8) je mírně vyšší než průměr (22.96), což naznačuje mírné zešikmení doleva (negativní skewness).</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 2: T-test with FILTER -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset2_Q02_Ttest s filtrem kouření</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 2: Zotavení pacientů</strong></p>
+<p><strong>POZOR - POUŽIJTE FILTR!</strong></p>
+<p>Porovnejte čas zotavení (<strong>cas_zotaveni</strong>) mezi pacienty, kteří <strong>nikdy nekouřili</strong> a <strong>současnými kuřáky</strong>.</p>
+<p><strong>⚠️ VYLUČTE bývalé kuřáky z analýzy pomocí filtru!</strong></p>
+
+<p>Filtr v Jamovi: <code>kouření != 'Bývalý kuřák'</code> nebo <code>kouření == 'Nikdy' || kouření == 'Současný kuřák'</code></p>
+
+<p><strong>Výsledky t-testu (zaokrouhlujte na 2-3 desetinná místa):</strong></p>
+
+<p>1. Hodnota t-statistiky: {1:NM:=3.40:0.15} (zadejte absolutní hodnotu)</p>
+<p>2. Počet stupňů volnosti: {2:NM:=120.9:3} (zaokrouhlete na 1 des. místo)</p>
+<p>3. p-hodnota: {3:NM:=0.001:0.002}</p>
+<p>4. Cohenovo d (velikost efektu): {4:NM:=0.49:0.05}</p>
+
+<p><strong>5. Je rozdíl statisticky významný na hladině α = 0.05?</strong></p>
+<p>{5:MCS:=Ano, p < 0.05~Ne, p > 0.05}</p>
+
+<p><strong>6. Jak byste interpretovali velikost efektu (Cohenovo d)?</strong></p>
+<p>{6:MCS:=Střední efekt (d ≈ 0.5)~Malý efekt (d < 0.3)~Velký efekt (d > 0.8)}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<ol>
+<li><strong>NEJPRVE FILTR:</strong> Data → Filters → Vytvořte filtr: <code>kouření != 'Bývalý kuřák'</code></li>
+<li>Analyses → T-Tests → Independent Samples T-Test</li>
+<li>Přesuňte <strong>cas_zotaveni</strong> do Dependent Variables</li>
+<li>Přesuňte <strong>kouření</strong> do Grouping Variable</li>
+<li>V Tests zaškrtněte: Student's t-test</li>
+<li>V Effect Size zaškrtněte: Cohen's d</li>
+</ol>
+<p><strong>Interpretace:</strong> Současní kuřáci mají statisticky významně delší dobu zotavení než ti, kdo nikdy nekouřili (p = 0.001). Velikost efektu je střední (d = 0.49).</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 3: ANOVA with Post-hoc -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset2_Q03_ANOVA typ zákroku</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 2: Zotavení pacientů</strong></p>
+<p>Testujte, zda se liší čas zotavení (<strong>cas_zotaveni</strong>) podle typu chirurgického zákroku (<strong>typ_zakroku</strong>: Koleno, Kyčel, Páteř, Rameno).</p>
+
+<p><strong>Výsledky ANOVA (zaokrouhlujte na 2 desetinná místa):</strong></p>
+
+<p>1. F-statistika: {1:NM:=22.27:1}</p>
+<p>2. Stupně volnosti čitatele: {2:NM:=3:0}</p>
+<p>3. Stupně volnosti jmenovatele: {3:NM:=296:0}</p>
+<p>4. p-hodnota: {4:NM:=0.000:0.001} (zadejte jako 0.000 pokud p < 0.001)</p>
+<p>5. Eta-squared (η²): {5:NM:=0.184:0.02}</p>
+
+<p><strong>6. Je efekt typu zákroku statisticky významný?</strong></p>
+<p>{6:MCS:=Ano, p < 0.001~Ne, p > 0.05~Ano, ale pouze na hladině 0.05}</p>
+
+<p><strong>7. Jak byste interpretovali velikost efektu η² = 0.184?</strong></p>
+<p>{7:MCS:=Velký efekt (> 0.14)~Střední efekt (0.06-0.14)~Malý efekt (< 0.06)}</p>
+
+<p><strong>Post-hoc analýza:</strong> Největší rozdíl v době zotavení je mezi zákroky:</p>
+<p>{8:MCS:=Páteř - Kyčel (7.05 týdnů)~Rameno - Koleno~Páteř - Rameno~Kyčel - Koleno}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<ol>
+<li>Analyses → ANOVA → One-Way ANOVA</li>
+<li>Přesuňte <strong>cas_zotaveni</strong> do Dependent Variable</li>
+<li>Přesuňte <strong>typ_zakroku</strong> do Grouping Variable</li>
+<li>V Effect Size zaškrtněte: η²</li>
+<li>V Post Hoc Tests vyberte <strong>typ_zakroku</strong> a zaškrtněte Tukey</li>
+</ol>
+<p><strong>Interpretace:</strong> Typ chirurgického zákroku má statisticky významný vliv na dobu zotavení (F(3,296) = 22.27, p < 0.001, η² = 0.184). Velikost efektu je velká. Největší rozdíl je mezi zákroky páteře a kyčle.</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 4: Spearman Correlation -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset2_Q04_Korelace věk a komorbidity</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 2: Zotavení pacientů</strong></p>
+<p>Analyzujte vztah mezi věkem pacienta (<strong>vek</strong>) a indexem komorbidit (<strong>index_komorbidity</strong>).</p>
+<p>Protože index komorbidit je ordinální proměnná, použijte <strong>Spearmanovu korelaci</strong>.</p>
+
+<p><strong>Výsledky Spearmanovy korelace:</strong></p>
+
+<p>1. Spearmanovo ρ (rho): {1:NM:=0.455:0.03}</p>
+<p>2. p-hodnota: {2:NM:=0.000:0.001} (zadejte 0.000 pokud p < 0.001)</p>
+
+<p><strong>3. Jaký je směr vztahu?</strong></p>
+<p>{3:MCS:=Pozitivní (starší pacienti mají více komorbidit)~Negativní (starší pacienti mají méně komorbidit)~Žádný vztah}</p>
+
+<p><strong>4. Jak byste charakterizovali sílu vztahu (|ρ| = 0.455)?</strong></p>
+<p>{4:MCS:=Střední korelace (0.3-0.5)~Slabá korelace (< 0.3)~Silná korelace (> 0.5)}</p>
+
+<p><strong>5. Je korelace statisticky významná?</strong></p>
+<p>{5:MCS:=Ano, p < 0.001~Ne, p > 0.05}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<ol>
+<li>Analyses → Regression → Correlation Matrix</li>
+<li>Přesuňte <strong>vek</strong> a <strong>index_komorbidity</strong> do proměnných</li>
+<li>V Correlation Coefficients vyberte <strong>Spearman</strong></li>
+<li>Zaškrtněte: Report significance</li>
+</ol>
+<p><strong>Interpretace:</strong> Existuje statisticky významná pozitivní korelace střední síly mezi věkem a počtem komorbidit (ρ = 0.455, p < 0.001). Starší pacienti mají tendenci mít více přidružených onemocnění.</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 5: Simple Regression -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset2_Q05_Regrese čas zotavení komorbidity</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 2: Zotavení pacientů</strong></p>
+<p>Vytvořte jednoduchou lineární regresi, která predikuje čas zotavení (<strong>cas_zotaveni</strong>) z indexu komorbidit (<strong>index_komorbidity</strong>).</p>
+<p>Regresní rovnice: cas_zotaveni = b₀ + b₁ × index_komorbidity</p>
+
+<p><strong>Parametry regresního modelu:</strong></p>
+
+<p>1. Intercept (b₀): {1:NM:=14.81:0.5} týdnů</p>
+<p>2. Slope (b₁) pro index_komorbidity: {2:NM:=2.40:0.2} týdnů na jednotku komorbidity</p>
+<p>3. R² (koeficient determinace): {3:NM:=0.278:0.02}</p>
+<p>4. p-hodnota pro slope: {4:NM:=0.000:0.001}</p>
+
+<p><strong>5. Je slope statisticky významný?</strong></p>
+<p>{5:MCS:=Ano, p < 0.001~Ne, p > 0.05}</p>
+
+<p><strong>6. Interpretace slope: Když se index komorbidit zvýší o 1...</strong></p>
+<p>{6:MCS:=Čas zotavení se v průměru prodlouží o 2.40 týdnů~Čas zotavení se v průměru zkrátí o 2.40 týdnů~Čas zotavení se nezmění}</p>
+
+<p><strong>7. Kolik procent variability času zotavení vysvětluje model?</strong></p>
+<p>{7:MCS:=27.8 % (R² = 0.278)~2.78 %~97.2 %}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<ol>
+<li>Analyses → Regression → Linear Regression</li>
+<li>Přesuňte <strong>cas_zotaveni</strong> do Dependent Variable</li>
+<li>Přesuňte <strong>index_komorbidity</strong> do Covariates</li>
+<li>V Model Fit zaškrtněte: R, R²</li>
+</ol>
+<p><strong>Interpretace:</strong> Model je statisticky významný. S každou další komorbiditou se čas zotavení v průměru prodlužuje o 2.40 týdnů. Model vysvětluje 27.8 % variability v době zotavení.</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 6: Multiple Regression -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset2_Q06_Vícenásobná regrese</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 2: Zotavení pacientů</strong></p>
+<p>Vytvořte vícenásobnou regresi pro predikci času zotavení (<strong>cas_zotaveni</strong>) s následujícími prediktory:</p>
+<ul>
+<li><strong>vek</strong> (věk pacienta)</li>
+<li><strong>index_komorbidity</strong> (počet komorbidit)</li>
+<li><strong>typ_zakroku</strong> (typ chirurgického zákroku - kategoriální)</li>
+</ul>
+
+<p><strong>Celkové charakteristiky modelu:</strong></p>
+
+<p>1. R² modelu: {1:NM:=0.512:0.02}</p>
+<p>2. Adjusted R² modelu: {2:NM:=0.504:0.02}</p>
+
+<p><strong>3. Kolik procent variability času zotavení vysvětluje tento model?</strong></p>
+<p>{3:MCS:=51.2 % (R² = 0.512)~50.4 %~48.8 %}</p>
+
+<p><strong>4. Porovnejte s modelem z Q5 (pouze index_komorbidity, R² = 0.278). Co můžete říci?</strong></p>
+<p>{4:MCS:=Model s více prediktory vysvětluje podstatně více variability (51.2 % vs 27.8 %)~Oba modely jsou přibližně stejně dobré~Jednoduchý model je lepší}</p>
+
+<p><strong>5. Který prediktor má největší vliv na čas zotavení?</strong></p>
+<p>{5:MCS:=typ_zakroku (kategoriální s více úrovněmi)~index_komorbidity~vek~Všechny mají podobný vliv}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<ol>
+<li>Analyses → Regression → Linear Regression</li>
+<li>Přesuňte <strong>cas_zotaveni</strong> do Dependent Variable</li>
+<li>Přesuňte <strong>vek</strong> a <strong>index_komorbidity</strong> do Covariates</li>
+<li>Přesuňte <strong>typ_zakroku</strong> do Factors</li>
+<li>V Model Fit zaškrtněte: R, R², Adjusted R²</li>
+</ol>
+<p><strong>Interpretace:</strong> Vícenásobný model vysvětluje 51.2 % variability, což je téměř dvojnásobek oproti jednoduché regresi (27.8 %). Přidání věku a typu zákroku výrazně zlepšuje predikci.</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 7: Chi-square Test -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset2_Q07_Chíkvadrát pojištění a zákrok</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 2: Zotavení pacientů</strong></p>
+<p>Testujte, zda existuje asociace mezi typem pojištění (<strong>typ_pojisteni</strong>: Veřejné, Soukromé, Smíšené) a typem chirurgického zákroku (<strong>typ_zakroku</strong>: Koleno, Kyčel, Páteř, Rameno).</p>
+
+<p><strong>Výsledky chí-kvadrát testu:</strong></p>
+
+<p>1. Hodnota chí-kvadrát statistiky: {1:NM:=9.95:0.5}</p>
+<p>2. Počet stupňů volnosti: {2:NM:=6:0}</p>
+<p>3. p-hodnota: {3:NM:=0.127:0.02}</p>
+<p>4. Cramérovo V (velikost efektu): {4:NM:=0.129:0.02}</p>
+
+<p><strong>5. Je asociace statisticky významná na hladině α = 0.05?</strong></p>
+<p>{5:MCS:=Ne, p = 0.127 > 0.05~Ano, p < 0.05}</p>
+
+<p><strong>6. Jak byste interpretovali Cramérovo V = 0.129?</strong></p>
+<p>{6:MCS:=Slabá asociace (V < 0.2)~Střední asociace (V = 0.2-0.4)~Silná asociace (V > 0.4)}</p>
+
+<p><strong>7. Závěr analýzy:</strong></p>
+<p>{7:MCS:=Typ pojištění a typ zákroku nejsou statisticky významně asociovány~Existuje silná závislost mezi pojištěním a typem zákroku~Existuje statisticky významná, ale slabá asociace}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<ol>
+<li>Analyses → Frequencies → Contingency Tables</li>
+<li>Přesuňte <strong>typ_pojisteni</strong> do Rows</li>
+<li>Přesuňte <strong>typ_zakroku</strong> do Columns</li>
+<li>V Statistics zaškrtněte: χ² test</li>
+<li>V Statistics také zaškrtněte: Cramér's V</li>
+</ol>
+<p><strong>Interpretace:</strong> Neexistuje statisticky významná asociace mezi typem pojištění a typem chirurgického zákroku (χ²(6) = 9.95, p = 0.127). Typ pojištění neovlivňuje, jaký typ zákroku pacient podstoupí.</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 8: Spearman Non-significant -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset2_Q08_Korelace bolest a mobilita</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 2: Zotavení pacientů</strong></p>
+<p>Analyzujte vztah mezi úrovní bolesti (<strong>uroven_bolesti</strong>, škála 1-10) a skóre mobility (<strong>skore_mobility</strong>, škála 1-5).</p>
+<p>Obě proměnné jsou ordinální, použijte <strong>Spearmanovu korelaci</strong>.</p>
+
+<p><strong>Výsledky:</strong></p>
+
+<p>1. Spearmanovo ρ: {1:NM:=-0.080:0.04} (včetně znaménka)</p>
+<p>2. p-hodnota: {2:NM:=0.165:0.02}</p>
+
+<p><strong>3. Je korelace statisticky významná na hladině α = 0.05?</strong></p>
+<p>{3:MCS:=Ne, p = 0.165 > 0.05~Ano, p < 0.05}</p>
+
+<p><strong>4. Očekávali byste negativní korelaci (vyšší bolest = nižší mobilita)?</strong></p>
+<p>{4:MCS:=Ano, logicky by pacienti s větší bolestí měli mít horší mobilitu~Ne, tyto proměnné by měly být nezávislé}</p>
+
+<p><strong>5. Proč korelace nebyla statisticky významná?</strong></p>
+<p>{5:MCS:=Korelace je velmi slabá (|ρ| = 0.08, blízko nule)~Výběrový soubor je příliš malý~Data neodpovídají předpokladům testu}</p>
+
+<p><strong>6. Závěr:</strong></p>
+<p>{6:MCS:=V našich datech neexistuje statisticky prokázaný lineární vztah mezi bolestí a mobilitou~Existuje silný vztah mezi bolestí a mobilitou~Je třeba větší vzorek pro potvrzení vztahu}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<ol>
+<li>Analyses → Regression → Correlation Matrix</li>
+<li>Přesuňte <strong>uroven_bolesti</strong> a <strong>skore_mobility</strong> do proměnných</li>
+<li>V Correlation Coefficients vyberte <strong>Spearman</strong></li>
+</ol>
+<p><strong>Interpretace:</strong> I když očekáváme negativní vztah, korelace je velmi slabá (ρ = -0.08) a statisticky nevýznamná (p = 0.165). To může být způsobeno tím, že bolest a mobilita se měří v různých časových bodech nebo jsou ovlivněny dalšími faktory.</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 9: Shapiro-Wilk Normality Test -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset2_Q09_Test normality BMI</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 2: Zotavení pacientů</strong></p>
+<p>Před použitím parametrických testů je důležité ověřit normalitu dat. Testujte normalitu proměnné <strong>bmi</strong> pomocí Shapiro-Wilkova testu.</p>
+
+<p><strong>Výsledky Shapiro-Wilkova testu:</strong></p>
+
+<p>1. W statistika: {1:NM:=0.995:0.01}</p>
+<p>2. p-hodnota: {2:NM:=0.369:0.05}</p>
+
+<p><strong>3. Nulová hypotéza Shapiro-Wilkova testu říká:</strong></p>
+<p>{3:MCS:=Data pocházejí z normálního rozdělení~Data nepocházejí z normálního rozdělení~Data jsou nezávislá}</p>
+
+<p><strong>4. Na základě p-hodnoty, jaký je závěr?</strong></p>
+<p>{4:MCS:=Nezamítáme H₀: data JSOU normálně rozdělená (p = 0.369 > 0.05)~Zamítáme H₀: data NEJSOU normálně rozdělená (p < 0.05)}</p>
+
+<p><strong>5. Můžeme použít parametrické testy (t-test, ANOVA) pro BMI?</strong></p>
+<p>{5:MCS:=Ano, předpoklad normality je splněn~Ne, musíme použít neparametrické testy~Ano, ale pouze při velkém vzorku}</p>
+
+<p><strong>6. Co znamená W = 0.995 (blízko 1)?</strong></p>
+<p>{6:MCS:=Rozdělení se velmi blíží normálnímu rozdělení~Rozdělení je silně nenormální~W hodnota nemá interpretaci}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<ol>
+<li>Analyses → Exploration → Descriptives</li>
+<li>Přesuňte <strong>bmi</strong> do Variables</li>
+<li>V Statistics zaškrtněte sekci <strong>Normality</strong></li>
+<li>Zaškrtněte: Shapiro-Wilk test</li>
+</ol>
+<p><strong>Interpretace:</strong> BMI je normálně rozděleno (W = 0.995, p = 0.369). Hodnota W blízká 1 a p > 0.05 indikují, že data dobře odpovídají normálnímu rozdělení. Můžeme bezpečně použít parametrické testy.</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 10: Collider Bias (DAG) -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset2_Q10_Collider bias BMI</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 2: Zotavení pacientů</strong></p>
+<p><strong>Kauzální inference - Collider bias</strong></p>
+
+<p>V datasetech může <strong>bmi</strong> fungovat jako <em>collider</em> (střetávač) - proměnná, která je ovlivněna jak věkem, tak časem zotavení. Pokud kondicionujeme na collider (např. filtrujeme nebo kontrolujeme BMI v regresi), můžeme vytvořit <strong>falešnou asociaci</strong> mezi věkem a časem zotavení.</p>
+
+<p><strong>Porovnejte dvě korelace:</strong></p>
+
+<p>1. <strong>Jednoduchá korelace</strong> věk × čas zotavení (BEZ kontroly BMI):</p>
+<p>Pearsonovo r = {1:NM:=0.460:0.03}</p>
+
+<p>2. <strong>Parciální korelace</strong> věk × čas zotavení (S KONTROLOU BMI):</p>
+<p>Pearsonovo r = {2:NM:=0.380:0.03}</p>
+
+<p><strong>3. Co se stalo s korelací po kontrole BMI?</strong></p>
+<p>{3:MCS:=Korelace klesla z 0.46 na 0.38~Korelace vzrostla~Korelace zůstala stejná}</p>
+
+<p><strong>4. Proč kontrola BMI (collider) změnila korelaci?</strong></p>
+<p>{4:MCS:=Kondicionování na collider vytváří falešnou asociaci nebo ji mění~BMI je konfounder, který jsme správně odstranili~Je to náhodný jev}</p>
+
+<p><strong>5. Měli bychom kontrolovat BMI v analýze věk → čas zotavení?</strong></p>
+<p>{5:MCS:=Ne, pokud je BMI collider, kontrola může zavést bias~Ano, vždy bychom měli kontrolovat všechny proměnné~Záleží na výzkumné otázce}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<p><strong>Jednoduchá korelace:</strong></p>
+<ol>
+<li>Analyses → Regression → Correlation Matrix</li>
+<li>Přesuňte <strong>vek</strong> a <strong>cas_zotaveni</strong></li>
+</ol>
+<p><strong>Parciální korelace (kontrola BMI):</strong></p>
+<ol>
+<li>Analyses → Regression → Partial Correlation</li>
+<li>Přesuňte <strong>vek</strong> a <strong>cas_zotaveni</strong> do proměnných</li>
+<li>Přesuňte <strong>bmi</strong> do Control Variables</li>
+</ol>
+<p><strong>Interpretace DAG:</strong> BMI je collider - ovlivňují ho jak věk, tak zdravotní stav (který souvisí s časem zotavení). Kondicionování na collider (kontrola BMI) otevírá "backdoor path" a vytváří nebo mění asociace mezi proměnnými. Jednoduchá korelace (0.46) je v tomto případě spolehlivější.</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 11: FILTER - Hip and Knee only -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset2_Q11_FILTR Kyčel a Koleno hospitalizace</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 2: Zotavení pacientů</strong></p>
+<p><strong>⚠️ POUŽIJTE FILTR!</strong></p>
+
+<p>Porovnejte počet dní hospitalizace (<strong>dny_hospitalizace</strong>) mezi pacienty s operací <strong>kyčle</strong> a <strong>kolena</strong>.</p>
+
+<p><strong>FILTR:</strong> Vylučte pacienty s operací páteře a ramene!</p>
+<p>V Jamovi: <code>typ_zakroku == 'Kyčel' || typ_zakroku == 'Koleno'</code></p>
+
+<p><strong>Po aplikaci filtru:</strong></p>
+
+<p>1. Počet pacientů po filtrování: {1:NM:=191:5}</p>
+<p>2. t-statistika: {2:NM:=2.97:0.2} (absolutní hodnota)</p>
+<p>3. p-hodnota: {3:NM:=0.003:0.002}</p>
+
+<p><strong>4. Je rozdíl statisticky významný?</strong></p>
+<p>{4:MCS:=Ano, p = 0.003 < 0.05~Ne, p > 0.05}</p>
+
+<p><strong>5. Proč jsme museli použít filtr?</strong></p>
+<p>{5:MCS:=T-test porovnává pouze 2 skupiny, musíme vylučit ostatní~T-test vyžaduje normální rozdělení~Data páteře a ramene jsou odlehlé hodnoty}</p>
+
+<p><strong>6. Kolik pacientů jsme vyloučili filtrováním?</strong></p>
+<p>{6:MCS:=109 pacientů (300 - 191)~50 pacientů~191 pacientů}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<ol>
+<li><strong>NEJPRVE FILTR:</strong> Data → Filters</li>
+<li>Vytvořte: <code>typ_zakroku == 'Kyčel' || typ_zakroku == 'Koleno'</code></li>
+<li>Nebo: <code>typ_zakroku != 'Páteř' && typ_zakroku != 'Rameno'</code></li>
+<li>Analyses → T-Tests → Independent Samples T-Test</li>
+<li>Přesuňte <strong>dny_hospitalizace</strong> do Dependent Variables</li>
+<li>Přesuňte <strong>typ_zakroku</strong> do Grouping Variable</li>
+</ol>
+<p><strong>Interpretace:</strong> Po vyfiltrování pouze pacientů s operací kyčle a kolena (N=191) zjišťujeme statisticky významný rozdíl v délce hospitalizace (t = 2.97, p = 0.003).</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 12: FILTER - Age >= 65 -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset2_Q12_FILTR seniori korelace</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 2: Zotavení pacientů</strong></p>
+<p><strong>⚠️ POUŽIJTE FILTR!</strong></p>
+
+<p>Analyzujte korelaci mezi předoperačním skóre (<strong>skore_pred_operaci</strong>) a pooperačním skóre (<strong>skore_po_operaci</strong>) <strong>pouze u pacientů ve věku 65 let a více</strong>.</p>
+
+<p><strong>FILTR v Jamovi:</strong> <code>vek >= 65</code></p>
+
+<p><strong>Po aplikaci filtru:</strong></p>
+
+<p>1. Počet pacientů po filtrování: {1:NM:=134:5}</p>
+<p>2. Pearsonovo r: {2:NM:=0.367:0.03}</p>
+<p>3. p-hodnota: {3:NM:=0.000:0.001} (zadejte 0.000 pokud p < 0.001)</p>
+
+<p><strong>4. Je korelace statisticky významná?</strong></p>
+<p>{4:MCS:=Ano, p < 0.001~Ne, p > 0.05}</p>
+
+<p><strong>5. Jak interpretovat pozitivní korelaci mezi pre a post skóre?</strong></p>
+<p>{5:MCS:=Pacienti s lepším stavem před operací mají tendenci mít lepší stav i po operaci~Pacienti s horším stavem před operací se více zlepší~Není zde kauzální vztah}</p>
+
+<p><strong>6. Proč filtrujeme pouze seniory (65+)?</strong></p>
+<p>{6:MCS:=Výzkumná otázka se týká specificky seniorské populace~Data mladších pacientů jsou chybná~T-test vyžaduje stejně velké skupiny}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<ol>
+<li><strong>NEJPRVE FILTR:</strong> Data → Filters</li>
+<li>Vytvořte: <code>vek >= 65</code></li>
+<li>Zkontrolujte počet případů (mělo by být ~134)</li>
+<li>Analyses → Regression → Correlation Matrix</li>
+<li>Přesuňte <strong>skore_pred_operaci</strong> a <strong>skore_po_operaci</strong></li>
+<li>Vyberte Pearson correlation</li>
+</ol>
+<p><strong>Interpretace:</strong> U seniorů (N=134) existuje statisticky významná pozitivní korelace střední síly mezi předoperačním a pooperačním stavem (r = 0.367, p < 0.001). Pacienti v lepší kondici před operací mají tendenci být v lepší kondici i po zákroku.</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 13: Mann-Whitney (non-parametric) -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset2_Q13_Mann Whitney oddělení</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 2: Zotavení pacientů</strong></p>
+<p><strong>Neparametrický test</strong></p>
+
+<p>Porovnejte počet dní hospitalizace (<strong>dny_hospitalizace</strong>) mezi pacienty na oddělení <strong>A</strong> a oddělení <strong>D</strong>. Použijte Mann-Whitney U test (neparametrickou alternativu t-testu).</p>
+
+<p><strong>FILTR:</strong> <code>nemocnicni_oddeleni == 'A' || nemocnicni_oddeleni == 'D'</code></p>
+
+<p><strong>Výsledky Mann-Whitney U testu:</strong></p>
+
+<p>1. Počet pacientů po filtrování: {1:NM:=147:5}</p>
+<p>2. W statistika (Mann-Whitney U): {2:NM:=2404.5:50}</p>
+<p>3. p-hodnota: {3:NM:=0.918:0.05}</p>
+
+<p><strong>4. Je rozdíl statisticky významný?</strong></p>
+<p>{4:MCS:=Ne, p = 0.918 > 0.05~Ano, p < 0.05}</p>
+
+<p><strong>5. Kdy použít Mann-Whitney místo t-testu?</strong></p>
+<p>{5:MCS:=Když data nejsou normálně rozdělená nebo máme ordinální proměnné~Vždy, protože je robustnější~Pouze když máme méně než 30 pozorování}</p>
+
+<p><strong>6. Závěr analýzy:</strong></p>
+<p>{6:MCS:=Neexistuje statisticky významný rozdíl v délce hospitalizace mezi odděleními A a D~Oddělení A má signifikantně delší hospitalizaci~Oddělení D má signifikantně delší hospitalizaci}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<ol>
+<li><strong>FILTR:</strong> Data → Filters → <code>nemocnicni_oddeleni == 'A' || nemocnicni_oddeleni == 'D'</code></li>
+<li>Analyses → T-Tests → Independent Samples T-Test</li>
+<li>Přesuňte <strong>dny_hospitalizace</strong> do Dependent Variables</li>
+<li>Přesuňte <strong>nemocnicni_oddeleni</strong> do Grouping Variable</li>
+<li>V Tests zaškrtněte: <strong>Mann-Whitney U</strong></li>
+</ol>
+<p><strong>Interpretace:</strong> Neexistuje statisticky významný rozdíl v délce hospitalizace mezi odděleními A a D (W = 2404.5, p = 0.918). Mann-Whitney test porovnává mediány a je vhodný, když nejsou splněny předpoklady t-testu.</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 14: Contingency Table -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset2_Q14_Kontingenční tabulka kouření komorbidity</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 2: Zotavení pacientů</strong></p>
+<p>Vytvořte kontingenční tabulku pro proměnné <strong>kouření</strong> (status kouření) a <strong>index_komorbidity</strong> (počet komorbidit: 0, 1, 2, 3).</p>
+
+<p><strong>Výsledky chí-kvadrát testu nezávislosti:</strong></p>
+
+<p>1. Hodnota χ² statistiky: {1:NM:=31.48:2}</p>
+<p>2. Stupně volnosti: {2:NM:=6:0}</p>
+<p>3. p-hodnota: {3:NM:=0.000:0.001}</p>
+
+<p><strong>4. Jsou status kouření a počet komorbidit nezávislé?</strong></p>
+<p>{4:MCS:=Ne, jsou statisticky významně asociovány (p < 0.001)~Ano, jsou nezávislé (p > 0.05)}</p>
+
+<p><strong>5. Jak se počítají stupně volnosti pro kontingenční tabulku?</strong></p>
+<p>{5:MCS:=(počet řádků - 1) × (počet sloupců - 1) = (3-1) × (4-1) = 6~počet buněk - 1~počet řádků + počet sloupců}</p>
+
+<p><strong>6. Co tento výsledek znamená v kontextu zdraví?</strong></p>
+<p>{6:MCS:=Status kouření souvisí s počtem přidružených onemocnění~Kouření nemá vliv na zdraví~Vztah je náhodný}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<ol>
+<li>Analyses → Frequencies → Contingency Tables</li>
+<li>Přesuňte <strong>kouření</strong> do Rows</li>
+<li>Přesuňte <strong>index_komorbidity</strong> do Columns</li>
+<li>V Statistics zaškrtněte: χ² test</li>
+<li>V Cells zaškrtněte: Observed counts (pro zobrazení tabulky)</li>
+</ol>
+<p><strong>Interpretace:</strong> Existuje statisticky významná asociace mezi statusem kouření a počtem komorbidit (χ²(6) = 31.48, p < 0.001). Současní kuřáci mají tendenci mít více přidružených onemocnění než nekuřáci.</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 15: Effect Size Interpretation -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset2_Q15_Velikost efektu interpretace</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 2: Zotavení pacientů</strong></p>
+<p><strong>Interpretace velikosti efektu</strong></p>
+
+<p>V Otázce 3 jsme testovali vliv typu zákroku na čas zotavení pomocí ANOVA. Výsledky byly:</p>
+<ul>
+<li>F(3, 296) = 22.27, p < 0.001</li>
+<li>η² (eta-squared) = 0.184</li>
+</ul>
+
+<p><strong>Zodpovězte otázky o velikosti efektu:</strong></p>
+
+<p>1. Hodnota η² = {1:NM:=0.184:0.02}</p>
+
+<p><strong>2. Podle Cohenových kritérií, jak klasifikovat η² = 0.184?</strong></p>
+<p>{2:MCS:=Velký efekt (η² > 0.14)~Střední efekt (η² = 0.06-0.14)~Malý efekt (η² < 0.06)}</p>
+
+<p><strong>3. Co znamená η² = 0.184 v kontextu naší analýzy?</strong></p>
+<p>{3:MCS:=18.4 % variability v čase zotavení je vysvětleno typem zákroku~18.4 % pacientů má delší čas zotavení~Typ zákroku zvyšuje čas zotavení o 18.4 týdnů}</p>
+
+<p><strong>4. Proč je velikost efektu důležitá kromě p-hodnoty?</strong></p>
+<p>{4:MCS:=P-hodnota říká "zda" je efekt, velikost efektu říká "jak velký" je~Velikost efektu nahrazuje p-hodnotu~P-hodnota je důležitější než velikost efektu}</p>
+
+<p><strong>5. Může být efekt statisticky významný (p < 0.05), ale prakticky zanedbatelný?</strong></p>
+<p>{5:MCS:=Ano, při velkém vzorku může být i malý efekt statisticky významný~Ne, statistická významnost vždy znamená praktický význam~Záleží na typu testu}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Interpretace:</strong></p>
+<p>Eta-squared (η²) měří podíl vysvětlené variability:</p>
+<ul>
+<li>η² < 0.06 = malý efekt</li>
+<li>η² = 0.06-0.14 = střední efekt</li>
+<li>η² > 0.14 = velký efekt</li>
+</ul>
+<p>Naše η² = 0.184 znamená, že typ chirurgického zákroku vysvětluje 18.4 % variability v době zotavení - to je velký a prakticky významný efekt.</p>
+<p><strong>Důležité:</strong> Statistická významnost (p < 0.05) říká, zda efekt existuje. Velikost efektu říká, jak je efekt velký a prakticky důležitý. Při velkých vzorcích může být i malý efekt statisticky významný, ale prakticky bezvýznamný.</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 16: Model Comparison with Filter -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset2_Q16_Porovnání modelů s filtrem</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 2: Zotavení pacientů</strong></p>
+<p><strong>Porovnání regresních modelů s a bez filtru</strong></p>
+
+<p>Vytvořte dva regresní modely pro predikci nákladů na medikaci (<strong>cena_medikace</strong>) s prediktory:</p>
+<ul>
+<li><strong>index_komorbidity</strong></li>
+<li><strong>dny_hospitalizace</strong></li>
+</ul>
+
+<p><strong>Model 1:</strong> Všechna data (N = 300)</p>
+<p><strong>Model 2:</strong> POUZE pacienti s veřejným pojištěním (FILTR: <code>typ_pojisteni == 'Veřejné'</code>)</p>
+
+<p><strong>Výsledky:</strong></p>
+
+<p>1. R² Model 1 (všechna data): {1:NM:=0.413:0.03}</p>
+<p>2. R² Model 2 (pouze veřejné pojištění): {2:NM:=0.454:0.03}</p>
+<p>3. Počet pacientů v Modelu 2: {3:NM:=118:10}</p>
+
+<p><strong>4. Který model vysvětluje více variability v nákladech na medikaci?</strong></p>
+<p>{4:MCS:=Model 2 (filtrovaný, R² = 0.454)~Model 1 (všechna data, R² = 0.413)~Oba stejně}</p>
+
+<p><strong>5. Proč by mohl filtrovaný model mít vyšší R²?</strong></p>
+<p>{5:MCS:=Model je homogennější - vztahy jsou silnější v podskupině~Větší vzorek vždy zvyšuje R²~Je to náhodný jev}</p>
+
+<p><strong>6. Jaká je nevýhoda použití pouze filtrované podskupiny?</strong></p>
+<p>{6:MCS:=Výsledky nelze generalizovat na pacienty s jiným typem pojištění~Model je méně přesný~Nelze použít statistické testy}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<p><strong>Model 1 (všechna data):</strong></p>
+<ol>
+<li>Ujistěte se, že nemáte aktivní žádný filtr</li>
+<li>Analyses → Regression → Linear Regression</li>
+<li>DV: <strong>cena_medikace</strong>, Covariates: <strong>index_komorbidity</strong>, <strong>dny_hospitalizace</strong></li>
+</ol>
+<p><strong>Model 2 (pouze veřejné):</strong></p>
+<ol>
+<li>Data → Filters → <code>typ_pojisteni == 'Veřejné'</code></li>
+<li>Stejná regresní analýza jako výše</li>
+</ol>
+<p><strong>Interpretace:</strong> Model pro podskupinu s veřejným pojištěním (R² = 0.454) vysvětluje více variability než model pro všechna data (R² = 0.413). To naznačuje, že vztahy mezi prediktory a náklady jsou silnější v homogennější podskupině. Ale pozor: výsledky filtrovaného modelu nelze generalizovat na pacienty s jiným pojištěním.</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 17: Stratified Analysis -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset2_Q17_Stratifikovaná analýza podle zákroku</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 2: Zotavení pacientů</strong></p>
+<p><strong>Stratifikovaná analýza - spokojenost podle typu zákroku</strong></p>
+
+<p>Analyzujte průměrnou spokojenost s léčbou (<strong>spokojenost_lecba</strong>) pro každý typ chirurgického zákroku samostatně.</p>
+
+<p><strong>Vypočítejte průměry pro každý typ zákroku (zaokrouhlujte na 2 des. místa):</strong></p>
+
+<p>1. Kyčel: průměr = {1:NM:=2.54:0.15}</p>
+<p>2. Koleno: průměr = {2:NM:=2.48:0.15}</p>
+<p>3. Páteř: průměr = {3:NM:=2.47:0.15}</p>
+<p>4. Rameno: průměr = {4:NM:=2.52:0.15}</p>
+
+<p><strong>5. Který typ zákroku má nejvyšší průměrnou spokojenost?</strong></p>
+<p>{5:MCS:=Kyčel (průměr = 2.54)~Rameno~Koleno~Páteř}</p>
+
+<p><strong>6. Jsou rozdíly mezi skupinami velké?</strong></p>
+<p>{6:MCS:=Ne, průměry jsou velmi podobné (rozsah 2.47-2.54)~Ano, rozdíly jsou podstatné~Kyčel má výrazně vyšší spokojenost}</p>
+
+<p><strong>7. Proč děláme stratifikovanou analýzu místo jednoho celkového průměru?</strong></p>
+<p>{7:MCS:=Chceme porovnat spokojenost mezi různými typy zákroků~Stratifikace je vždy lepší než celkový průměr~Data vyžadují transformaci}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<ol>
+<li>Analyses → Exploration → Descriptives</li>
+<li>Přesuňte <strong>spokojenost_lecba</strong> do Variables</li>
+<li>Přesuňte <strong>typ_zakroku</strong> do Split by</li>
+<li>V Statistics zaškrtněte: Mean</li>
+</ol>
+<p><strong>Interpretace:</strong> Průměrná spokojenost je velmi podobná napříč všemi typy zákroků (rozsah 2.47-2.54 na škále 1-5). Operace kyčle má mírně nejvyšší spokojenost, ale rozdíly nejsou velké. Stratifikovaná analýza umožňuje porovnat podskupiny a identifikovat případné rozdíly.</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 18: Pre-Post Comparison -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset2_Q18_Porovnání před a po operaci</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 2: Zotavení pacientů</strong></p>
+<p><strong>Porovnání stavu před a po operaci</strong></p>
+
+<p>Porovnejte funkční skóre pacientů před operací (<strong>skore_pred_operaci</strong>) a 6 měsíců po operaci (<strong>skore_po_operaci</strong>). Obě proměnné jsou měřeny na škále 0-100.</p>
+
+<p><strong>Základní statistiky:</strong></p>
+
+<p>1. Průměrné skóre PŘED operací: {1:NM:=40.01:0.5} bodů</p>
+<p>2. Průměrné skóre PO operaci: {2:NM:=71.98:0.5} bodů</p>
+<p>3. Průměrné zlepšení (post - pre): {3:NM:=31.97:0.5} bodů</p>
+
+<p><strong>Párový t-test (testuje zda je průměrné zlepšení statisticky významné):</strong></p>
+
+<p>4. t-statistika: {4:NM:=68.25:2}</p>
+<p>5. Stupně volnosti: {5:NM:=299:0}</p>
+<p>6. p-hodnota: {6:NM:=0.000:0.001}</p>
+
+<p><strong>7. Je zlepšení statisticky významné?</strong></p>
+<p>{7:MCS:=Ano, p < 0.001 - chirurgický zákrok vedl k statisticky významnému zlepšení~Ne, p > 0.05~Zlepšení je pouze klinické, ne statistické}</p>
+
+<p><strong>8. Proč používáme párový t-test místo nezávislého t-testu?</strong></p>
+<p>{8:MCS:=Měření jsou na stejných pacientech (před/po), data jsou spárovaná~Máme pouze 2 skupiny~Data nejsou normálně rozdělená}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<p><strong>Deskriptivní statistiky:</strong></p>
+<ol>
+<li>Analyses → Exploration → Descriptives</li>
+<li>Přesuňte obě proměnné <strong>skore_pred_operaci</strong> a <strong>skore_po_operaci</strong></li>
+<li>Zaškrtněte Mean</li>
+</ol>
+<p><strong>Párový t-test:</strong></p>
+<ol>
+<li>Analyses → T-Tests → Paired Samples T-Test</li>
+<li>Přesuňte obě proměnné do Paired Variables</li>
+</ol>
+<p><strong>Interpretace:</strong> Pacienti se v průměru zlepšili o 31.97 bodů po operaci (ze 40.01 na 71.98 bodů). Toto zlepšení je vysoce statisticky významné (t(299) = 68.25, p < 0.001). Párový test je vhodný, protože porovnáváme stejné pacienty před a po zákroku.</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 19: Complex Filter -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset2_Q19_Komplexní filtr veřejné páteř</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 2: Zotavení pacientů</strong></p>
+<p><strong>⚠️ KOMPLEXNÍ FILTR - DVOUCONDITIONS!</strong></p>
+
+<p>Analyzujte pouze pacienty, kteří splňují OBĚ podmínky:</p>
+<ul>
+<li>Mají <strong>veřejné pojištění</strong> (typ_pojisteni == 'Veřejné')</li>
+<li>Podstoupili operaci <strong>páteře</strong> (typ_zakroku == 'Páteř')</li>
+</ul>
+
+<p><strong>FILTR v Jamovi:</strong></p>
+<p><code>typ_pojisteni == 'Veřejné' && typ_zakroku == 'Páteř'</code></p>
+
+<p><strong>Po aplikaci filtru analyzujte:</strong></p>
+
+<p>1. Počet pacientů splňujících obě podmínky: {1:NM:=41:5}</p>
+<p>2. Průměrný čas zotavení v této podskupině: {2:NM:=23.64:0.5} týdnů</p>
+<p>3. Průměrné náklady na medikaci: {3:NM:=18427:500} CZK (zaokrouhlete na celá čísla)</p>
+
+<p><strong>4. Operátor && v filtru znamená:</strong></p>
+<p>{4:MCS:=Logické AND - obě podmínky musí být splněny současně~Logické OR - stačí jedna podmínka~Násobení}</p>
+
+<p><strong>5. Kolik pacientů jsme vyfiltrovali?</strong></p>
+<p>{5:MCS:=259 pacientů (300 - 41)~41 pacientů~118 pacientů}</p>
+
+<p><strong>6. K čemu je užitečný takový filtr?</strong></p>
+<p>{6:MCS:=K analýze specifické podskupiny (veřejné pojištění + páteř)~K odstranění odlehlých hodnot~K testování normality}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<ol>
+<li>Data → Filters</li>
+<li>Vytvořte komplexní filtr: <code>typ_pojisteni == 'Veřejné' && typ_zakroku == 'Páteř'</code></li>
+<li>Zkontrolujte N (mělo by být ~41)</li>
+<li>Analyses → Exploration → Descriptives</li>
+<li>Analyzujte <strong>cas_zotaveni</strong> a <strong>cena_medikace</strong></li>
+</ol>
+<p><strong>Interpretace:</strong> Pouze 41 pacientů splňuje obě podmínky. V této specifické podskupině (veřejné pojištění + operace páteře) je průměrný čas zotavení 23.64 týdnů a průměrné náklady na medikaci 18,427 CZK. Komplexní filtry umožňují detailní analýzu specifických podskupin.</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+<!-- ============================================ -->
+<!-- QUESTION 20: Levene's Test -->
+<!-- ============================================ -->
+<question type="cloze">
+  <name>
+    <text>Dataset2_Q20_Leveneho test homogenity</text>
+  </name>
+  <questiontext format="html">
+    <text><![CDATA[<p><strong>Dataset 2: Zotavení pacientů</strong></p>
+<p><strong>Leveneho test homogenity rozptylů</strong></p>
+
+<p>Před použitím ANOVA je důležité ověřit předpoklad homogenity rozptylů (homoskedasticity). Testujte, zda mají skupiny definované proměnnou <strong>typ_zakroku</strong> stejné rozptyly v proměnné <strong>cas_zotaveni</strong>.</p>
+
+<p><strong>Výsledky Leveneho testu:</strong></p>
+
+<p>1. F-statistika: {1:NM:=14.18:0.5}</p>
+<p>2. Stupně volnosti (čitatel): {2:NM:=3:0}</p>
+<p>3. Stupně volnosti (jmenovatel): {3:NM:=296:0}</p>
+<p>4. p-hodnota: {4:NM:=0.000:0.001}</p>
+
+<p><strong>5. Nulová hypotéza Leveneho testu říká:</strong></p>
+<p>{5:MCS:=Rozptyly jsou stejné ve všech skupinách (homogenní)~Rozptyly jsou různé mezi skupinami~Průměry jsou stejné mezi skupinami}</p>
+
+<p><strong>6. Na základě p < 0.001, jaký je závěr?</strong></p>
+<p>{6:MCS:=Zamítáme H₀: rozptyly NEJSOU homogenní~Nezamítáme H₀: rozptyly JSOU homogenní~Test je neprůkazný}</p>
+
+<p><strong>7. Co znamená porušení předpokladu homogenity pro ANOVA?</strong></p>
+<p>{7:MCS:=Měli bychom použít robustnější verzi ANOVA (např. Welch's ANOVA)~ANOVA nemůžeme vůbec použít~Nemá to žádný vliv na výsledky}</p>
+
+<p><strong>8. Je to vážný problém v našich datech?</strong></p>
+<p>{8:MCS:=Středně vážný - ANOVA je relativně robustní, ale preferujeme Welch's test~Velmi vážný - všechny výsledky jsou neplatné~Žádný problém}</p>
+]]></text>
+  </questiontext>
+  <generalfeedback format="html">
+    <text><![CDATA[<p><strong>Postup v Jamovi:</strong></p>
+<ol>
+<li>Analyses → ANOVA → One-Way ANOVA</li>
+<li>DV: <strong>cas_zotaveni</strong>, Grouping Variable: <strong>typ_zakroku</strong></li>
+<li>V Assumption Checks zaškrtněte: <strong>Homogeneity test</strong> (Levene's)</li>
+</ol>
+<p><strong>Interpretace:</strong> Leveneho test ukazuje, že rozptyly času zotavení nejsou stejné mezi typy zákroků (F(3,296) = 14.18, p < 0.001). To porušuje předpoklad homogenity rozptylů pro klasickou ANOVA. V takovém případě je lepší použít Welch's ANOVA, která je robustnější vůči porušení tohoto předpokladu.</p>
+<p><strong>Praktický dopad:</strong> Standardní ANOVA je relativně robustní vůči tomuto porušení, zvláště při větších vzorcích, ale pro maximální přesnost preferujeme Welch's ANOVA.</p>
+]]></text>
+  </generalfeedback>
+  <penalty>0</penalty>
+  <hidden>0</hidden>
+</question>
+
+</quiz>

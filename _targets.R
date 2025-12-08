@@ -24,7 +24,7 @@ googlesheets4::gs4_deauth()
 
 # ---- CONFIG -----------------------------------------------------------------
 SHEET_URL <- "https://docs.google.com/spreadsheets/d/1wYAsc5R6yTmNfMY2ZO72dYL5MWuxHoNcZTKxFpBu-jA"
-N_ROWS <- 5 # take first 5 questions (change as you like)
+#N_ROWS <- 5 # take first 5 questions (change as you like)
 
 # Source helper functions
 tar_source("R/automatic_scripts/functions.R")
@@ -40,7 +40,7 @@ list(
   tar_target(
     question_texts,
     questions_raw |>
-      dplyr::slice_head(n = N_ROWS) |>
+      #dplyr::slice_head(n = N_ROWS) |>
       dplyr::pull(question_text)
   ),
 
@@ -62,19 +62,21 @@ list(
 
   # 5) Render each QMD to HTML in docs/ (branching over qmd_file)
   tar_target(
-    html_file,
-    render_qmd(qmd_file),
-    pattern = map(qmd_file),
-    format = "file"
-  ),
-
-  # 6) Build docs/index.html *after* all HTMLs exist
-  tar_target(
-    index_file,
+    site_build,
     {
-      html_file
-      make_index()
-    }, # reference html_file to enforce dependency
-    format = "file"
-  )
+      # One full website render (adds menu/search, writes to docs/)
+      qbin <- quarto::quarto_path()
+      out <- system2(
+        qbin,
+        c("render", "--no-clean"),
+        stdout = TRUE,
+        stderr = TRUE
+      )
+      # Assert site exists
+      stopifnot(file.exists(file.path("docs", "index.html")))
+      "ok"
+    },
+    cue = tar_cue("always")
+  ),
+  NULL
 )
