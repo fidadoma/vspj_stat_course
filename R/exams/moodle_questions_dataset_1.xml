@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+<!-- question: 0  -->
+  <question type="category">
+    <category>
+      <text>$course$/top/Dataset1_Zamestnanci</text>
+    </category>
+    <info format="html">
+      <text></text>
+    </info>
+    <idnumber></idnumber>
+  </question>
+
+<!-- OTÁZKA 1: Deskriptivní statistika platu -->
+  <question type="cloze">
+    <name>
+      <text>Deskriptivní statistika a rozdělení platu</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align: left;">Analyzujte proměnnou <strong>salary</strong> (plat) v datasetu zaměstnanců.</p>
+<p dir="ltr" style="text-align: left;">Průměrný plat je {1:NM:=85221:1000} CZK, medián je {2:NM:=85800:1000} CZK.</p>
+<p dir="ltr" style="text-align: left;">Směrodatná odchylka je {3:NM:=18360:1000} CZK.</p>
+<p dir="ltr" style="text-align: left;">Třetí kvartil (Q3) je {4:NM:=98675:1000} CZK.</p>
+<p dir="ltr" style="text-align: left;">Protože průměr je {5:MCS:~větší než medián=menší než medián~roven mediánu}, rozdělení je {6:MCS:~pravostranně zešikmené=levostranně zešikmené~symetrické~bimodální}.</p>
+<br>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align: left;">V Jamovi: Analyses → Exploration → Descriptives</p>
+<p dir="ltr" style="text-align: left;">Vyberte proměnnou salary a zaškrtněte Mean, Median, Std. deviation a Quartiles.</p>
+<p dir="ltr" style="text-align: left;">Když je průměr menší než medián, máme levostranně zešikmené rozdělení (long tail vlevo).</p>]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+  </question>
+
+<!-- OTÁZKA 2: T-test - práce na dálku a plat -->
+  <question type="cloze">
+    <name>
+      <text>T-test: Vliv práce na dálku na plat</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align: left;">Testujte, zda existuje rozdíl v průměrném <strong>platu</strong> mezi zaměstnanci, kteří mají možnost <strong>remote_work</strong> (práce na dálku) a kteří ne.</p>
+<p dir="ltr" style="text-align: left;">Průměrný plat bez práce na dálku: {1:NM:=81547:1000} CZK</p>
+<p dir="ltr" style="text-align: left;">Průměrný plat s prací na dálku: {2:NM:=87753:1000} CZK</p>
+<p dir="ltr" style="text-align: left;">Použijte nezávislý t-test (Independent Samples T-Test).</p>
+<p dir="ltr" style="text-align: left;">t({3:NM:=214:5}) = {4:NM:=-2.65:0.2}, p = {5:NM:=0.009:0.005}</p>
+<p dir="ltr" style="text-align: left;">Rozdíl je statisticky {6:MCS:=významný~nevýznamný~částečně významný} (α = 0.05).</p>
+<p dir="ltr" style="text-align: left;">Velikost efektu (Cohen's d) je přibližně {7:NM:=0.34:0.05}, což odpovídá {8:MCS:~žádnému efektu=malému efektu~střednímu efektu~velkému efektu}.</p>
+<br>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align: left;">V Jamovi: Analyses → T-Tests → Independent Samples T-Test</p>
+<p dir="ltr" style="text-align: left;">Dependent Variable: salary, Grouping Variable: remote_work</p>
+<p dir="ltr" style="text-align: left;">Zaškrtněte "Effect size" pro Cohen's d.</p>
+<p dir="ltr" style="text-align: left;">Interpretace Cohen's d: 0.2 = malý, 0.5 = střední, 0.8 = velký efekt.</p>]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+  </question>
+
+<!-- OTÁZKA 3: ANOVA - výkon podle oddělení -->
+  <question type="cloze">
+    <name>
+      <text>ANOVA: Výkonové skóre podle oddělení</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align: left;">Testujte, zda se liší průměrné <strong>performance_score</strong> (výkonové skóre) mezi různými <strong>odděleními</strong>.</p>
+<p dir="ltr" style="text-align: left;">Použijte jednocestnou ANOVA (One-Way ANOVA).</p>
+<p dir="ltr" style="text-align: left;">F({1:NM:=4:0},{2:NM:=245:5}) = {3:NM:=5.82:0.5}, p = {4:NM:=0.000:0.005}</p>
+<p dir="ltr" style="text-align: left;">Statisticky významný rozdíl {5:MCS:=existuje~neexistuje} (α = 0.05).</p>
+<p dir="ltr" style="text-align: left;">Eta-squared (η²) = {6:NM:=0.087:0.02}, což znamená, že oddělení vysvětluje přibližně {7:NM:=8.7:2}% variability výkonu.</p>
+<p dir="ltr" style="text-align: left;">Post-hoc Tukey HSD test ukazuje, že největší rozdíl je mezi odděleními {8:MCS:=Sales a Operations~IT a HR~Finance a Sales~HR a Operations}.</p>
+<br>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align: left;">V Jamovi: Analyses → ANOVA → One-Way ANOVA</p>
+<p dir="ltr" style="text-align: left;">Dependent Variable: performance_score, Grouping Variable: department</p>
+<p dir="ltr" style="text-align: left;">Zaškrtněte "η²" pro velikost efektu a "Tukey" v Post Hoc Tests.</p>]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+  </question>
+
+<!-- OTÁZKA 4: Korelace platu a zkušeností -->
+  <question type="cloze">
+    <name>
+      <text>Korelační analýza: Plat a pracovní zkušenosti</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align: left;">Analyzujte vztah mezi <strong>salary</strong> (plat) a <strong>years_experience</strong> (roky praxe).</p>
+<p dir="ltr" style="text-align: left;">Pearsonův korelační koeficient r = {1:NM:=0.318:0.03}</p>
+<p dir="ltr" style="text-align: left;">p-hodnota < {2:NM:=0.001:0.005}</p>
+<p dir="ltr" style="text-align: left;">95% interval spolehlivosti: [{3:NM:=0.202:0.03}, {4:NM:=0.426:0.03}]</p>
+<p dir="ltr" style="text-align: left;">Korelace je statisticky {5:MCS:=významná~nevýznamná} (α = 0.05).</p>
+<p dir="ltr" style="text-align: left;">Podle absolutní hodnoty koeficientu jde o {6:MCS:~slabou korelaci (|r| < 0.3)=střední korelaci (0.3 ≤ |r| < 0.7)~silnou korelaci (|r| ≥ 0.7)}.</p>
+<p dir="ltr" style="text-align: left;">Směr vztahu je {7:MCS:=pozitivní~negativní~žádný}, což znamená, že s rostoucími zkušenostmi plat {8:MCS:=roste~klesá~se nemění}.</p>
+<br>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align: left;">V Jamovi: Analyses → Regression → Correlation Matrix</p>
+<p dir="ltr" style="text-align: left;">Vyberte salary a years_experience. Zaškrtněte "Pearson" a "Report significance".</p>
+<p dir="ltr" style="text-align: left;">Interpretace síly: slabá (0-0.3), střední (0.3-0.7), silná (0.7-1.0)</p>]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+  </question>
+
+<!-- OTÁZKA 5: Jednoduchá lineární regrese -->
+  <question type="cloze">
+    <name>
+      <text>Jednoduchá lineární regrese: Výkon a spokojenost</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align: left;">Vytvořte regresní model predikující <strong>performance_score</strong> (výkon) na základě <strong>job_satisfaction</strong> (spokojenost s prací).</p>
+<p dir="ltr" style="text-align: left;">Model: performance_score = β₀ + β₁ × job_satisfaction + ε</p>
+<p dir="ltr" style="text-align: left;">Konstanta (Intercept) β₀ = {1:NM:=68.08:2}</p>
+<p dir="ltr" style="text-align: left;">Regresní koeficient (Slope) β₁ = {2:NM:=5.90:0.5}</p>
+<p dir="ltr" style="text-align: left;">To znamená, že zvýšení spokojenosti o 1 bod vede k průměrnému {3:MCS:=zvýšení~snížení} výkonu o přibližně {4:NM:=5.9:0.5} bodů.</p>
+<p dir="ltr" style="text-align: left;">Koeficient determinace R² = {5:NM:=0.382:0.03}, model tedy vysvětluje {6:NM:=38.2:3}% variability výkonu.</p>
+<p dir="ltr" style="text-align: left;">F({7:NM:=1:0},{8:NM:=248:5}) = {9:NM:=153:10}, p < 0.001</p>
+<p dir="ltr" style="text-align: left;">Regresní koeficient je statisticky {10:MCS:=významný~nevýznamný}.</p>
+<br>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align: left;">V Jamovi: Analyses → Regression → Linear Regression</p>
+<p dir="ltr" style="text-align: left;">Dependent Variable: performance_score</p>
+<p dir="ltr" style="text-align: left;">Covariates: job_satisfaction</p>
+<p dir="ltr" style="text-align: left;">Model Fit: zaškrtněte R, R², Adjusted R²</p>]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+  </question>
+
+<!-- OTÁZKA 6: Mnohonásobná regrese -->
+  <question type="cloze">
+    <name>
+      <text>Mnohonásobná regrese: Prediktory výkonu</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align: left;">Vytvořte mnohonásobný regresní model:</p>
+<p dir="ltr" style="text-align: left;"><strong>performance_score</strong> ~ job_satisfaction + training_rating + department</p>
+<p dir="ltr" style="text-align: left;">R² = {1:NM:=0.553:0.03}, Adjusted R² = {2:NM:=0.542:0.03}</p>
+<p dir="ltr" style="text-align: left;">Model vysvětluje přibližně {3:NM:=55:3}% variability výkonu.</p>
+<p dir="ltr" style="text-align: left;">Podle standardizovaných koeficientů (beta) je nejsilnějším prediktorem {4:MCS:=job_satisfaction~training_rating~department}.</p>
+<p dir="ltr" style="text-align: left;">Koeficient pro job_satisfaction je {5:NM:=4.70:0.5} a je statisticky {6:MCS:=významný (p < 0.001)~nevýznamný (p ≥ 0.05)}.</p>
+<p dir="ltr" style="text-align: left;">Koeficient pro training_rating je {7:NM:=3.17:0.5} a je také {8:MCS:=významný~nevýznamný}.</p>
+<p dir="ltr" style="text-align: left;">Oddělení IT má {9:MCS:=negativní~pozitivní~nulový} efekt na výkon oproti referenční kategorii (p < 0.01).</p>
+<br>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align: left;">V Jamovi: Analyses → Regression → Linear Regression</p>
+<p dir="ltr" style="text-align: left;">Dependent Variable: performance_score</p>
+<p dir="ltr" style="text-align: left;">Covariates: job_satisfaction, training_rating</p>
+<p dir="ltr" style="text-align: left;">Factors: department</p>
+<p dir="ltr" style="text-align: left;">Zaškrtněte "Standardized estimate" pro standardizované koeficienty.</p>]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+  </question>
+
+<!-- OTÁZKA 7: Chí-kvadrát test nezávislosti -->
+  <question type="cloze">
+    <name>
+      <text>Test nezávislosti: Oddělení a práce na dálku</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align: left;">Testujte, zda existuje vztah mezi <strong>department</strong> (oddělení) a <strong>remote_work</strong> (možnost práce na dálku).</p>
+<p dir="ltr" style="text-align: left;">Použijte Pearsonův chí-kvadrát test nezávislosti.</p>
+<p dir="ltr" style="text-align: left;">χ²({1:NM:=4:0}) = {2:NM:=59.39:2}, p < {3:NM:=0.001:0.005}</p>
+<p dir="ltr" style="text-align: left;">Nulová hypotéza o nezávislosti se {4:MCS:=zamítá~nezamítá} (α = 0.05).</p>
+<p dir="ltr" style="text-align: left;">Proměnné jsou tedy statisticky {5:MCS:=závislé~nezávislé}.</p>
+<p dir="ltr" style="text-align: left;">Cramerovo V = {6:NM:=0.487:0.05}, což indikuje {7:MCS:~slabou asociaci (V < 0.3)~střední asociaci (0.3 ≤ V < 0.5)=silnou asociaci (V ≥ 0.5)}.</p>
+<p dir="ltr" style="text-align: left;">To znamená, že možnost práce na dálku {8:MCS:=se výrazně liší~se neliší} mezi odděleními.</p>
+<br>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align: left;">V Jamovi: Analyses → Frequencies → Independent Samples → χ² test of association</p>
+<p dir="ltr" style="text-align: left;">Rows: department, Columns: remote_work</p>
+<p dir="ltr" style="text-align: left;">Statistics: zaškrtněte "χ²" a "Contingency coefficient" nebo "Phi and Cramer's V"</p>]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+  </question>
+
+<!-- OTÁZKA 8: Spearmanova korelace (ordinální) -->
+  <question type="cloze">
+    <name>
+      <text>Spearmanova korelace: Stres a nemocnost</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align: left;">Analyzujte vztah mezi <strong>stress_level</strong> (úroveň stresu, ordinální 1-5) a <strong>sick_days</strong> (počet dnů nemocenské).</p>
+<p dir="ltr" style="text-align: left;">Protože stress_level je ordinální proměnná, použijte Spearmanovu korelaci.</p>
+<p dir="ltr" style="text-align: left;">Spearmanovo ρ (rho) = {1:NM:=0.443:0.05}</p>
+<p dir="ltr" style="text-align: left;">p-hodnota < {2:NM:=0.001:0.005}</p>
+<p dir="ltr" style="text-align: left;">Korelace je statisticky {3:MCS:=významná~nevýznamná} (α = 0.05).</p>
+<p dir="ltr" style="text-align: left;">Směr vztahu je {4:MCS:=pozitivní~negativní}, což znamená, že vyšší stres je spojen s {5:MCS:=vyšším~nižším} počtem dnů nemocenské.</p>
+<p dir="ltr" style="text-align: left;">Podle síly jde o {6:MCS:~slabou~=střední~silnou} korelaci.</p>
+<p dir="ltr" style="text-align: left;">Toto podporuje kauzální vztah uvedený v codebooku: {7:MCS:=stress_level → sick_days~sick_days → stress_level~žádný kauzální vztah}.</p>
+<br>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align: left;">V Jamovi: Analyses → Regression → Correlation Matrix</p>
+<p dir="ltr" style="text-align: left;">Vyberte stress_level a sick_days</p>
+<p dir="ltr" style="text-align: left;">Zaškrtněte "Spearman" místo Pearson (vhodné pro ordinální data)</p>
+<p dir="ltr" style="text-align: left;">Spearmanova korelace měří monotónní vztah a je robustnější vůči odlehlým hodnotám.</p>]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+  </question>
+
+<!-- OTÁZKA 9: Kontingenční tabulka a interpretace -->
+  <question type="cloze">
+    <name>
+      <text>Kontingenční tabulka: Vzdělání a oddělení</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align: left;">Vytvořte kontingenční tabulku pro <strong>education</strong> (vzdělání) a <strong>department</strong> (oddělení).</p>
+<p dir="ltr" style="text-align: left;">Nejčastější kategorie vzdělání v celém datasetu je {1:MCS:~High School=Bachelor~Master~PhD} (n = 86).</p>
+<p dir="ltr" style="text-align: left;">Oddělení, které má nejvyšší medián sick_days (dny nemocenské), je {2:MCS:~IT~Sales~HR=Finance~Operations}.</p>
+<p dir="ltr" style="text-align: left;">Směrodatná odchylka stress_level je přibližně {3:NM:=0.92:0.1}.</p>
+<p dir="ltr" style="text-align: left;">Při analýze kontingenční tabulky bychom očekávali, že pokud jsou vzdělání a oddělení nezávislé, pozorované četnosti budou {4:MCS:~výrazně odlišné od=blízké~identické s} očekávaným četnostem.</p>
+<br>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align: left;">V Jamovi: Analyses → Frequencies → Independent Samples → Contingency Tables</p>
+<p dir="ltr" style="text-align: left;">Pro nalezení nejčastější kategorie: Analyses → Exploration → Descriptives, vyberte education a zaškrtněte "Frequency tables"</p>
+<p dir="ltr" style="text-align: left;">Pro medián podle skupin: Analyses → Exploration → Descriptives, split by department</p>]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+  </question>
+
+<!-- OTÁZKA 10: Interpretace regrese a kauzalita -->
+  <question type="cloze">
+    <name>
+      <text>Konfounder a kauzální inference</text>
+    </name>
+    <questiontext format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align: left;">Podle DAG struktury v codebooku je <strong>department</strong> (oddělení) konfounder pro vztah mezi <strong>salary</strong> a <strong>performance_score</strong>.</p>
+<p dir="ltr" style="text-align: left;">Nejprve spočítejte prostou korelaci mezi salary a performance_score (bez kontroly oddělení).</p>
+<p dir="ltr" style="text-align: left;">Poté vytvořte parciální korelaci, která kontroluje vliv department.</p>
+<p dir="ltr" style="text-align: left;">Když kontrolujeme konfounder, korelace mezi salary a performance_score se pravděpodobně {1:MCS:~zvýší=sníží~nezmění~obrátí znaménko}.</p>
+<p dir="ltr" style="text-align: left;">To je typické pro situaci, kdy máme {2:MCS:~mediátor~collider=konfounder~moderátor}.</p>
+<p dir="ltr" style="text-align: left;">Model performance_score ~ salary (bez department) má R² ≈ 0.15-0.20.</p>
+<p dir="ltr" style="text-align: left;">Model performance_score ~ salary + department má vyšší R², což ukazuje, že department {3:MCS:=vysvětluje dodatečnou variabilitu~nevysvětluje nic navíc~je irelevantní}.</p>
+<p dir="ltr" style="text-align: left;">Podle kauzálního modelu by mělo platit: vyšší plat {4:MCS:~přímo způsobuje=je asociován s~není spojen s} vyšším výkonem, ale část tohoto vztahu je zprostředkována oddělením.</p>
+<br>]]></text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text><![CDATA[<p dir="ltr" style="text-align: left;">Pro parciální korelaci v Jamovi je potřeba použít regresi:</p>
+<p dir="ltr" style="text-align: left;">1) Model bez kontroly: performance_score ~ salary</p>
+<p dir="ltr" style="text-align: left;">2) Model s kontrolou: performance_score ~ salary + department</p>
+<p dir="ltr" style="text-align: left;">Srovnejte koeficienty a R².</p>
+<p dir="ltr" style="text-align: left;">Konfounder ovlivňuje jak nezávislou, tak závislou proměnnou a vytváří "zdánlivou" asociaci.</p>]]></text>
+    </generalfeedback>
+    <penalty>0.3333333</penalty>
+    <hidden>0</hidden>
+    <idnumber></idnumber>
+  </question>
+
+</quiz>
