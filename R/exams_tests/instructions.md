@@ -9,4 +9,4 @@ I need a function that uploads one page from pdf, then asks chatgpt to create mu
 specify difficulty as parameter for chatgpt. Also specify that the correct answer needs to be about the ame length as distractors, sometimes ,the correct answer is the longest and this is a simple heuristic.
 
 After such function exists, write script that for all pdfs create multiple choice items for each page in each pdf. 
-I will be importing them to moodle, so convert it to moodle xml format.
+I will be importing them to moodle, so convert it to moodle xml format. 
